@@ -32,7 +32,7 @@ source ~/.vim/init/plugins/startify.vim
 source ~/.vim/init/plugins/switch.vim
 source ~/.vim/init/plugins/tablemode.vim
 source ~/.vim/init/plugins/tagbar.vim
-source ~/.vim/init/plugins/tmuxnavigator.vim
+" source ~/.vim/init/plugins/tmuxnavigator.vim
 source ~/.vim/init/plugins/ultisnips.vim
 source ~/.vim/init/plugins/which_key.vim
 source ~/.vim/init/plugins/wiki.vim
@@ -79,3 +79,8 @@ autocmd BufLeave,FocusLost * wall
 autocmd VimResized * wincmd =
 
 :set noswapfile
+
+" syntax enable
+" set background=dark
+" colorscheme solarized
+

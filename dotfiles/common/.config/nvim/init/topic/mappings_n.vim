@@ -8,6 +8,12 @@
 noremap <space> f<space>
 nnoremap <c-q> :qa!<CR>
 nnoremap <c-s> :wa!<CR>
+nnoremap <c-l> :wincmd l<CR>
+nnoremap <c-h> :wincmd h<CR>
+nnoremap <c-k> :wincmd k<CR>
+nnoremap <c-j> :wincmd j<CR>
+nnoremap <c--> :vsplit<CR>
+nnoremap <c-,> :split<CR>
 
 call arpeggio#map('n', 's', 0, 'fi', 'gg=G')
 

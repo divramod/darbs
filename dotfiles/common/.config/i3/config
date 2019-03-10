@@ -235,10 +235,13 @@ bindsym $mod+XF86Back		workspace prev
 bindsym $mod+Shift+XF86Back	move container to workspace prev
 bindsym $mod+XF86Forward	workspace next
 bindsym $mod+Shift+XF86Forward	move container to workspace next
-bindsym $mod+semicolon		workspace next
-bindsym $mod+apostrophe		split vertical ;; exec $term
-bindsym $mod+Return		split horizontal ;; exec $term
-# bindsym $mod+Shift+slash	kill
+bindsym $mod+apostrophe         split vertical ;; exec $term
+# bindsym $mod+semicolon          workspace next
+bindsym $mod+minus              split vertical ;; exec $term
+bindsym $mod+Return             split horizontal ;; exec $term
+bindsym $mod+period             exec --no-startup-id workspace_new ;; exec $term
+bindsym $mod+semicolon          split horizontal ;; exec $term
+# bindsym                         $mod+Shift+slash	kill
 bindsym $mod+backslash		workspace back_and_forth
 
 set $ws0 "0"
@@ -319,7 +322,7 @@ bindsym $mod+Shift+Right 	move right
 # Volume keys
 bindsym $mod+plus		exec --no-startup-id lmc up 5
 bindsym $mod+Shift+plus		exec --no-startup-id lmc up 15
-bindsym $mod+minus 		exec --no-startup-id lmc down 5
+# bindsym $mod+minus 		exec --no-startup-id lmc down 5
 bindsym $mod+Shift+minus	exec --no-startup-id lmc down 15
 bindsym $mod+less 		exec --no-startup-id lmc prev
 bindsym $mod+Shift+less		exec --no-startup-id lmc replay

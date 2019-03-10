@@ -14,7 +14,7 @@
 .dsa  ~/.darbs/scripts/arch_manjaro_i3
 .dsc  ~/.darbs/scripts/common
 .dst  ~/.darbs/scripts/termux
-.dt   ~/.darbs/docs/TODO.md
+.dt   ~/.darbs/TODO.md
 .f    ~/.config/fish/config.fish
 .fa   ~/.config/fish/abbrs.fish
 .fb   ~/.config/fish/config.d/divramod.bindings.fish
@@ -32,9 +32,11 @@
 .t    ~/.tmux.conf
 .tb   ~/cod/te/bash/test.sh
 .v    ~/.config/nvim/init.vim
-.vmi   ~/.config/nvim/init/topic/mappings_i.vim
-.vmn   ~/.config/nvim/init/topic/mappings_n.vim
-.vmv   ~/.config/nvim/init/topic/mappings_v.vim
+.vau  ~/.config/nvim/init/topic/autocmd.vim
+.vab  ~/.config/nvim/init/topic/abbreviations.vim
+.vmi  ~/.config/nvim/init/topic/mappings_i.vim
+.vmn  ~/.config/nvim/init/topic/mappings_n.vim
+.vmv  ~/.config/nvim/init/topic/mappings_v.vim
 .vp   ~/.config/nvim/init/topic/plugins.vim
 .vs   ~/.config/nvim/plugged/vim-snippets/UltiSnips/sh/sh.snippets
 .w    ~/art/wik/inb

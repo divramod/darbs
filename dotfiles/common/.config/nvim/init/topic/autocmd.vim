@@ -6,7 +6,10 @@ autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufLeave *.md :wa!
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
-autocmd BufWritePost ~/.bmdirs,~/.bmfiles !shortcuts
+autocmd BufWritePost ~/.bmfiles,~/.bmdirs !shortcuts
+
+"
+autocmd BufWritePost ~/.darbs/dotfiles/common/.config/i3/config !i3_restart
 
 " When .config files are updated, push
 " autocmd BufWritePost ~/.config/* :AsyncRun dRepoPushUpdateNoAdd '/home/mod' '%'

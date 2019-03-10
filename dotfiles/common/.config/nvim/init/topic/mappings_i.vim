@@ -4,6 +4,7 @@
 " S7
 nnoremap <c-q> <ESC>:qa!<CR>
 nnoremap <c-s> <ESC>:wa!i<CR>
+inoremap <c-v> <ESC>"+pai
 
 " buffers
 call arpeggio#map('i', '', 0, 'sf', '<SPACE><C-o>:call UltiSnips#ExpandSnippet()<CR><ESC>i') " expand UltiSnips

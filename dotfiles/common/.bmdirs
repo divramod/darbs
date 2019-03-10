@@ -13,6 +13,7 @@ as    ~/art/scr
 at    ~/art/tpl
 aw    ~/art/wik
 c     ~/.config
+h     ~
 co    ~/cod
 cob   ~/cod/bb
 coh   ~/cod/gh
@@ -20,6 +21,9 @@ col   ~/cod/gl
 cot   ~/cod/te
 cow   ~/cod/wo
 d     ~/.darbs
+dsa   ~/.darbs/scripts/arch_manjaro_i3
+dsc   ~/.darbs/scripts/common
+dst   ~/.darbs/scripts/termux
 dc    ~/doc
 de    ~/des
 dw    ~/dow
@@ -29,7 +33,7 @@ mi    ~/med/img
 mm    ~/med/mus
 mp    ~/med/pic
 ms    ~/med/sof
-mv    ~/med/vid
+md    ~/med/vid
 s     ~/.darbs/scripts
 t     ~/.tmuxp
 v     ~/.config/nvim
@@ -43,7 +47,7 @@ rb    /boot
 re    /etc
 rh    /home
 rl    /lost+found
-rmn   /mnt
+rn   /mnt
 ro    /opt
 rp    /proc
 rr    /root

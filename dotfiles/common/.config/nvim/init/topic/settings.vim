@@ -10,8 +10,8 @@ filetype plugin on
 syntax on
 set encoding=utf-8
 set number relativenumber
-set autowriteall
-set autowrite
+" set autowriteall
+" set autowrite
 
 " https://stackoverflow.com/questions/8292742/vim-cursor-jumps-to-beginning-of-the-line-after-buffer-switch
 set nostartofline

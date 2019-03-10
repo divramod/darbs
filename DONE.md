@@ -1,5 +1,6 @@
 # Done
 * [X] clone repos
+* [X] delete history
 * [X] add k9s
 * [X] install virtual box
 * [X] tmuxp

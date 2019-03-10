@@ -1,29 +1,13 @@
 # Contents
-  - [darbs](#darbs)
-  - [TODO](#TODO)
+  - [Darbs](#Darbs)
   - [Installation](#Installation)
     - [get darbs script](#Installation#get darbs script)
     - [Rice](#Installation#Rice)
     - [Dotfiles](#Installation#Dotfiles)
     - [Secrets](#Installation#Secrets)
 
-# darbs
-* [TODO](TODO)
-* [dotfiles](dotfiles/README.md)
-* [scripts](scripts/README.md)
-* [secrets](secrets/README.md)
-* [rice](rice/README.md)
-
-# TODO
-* [ ] postinstall hetzner context
-* [ ] autopush ultisnips when changed so that i do not lose them again
-* [ ] delete history
-* [ ] add go install for go programs / binaries
-* [ ] add .githook for revealing
-* [ ] add darbs -U (force update from remote)
-* [ ] shortcut vn not running in bash
-* [ ] script for mounting a encrypted usb
-* [ ] script for creating a encrypted usb
+# Darbs
+Another personal dotfiles and scripts repository which is heavily inspired and based on Luke Smiths [LARBS](https://github.com/LukeSmithxyz/LARBS) and [voidrice](https://github.com/LukeSmithxyz/voidrice) repositories. Installation will function only for me, because of the secrets i added. But you can browse in the dotfiles and scripts folders for interesting stuff.
 
 # Installation
 

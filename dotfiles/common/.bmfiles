@@ -2,6 +2,8 @@
 
 .i  ~/.config/i3/config
 .g  ~/.gitconfig
+.d  ~/.darbs/README.md
+.dt  ~/.darbs/docs/TODO.md
 
 bmd	~/.bmdirs
 bmf	~/.bmfiles
@@ -28,7 +30,6 @@ csd	~/.config/divramod/dirs.csv
 csm	~/.config/divramod/mounts.csv
 csp	~/cod/gl/setup/arch_manjaro_i3_progs.csv
 csr	~/.config/divramod/repos.csv
-te	~/cod/te/bash/test
 tes	~/cod/te/bash/test.sh
 wik	~/art/wik/inb/sparkfile.md
 wikt	~/art/wik/inb/t460p.md

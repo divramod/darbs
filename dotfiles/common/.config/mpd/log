@@ -29,3 +29,7 @@ Mar 10 08:06 : client: [0] opened from 127.0.0.1:32994
 Mar 10 08:06 : client: [0] closed
 Mar 10 08:06 : avahi: Service 'Music Player @ mod-t460p' successfully established.
 Mar 10 08:06 : client: [1] opened from 127.0.0.1:33002
+Mar 10 08:22 : client: [2] opened from 127.0.0.1:33638
+Mar 10 08:22 : client: [2] closed
+Mar 10 08:47 : client: [3] opened from 127.0.0.1:33812
+Mar 10 08:47 : client: [3] closed

@@ -1,16 +1,14 @@
 # You can add comments to these files with #
 
 # home
-.c	~/.config
-.d	~/.darbs
-.cd	~/.config/divramod
-.s	~/.scripts
-.sd	~/.scripts/divramod
-.sl	~/.screenlayout
-.tg	~/.tmuxp
+a ~/art
+cn	~/.config
+co	~/cod
+s	~/.darbs/scripts
+t	~/.tmuxp
+d ~/.darbs
 
 # structure
-ar	~/art
 arc	~/art/cam
 arb	~/art/bac
 ard	~/art/doc
@@ -23,7 +21,6 @@ ars	~/art/scr
 ara	~/art/sca
 art	~/art/tpl
 arw	~/art/wik
-co	~/cod
 cgl	~/cod/gl
 cgh	~/cod/gh
 cwo	~/cod/wo

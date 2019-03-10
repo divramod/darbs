@@ -14,6 +14,11 @@ Another personal dotfiles and scripts repository which is heavily inspired and b
 ## get darbs script
 ```
 cd ~ && rm -rf ~/.darbs darbs && curl -LO https://raw.githubusercontent.com/divramod/darbs/master/darbs && sudo chmod +x darbs && ./darbs || true
+cd ~
+rm -rf ~/.darbs darbs
+curl -LO https://raw.githubusercontent.com/divramod/darbs/master/darbs
+sudo chmod +x darbs
+./darbs
 ```
 
 ## Rice

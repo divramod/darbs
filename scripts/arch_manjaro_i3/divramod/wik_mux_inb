@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# helper
+wik_path="${HOME}/art/wik"
+cat_path="${wik_path}/inb"
+src_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/$(basename "$0")"
+
+# files
+f1="${cat_path}/sparkfile.md"
+f2="${cat_path}/t460p.md"
+f3="${cat_path}/s7.md"
+f4="${cat_path}/sparkfile_arc.md"
+f5="${cat_path}/til.md"
+
+# tests
+if [ -f "${f1}" ]; then
+  touch "${f1}"
+fi
+if [ -f "${f2}" ]; then
+  touch "${f2}"
+fi
+if [ -f "${f3}" ]; then
+  touch "${f3}"
+fi
+if [ -f "${f4}" ]; then
+  touch "${f4}"
+fi
+if [ -f "${f5}" ]; then
+  touch "${f5}"
+fi
+
+# run
+cd "${wik_path}" || exit
+vim -p "${f1}" "${f2}" "${f3}" "${f4}" "${f5}" "${src_path}"

@@ -1,0 +1,4 @@
+#!/bin/bash
+nohup syncthing 2>&1 &
+cd ~/art/wik || exit
+vim ~/art/wik/inb/s7.md

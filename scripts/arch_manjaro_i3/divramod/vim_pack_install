@@ -1,0 +1,2 @@
+#!/bin/bash
+git clone --recurse-submodules -j8 git@gitlab.com:divramod/vim-pack-plugins.git ~/.vim/pack/plugins

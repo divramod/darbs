@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd "${HOME}" || exit
+res_git_add=$(git add -A)
+notify-send "${res_git_add}"
+res_git_commit=$(git commit -a -m "manual update")
+notify-send "${res_git_commit}"
+res_git_pull=$(git pull origin master)
+notify-send "${res_git_pull}"
+res_git_push=$(git push origin master)
+notify-send "${res_git_push}"

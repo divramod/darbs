@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+ids=(
+  # "176"     # unsplash
+  # "562095"  # Wilderness Artifacts
+  # "164"     # Brevitē
+  # "151749"  # Follow Me
+  # "397770"  # Coffee House
+  "3178572" # Winter
+)
+
+# wait for internet
+until wget -q --spider "https://source.unsplash.com/"; do sleep 1; done
+
+IFS=$'\n'
+declare -a paras
+for monitor in $(xrandr --listactivemonitors | sed -nE 's/^.*[+*]+([a-z0-9-]+)\s([0-9]+).*x([0-9]+).*$/\1 \2x\3/pI'); do
+  out="$(echo "${monitor}" | cut -d' ' -f1)"
+  res="$(echo "${monitor}" | cut -d' ' -f2)"
+  col="${ids[ $RANDOM % ${#ids[@]} ]}"
+  tmp="$(mktemp --suffix -wallpaper)"
+
+  curl -fsSLo "${tmp}" "https://source.unsplash.com/collection/${col}/${res}"
+  paras+=(--output "${out}" --stretch "${tmp}")
+done
+xwallpaper "${paras[@]}"
+unset IFS

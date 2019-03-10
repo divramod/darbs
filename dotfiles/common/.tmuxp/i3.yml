@@ -1,0 +1,44 @@
+session_name: i3
+windows:
+- window_name: ".config"
+  layout: tiled
+  shell_command_before:
+    - cd /home/mod/.config
+  panes:
+    - vim -p i3/config fish/config.fish newsboat/config
+- window_name: ".config/divramod"
+  layout: tiled
+  shell_command_before:
+    - cd /home/mod/.config/divramod
+  panes:
+    - vim -p repos.csv mounts.csv
+- window_name: ".scripts"
+  layout: tiled
+  shell_command_before:
+    - cd ~/.scripts
+  panes:
+    - shell_command:
+        - cd divramod
+        - vn
+    - shell_command:
+        - vim README.md
+        - vn
+- window_name: "i3"
+  layout: tiled
+  panes:
+    - shell_command:
+        - cd ~/.config/i3
+        - vn
+    - shell_command:
+        - cd ~/.config/i3blocks
+        - vn
+    - shell_command:
+        - cd ~/.scripts/i3cmds
+        - vn
+    - shell_command:
+        - cd
+        - pwd
+- window_name: "tmuxp"
+  layout: tiled
+  panes:
+    - vim ~/.tmuxp/i3.yml

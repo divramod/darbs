@@ -1,0 +1,72 @@
+# You can add comments to these files with #
+
+# home
+.c	~/.config
+.d	~/.darbs
+.cd	~/.config/divramod
+.s	~/.scripts
+.sd	~/.scripts/divramod
+.sl	~/.screenlayout
+.tg	~/.tmuxp
+
+# structure
+ar	~/art
+arc	~/art/cam
+arb	~/art/bac
+ard	~/art/doc
+are	~/art/ema
+arj	~/art/jou
+arn	~/art/not
+arp	~/art/pro
+arr	~/art/ref
+ars	~/art/scr
+ara	~/art/sca
+art	~/art/tpl
+arw	~/art/wik
+co	~/cod
+cgl	~/cod/gl
+cgh	~/cod/gh
+cwo	~/cod/wo
+cbb	~/cod/bb
+cte	~/cod/te
+des	~/desk
+doc	~/doc
+dow	~/dow
+mea	~/med/aud
+mee	~/med/ebo
+mei	~/med/img
+mem	~/med/mus
+mep	~/med/pic
+mes	~/med/sof
+mev	~/med/vid
+vbo	~/vbo
+
+# tools
+cfvd	~/.config/nvim
+cfvb	~/.config/nvim/plugged
+cfvp	~/.config/nvim/pack
+cfvs	~/.config/nvim/plugged/vim-snippets
+cfp   ~/.tmuxp
+
+# root
+boot	/boot
+etc	/etc
+home	/home
+lost	/lost+found
+mnt	/mnt
+opt	/opt
+proc	/proc
+root	/root
+run	/run
+sys	/srv
+tmp	/tmp
+usr	/usr
+var	/var
+
+# suckless
+stg	~/cod/gh/st
+
+# projects
+gtl	~/cod/wo/thingylabs/kubernetes-provisioning
+gtlc	~/cod/wo/thingylabs/calponia
+gse	~/cod/gl/setup

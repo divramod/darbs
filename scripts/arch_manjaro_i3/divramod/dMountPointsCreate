@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+mountpointsfile="/home/mod/.config/divramod/mounts.csv"
+	([ -f "$mountpointsfile" ] && cp "$mountpointsfile" /tmp/mountpoints.csv) || curl -Ls "$mountpointsfile" | sed '/^#/d' > /tmp/mountpoints.csv
+while IFS=, read -r mountpoint; do
+	if [ ! -d "/mnt/${mountpoint}" ]; then
+		sudo mkdir -p "/mnt/${mountpoint}"
+	fi
+done < /tmp/mountpoints.csv

@@ -1,0 +1,19 @@
+#!/bin/bash
+if [ -n "${1}" ]; then
+  cd "${1}" || exit
+fi
+identity=$(cat ~/.identity)
+if [ ! -z "${identity}" ]; then
+  echo "${identity}"
+  gitignore=".gitignore"
+  touch "${gitignore}"
+  echo "*" > "${gitignore}"
+  echo "!/" >> "${gitignore}"
+  echo "!/*" >> "${gitignore}"
+  find . -path ./.git -prune -o -type d | while read line; do
+  if [ ! "${line}" = "." ]; then
+    echo "$line" | sed "s/\.\/\(.*\)\'/!\1\//" >> "${gitignore}"
+    echo "$line" | sed "s/\.\/\(.*\)\'/!\1\/*/" >> "${gitignore}"
+  fi
+done
+  fi

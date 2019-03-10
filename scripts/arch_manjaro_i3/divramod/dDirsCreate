@@ -1,0 +1,61 @@
+#!/bin/bash
+home=${HOME}
+dirsfile="${home}/.config/divramod/dirs.csv"
+datetime=$(date '+%Y%m%d_%H%M%S')
+mkdir -p "${home}/_archive/${datetime}" >/dev/null 2>&1 || true
+mv \
+	"${home}/Desktop" \
+	"${home}/Downloads" \
+	"${home}/Documents" \
+	"${home}/Music" \
+	"${home}/Pictures" \
+	"${home}/Public" \
+	"${home}/Templates" \
+	"${home}/Videos" \
+        "${home}/_archive/${datetime}" >/dev/null 2>&1 || true
+if [[ ! -d "${home}/tmp" ]]; then
+	mkdir "${home}/tmp"
+fi
+cat "${dirsfile}"
+([ -f "$dirsfile" ] && cp "$dirsfile" "${home}/tmp/dirs.csv")
+	while IFS=, read -r tag dir comment; do
+	n=$((n+1))
+	echo "$dir"
+	echo "$comment" | grep "^\".*\"$" >/dev/null 2>&1 && comment="$(echo "$comment" | sed "s/\(^\"\|\"$\)//g")"
+	case "$tag" in
+		"A")
+			mkdir -p "${home}/${dir}"
+			# sudo chown -R "${name}":mod "/home/${name}/${dir}"
+		;;
+		"B")
+			mkdir -p "${home}/${dir}"
+			# sudo chown -R "${name}":mod "/home/${name}/${dir}"
+		;;
+		"C")
+			mkdir -p "${home}/${dir}"
+			# sudo chown -R "${name}":mod "/home/${name}/${dir}"
+		;;
+		"G")
+			if [ ! -d "${home}/${dir}" ]; then
+				# reponame=$(basename "${dir}")
+				echo "${dir}"
+				# git clone "git@gitlab.com:divramod/${reponame}.git" "/home/${name}/${dir}"
+			fi
+		;;
+		"GC")
+			mkdir -p "${home}/${dir}"
+			# sudo chown -R "${name}":mod "/home/${name}/${dir}"
+		;;
+		"LC")
+			mkdir -p "${home}/${dir}"
+		;;
+		"T")
+			mkdir -p "${home}/${dir}"
+			# sudo chown -R "${name}":mod "/home/${name}/${dir}"
+		;;
+		"V")
+			mkdir -p "${home}/${dir}"
+			# sudo chown -R "${name}":mod "/home/${name}/${dir}"
+		;;
+	esac
+done < "${home}/tmp/dirs.csv"

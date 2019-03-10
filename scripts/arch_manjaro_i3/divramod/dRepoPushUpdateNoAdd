@@ -1,0 +1,8 @@
+#!/bin/bash
+datetime=$(date '+%Y%m%d_%H%M%S')
+cd "$1" || return
+if [[ -z "${2}" ]]; then
+	git pu ":running: anon (${datetime})"
+else
+	git pu ":shipit: ${2} (${datetime})"
+fi

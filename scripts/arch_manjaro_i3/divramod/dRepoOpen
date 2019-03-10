@@ -1,0 +1,28 @@
+#!/bin/bash
+: "${BASEDIR:="$(git rev-parse --show-toplevel)"}"
+
+if [ -z "${1}" ] || [ -z "${2}" ]; then
+	echo "${BASEDIR}"
+	reponame=""
+	echo "${reponame}"
+else
+	case ${1} in
+		"gh")
+			repourl=$(git config --get remote.origin.url)
+			echo "${repourl}"
+			git=$(echo "$repourl" | sed 's/@.*//')
+			if [[ "${git}" = "git" ]]; then
+				domain=$(echo "${repourl}" | grep -oP '@\K.*?(?=:)')
+				user=$(echo "${repourl}" | grep -oP ':\K.*?(?=/)')
+				repo=$(echo "${repourl}" | grep -oP '/\K.*?(?=.git)')
+				$BROWSER "https://${domain}/${user}/${repo}" &> /dev/null
+			else
+				$BROWSER "${repourl}" &> /dev/null
+			fi
+			# domain=$("${repo%@*}")
+			# echo "${domain}"
+			# url="${repo}"
+			# echo "${url} ${domain}"
+			;;
+	esac
+fi

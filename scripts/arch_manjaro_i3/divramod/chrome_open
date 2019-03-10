@@ -1,0 +1,12 @@
+#!/bin/bash
+home="${HOME}"
+switch="${1}"
+
+if [ -z "${switch}" ]; then
+  google-chrome
+else
+  echo $switch
+  file="${home}/.config/divramod/urls/${switch}"
+  urls=$(cat ${file} | tr '\n' ' ')
+  google-chrome --new-window ${urls}
+fi

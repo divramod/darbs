@@ -1,0 +1,243 @@
+#!/bin/bash
+set -eu -o pipefail
+
+# ==============================================================================
+# Variables
+BASEDIR="${HOME}"/.darbs
+: "${SCRIPT_ACTION:=""}"
+: "${DISTRO:=""}"
+
+# ==============================================================================
+# Imports
+
+# ==============================================================================
+# Usage
+
+# ------------------------------------------------------------------------------
+usage() {
+  local -r message="${1:-""}"
+
+  [ -n "${message}" ] &&
+    echo -e "\n\033[31m■■\033[0m \033[1m${message}\033[0m\n"
+      cat <<-EOTXT
+Usage:
+  $(basename "${0}") [options]
+Options:
+  -d              Distro.
+  -h              Help.
+Actions:
+  -D              Dotfiles
+  -F              Folderstructure
+  -I              IRicenit
+  -P              Postinstall (gpg, vim, chsh, git config)
+  -R              Rice
+  -S              Secrets
+EOTXT
+[ -z "${message}" ] && exit 0 || exit 1
+}
+
+# ------------------------------------------------------------------------------
+arguments() {
+  while getopts d:DFIPRS opt; do
+    case "${opt}" in
+      # options
+      d) DISTRO="${OPTARG}" ;;
+      D) SCRIPT_ACTION="${opt}" ;;
+      F) SCRIPT_ACTION="${opt}" ;;
+      I) SCRIPT_ACTION="${opt}" ;;
+      P) SCRIPT_ACTION="${opt}" ;;
+      R) SCRIPT_ACTION="${opt}" ;;
+      S) SCRIPT_ACTION="${opt}" ;;
+      # help
+      ?) usage ;;
+    esac
+  done
+  shift $((OPTIND - 1))
+}
+
+# ==============================================================================
+# Tasks
+
+# ------------------------------------------------------------------------------
+# TODO: init/checkout luks dotfiles into dotfiles folder
+init() {
+  echo
+}
+
+# ------------------------------------------------------------------------------
+secrets() {
+  echo "secrets: ${1}"
+}
+
+# ------------------------------------------------------------------------------
+set_distro() {
+  # check if distro passed
+  if [ -n "${DISTRO}" ]; then
+    distropath="${1}/${DISTRO}"
+    if [ ! -d "${distropath}" ]; then
+      distropath=$(choose_distro "${1}")
+    fi
+  else
+    distropath=$(choose_distro "${1}")
+    fi
+    echo "${distropath}"
+  }
+
+# ------------------------------------------------------------------------------
+choose_distro() {
+  find "${1}" -maxdepth 1 ! -path "${1}" ! -path dotfiles/common -type d | fzf
+}
+
+# ------------------------------------------------------------------------------
+ensure_darbs_existant() {
+  if [ -d ~/.darbs ]; then
+    cd ~/.darbs
+    if [ -n "$(git status --porcelain)" ]; then
+      git status
+      read -r -p "Darps Repo not clean! Commit and Push? [y/N]: " response
+      case "$response" in
+        [yY][eE][sS] | [yY])
+          git add -A
+          git commit -am ":construction: update"
+          git push -u origin HEAD
+          ;;
+        *)
+          echo "Not updated!"
+          ;;
+      esac
+    else
+      git pull origin HEAD
+    fi
+  else
+    # git clone git@github.com:divramod/darbs.git ~/.darbs
+    git clone https://github.com/divramod/darbs.git ~/.darbs
+    fi
+  }
+
+# ------------------------------------------------------------------------------
+dotfiles() {
+  echo "apply ${1}"
+
+  # link folders dotfiles/common/.config
+  if [ ! -d ~/.config ]; then
+    mkdir ~/.config
+  fi
+  config_common_path=~/.darbs/"${1}"/.config
+  if [ -d "${config_common_path}" ]; then
+    find "${config_common_path}" -maxdepth 1 ! -path "${config_common_path}" | while read -r fname; do
+    base=$(basename "${fname}")
+    if [ -n "${base}" ]; then
+      rm -rf ~/.config/"${base}"
+    fi
+    ln -sf "${fname}" ~/.config/"${base}"
+  done
+    fi
+
+  # link not config
+  config_misc_path=~/.darbs/"${1}"
+  find "${config_misc_path}" -maxdepth 1 ! -path "${config_misc_path}" ! -path "${config_common_path}" | while read -r fname; do
+  base=$(basename "${fname}")
+  if [ -n "${base}" ]; then
+    rm -rf ~/"${base}"
+  fi
+  ln -sf "${fname}" ~/"${base}"
+done
+
+  # link files dotfiles/common/
+  config_common_files=~/.darbs/"${1}"/
+  find "${config_common_files}" -maxdepth 1 -type f | while read -r fname; do
+  base=$(basename "${fname}")
+  if [ -n "${base}" ]; then
+    rm -rf ~/"${base}"
+  fi
+  ln -sf "${fname}" ~/"${base}"
+done
+
+  # link links
+  find "${config_common_files}" -maxdepth 1 -type l | while read -r fname; do
+  base=$(basename "${fname}")
+  if [ -n "${base}" ]; then
+    rm -rf ~/"${base}"
+  fi
+  ln -sf "${fname}" ~/"${base}"
+done
+
+}
+
+# ------------------------------------------------------------------------------
+rice() {
+  echo "rice: ${1}"
+  sudo bash "${1}"/install.sh
+}
+
+# ------------------------------------------------------------------------------
+folder_structure() {
+  echo "folder structure"
+  while IFS=, read -r tag folder git_url comment; do
+    comment="$(echo "$comment" | sed "s/\(^\"\|\"$\)//g")"
+    if [[ "${tag}" = "D" ]]; then
+      rm -r ~/"${folder}" &> /dev/null || true
+    else
+      if [[ "${tag}" = "G" ]]; then
+        git_folder=$(dirname ~/"${folder}")
+        echo "git folder ${git_folder}"
+        mkdir -p "${git_folder}"
+        echo "~/folder ${folder}"
+        if [[ -d ~/"${folder}" ]]; then
+          if [[ ! -d ~/"${folder}"/.git ]]; then
+            rm -rf ~/"${folder}"
+            git clone "${git_url}" ~/"${folder}"
+          fi
+        else
+          git clone "${git_url}" ~/"${folder}"
+        fi
+        echo "${git_url}"
+      fi
+      if [[ ! -d ~/"${folder}" ]]; then
+        echo "Create ~/${folder}"
+        mkdir -p ~/"${folder}"
+      fi
+    fi
+  done < ~/.darbs/secrets/folders.csv
+}
+
+
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Execute
+main() {
+  arguments "${@}"
+
+  ensure_darbs_existant
+
+  case "${SCRIPT_ACTION}" in
+    "D") # Dotfiles
+      dotfiles "dotfiles/common"
+      dotfiles "$(set_distro dotfiles)"
+      source "${BASEDIR}"/dotfiles/postinstall.sh
+      ;;
+    "F") # Folder Structure
+      folder_structure
+      ;;
+    "I") # Init
+      init
+      ;;
+    "P") # Postinstall
+      source "${BASEDIR}"/dotfiles/postinstall.sh
+      ;;
+    "R") # Rice
+      rice "$(set_distro rice)"
+      ;;
+    "S") # Secrets
+      secrets "$(set_distro secrets)"
+      ;;
+    *)
+      usage "What to do?"
+      ;;
+  esac
+}
+
+# ------------------------------------------------------------------------------
+# execute if called directly
+[[ "${0}" == "${BASH_SOURCE[0]}" ]] && main "${@}"

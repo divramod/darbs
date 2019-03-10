@@ -1,0 +1,36 @@
+# .bmfiles
+
+.i  ~/.config/i3/config
+.g  ~/.gitconfig
+
+bmd	~/.bmdirs
+bmf	~/.bmfiles
+cfa	~/.aliasrc
+cfb	~/.bashrc
+cfd	~/.Xdefaults
+cff	~/.config/fish/config.fish
+cffa	~/.config/fish/abbrs.fish
+cffb	~/.config/fish/config.d/divramod.bindings.fish
+cfff	~/.config/fish/functions.fish
+cfg	~/.gitconfig
+cfi	~/.config/i3/config
+cfm	~/.config/mutt/muttrc
+cfmb	~/.config/ncmpcpp/bindings
+cfmc	~/.config/ncmpcpp/config
+cfn	~/.config/newsboat/config
+cfr	~/.config/ranger/rc.conf
+cft	~/.tmux.conf
+cfu	~/.config/newsboat/urls
+cfv	~/.config/nvim/init.vim
+cfvs	~/.config/nvim/plugged/vim-snippets/UltiSnips/sh/sh.snippets
+cfz	~/.zshrc
+csd	~/.config/divramod/dirs.csv
+csm	~/.config/divramod/mounts.csv
+csp	~/cod/gl/setup/arch_manjaro_i3_progs.csv
+csr	~/.config/divramod/repos.csv
+te	~/cod/te/bash/test
+tes	~/cod/te/bash/test.sh
+wik	~/art/wik/inb/sparkfile.md
+wikt	~/art/wik/inb/t460p.md
+wiks	~/art/wik/inb/s7.md
+wikd	~/art/wik/pla/days.md

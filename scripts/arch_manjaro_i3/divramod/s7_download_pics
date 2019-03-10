@@ -1,0 +1,18 @@
+#!/bin/bash
+# ftp vs scp speed: https://www.techwalla.com/articles/scp-vs-ftp-speed
+# rsync vs scp https://stackoverflow.com/questions/20244585/how-does-scp-differ-from-rsync
+# rsync from server to local: https://stackoverflow.com/questions/9090817/copying-files-using-rsync-from-remote-server-to-local-machine
+# https://explainshell.com/explain?cmd=rsync+-chavzP+--stats+user%40remote.host%3A%2Fpath%2Fto%2Fcopy+%2Fpath%2Fto%2Flocal%2Fstorage
+datetime=$(date '+%Y%m%d_%H%M%S')
+echo "${date}"
+home="${HOME}"
+local_path="${home}/art/cam/s7_20190217"
+remote_user="u0_a224"
+remote_host="192.168.178.30"
+remote_path="/data/data/com.termux/files/home/storage/dcim/Camera"
+port_number="8022"
+if [[ ! -d ${local_path} ]]; then
+	mkdir -p "${local_path}"
+fi
+
+rsync -chavzzP -e "ssh -p ${port_number}" "${remote_user}@${remote_host}:${remote_path}" "${local_path}"

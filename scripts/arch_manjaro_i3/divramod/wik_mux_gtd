@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# helper
+wiki_path="${HOME}/art/wik/gtd"
+src_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/$(basename "$0")"
+
+# files
+f1="${wiki_path}/networking.md"
+f2="${wiki_path}/wait.md"
+f3="${wiki_path}/orga_private.md"
+f4="${wiki_path}/orga_business.md"
+f5="${wiki_path}/projectlist.md"
+
+# run
+cd "${wiki_path}" || exit
+vim -p "${f5}" "${f1}" "${f2}" "${f3}" "${f4}" "${src_path}"

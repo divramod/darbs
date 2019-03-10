@@ -1,0 +1,12 @@
+#!/bin/bash
+home=${HOME}
+
+# files
+tl="ref/thingylabs/project.md"
+as="ref/albert_statz/project.md"
+kd="ref/karodesign/project.md"
+src_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/$(basename "$0")"
+
+# run
+cd "${home}/art/wik" || exit
+vim -p "${tl}" "${kd}" "${as}" "${src_path}"

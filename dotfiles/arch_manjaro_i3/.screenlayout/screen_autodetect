@@ -1,0 +1,14 @@
+#!/bin/bash
+# vim: filetype=sh
+count=$(xrandr | grep -c " connected ")
+if [ "${count}" = "4" ]; then
+	/home/mod/.screenlayout/screen_h15.sh
+	notify-send "Screenlayout: switched to 3 Monitor Setup"
+elif [ "${count}" = "2" ]; then
+	# /home/mod/.screenlayout/jan.sh
+  /home/mod/.screenlayout/tante_soeren_arvid.sh
+	notify-send "Screenlayout: switched to two-monitor-setup Monitor"
+else
+	/home/mod/.screenlayout/screen_mobile.sh
+	notify-send "Screenlayout: switched to Mobile Monitor"
+fi

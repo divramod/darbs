@@ -1,0 +1,5 @@
+#!/bin/bash
+echo test
+url_file=$(find $HOME/.config/newsboat/url/* | fzf)
+echo $url_file
+env BROWSER=termux-open-url newsboat -C ~/.config/newsboat/config_s7 -u $url_file

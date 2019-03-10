@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# ==============================================================================
+#  1 cfg_mux_maintain
+#  2 vim init
+#  3 vim mappings
+#  4 scripts
+#  5 i3
+#  6 tmux
+#  7 fish
+#  8 dirs (bookmarks)
+#  9 files (bookmarks)
+# 10 ranger
+# 11 ssh
+# 12 fish abbr
+
+# helper
+cat_path="${HOME}"
+
+# files
+f0="${cat_path}/.scripts/divramod/cfg_mux_maintain"
+f1="${cat_path}/.vim/init.vim"
+f13="${cat_path}/.vim/init/topic/mappings.vim"
+f9="${cat_path}/.vim/init/topic/abbreviations.vim"
+f10="${cat_path}/.scripts"
+f2="${cat_path}/.config/i3/config"
+f3="${cat_path}/.tmux.conf"
+f4="${cat_path}/.config/fish/config.fish"
+f5="${cat_path}/.bmfiles"
+f6="${cat_path}/.bmdirs"
+f7="${cat_path}/.config/ranger/rc.conf"
+f8="${cat_path}/.config/ssh"
+f12="${cat_path}/.config/fish/divramod/abbrs.fish"
+
+# run
+cd "${cat_path}" || exit
+vim -p "${f13}" "${f9}" "${f0}" "${f1}" "${f10}" "${f2}" "${f3}" "${f4}" "${f5}" "${f6}" "${f7}" "${f8}" "${f12}"

@@ -1,0 +1,19 @@
+#!/bin/bash
+home="${HOME}"
+if [[ -z ${1} ]]; then
+	echo "You need to pass a path!"
+else
+	scriptname="${1}"
+	scriptsdir="${home}/.scripts"
+	scriptpath="${scriptsdir}/${scriptname}"
+	if [[ ! -f "${scriptpath}" ]]; then
+		touch "${scriptpath}"
+	fi
+	if [[ ! -x "${scriptpath}" ]]; then
+		sudo chmod +x "${scriptpath}"
+	fi
+	cd "${home}" || true
+	git add "${scriptsdir}"
+	cd - || true
+	vim "${scriptpath}" -c "NERDTreeFind || wincmd l || set filetype=sh"
+fi

@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+# TODO when existant, check if is clean and then pull --> suckless, create own script for that
+user="${USER}"
+home="${HOME}"
+repofile="${home}/.config/divramod/repos.csv"
+	([ -f "$repofile" ] && cp "$repofile" "${home}/tmp/repos.csv") || curl -Ls "$repofile" | sed '/^#/d' > "${home}/tmp/dirs.csv"
+while IFS=, read -r tag dir repo; do
+	n=$((n+1))
+	case "$tag" in
+		"")
+			if [ ! -d "${home}/${dir}" ]; then
+				mkdir -p "${home}/${dir}"
+			fi
+			if [ ! -d "${home}/${dir}/${repo}" ]; then
+				base_name=$(basename "${repo}")
+				file_name=${base_name%.*}
+				git clone "${repo}" "${home}/${dir}/${file_name}"
+			else
+				echo "Repository ${repo} existant!"
+			fi
+		;;
+	esac
+done < "${home}/tmp/repos.csv"

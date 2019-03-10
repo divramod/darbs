@@ -1,0 +1,7 @@
+#!/bin/bash
+ask() { \
+  file=$(ls ~/.config/divramod/urls | dmenu -i -p "Which url file?")
+  i3-msg 'exec chrome_open '${file}
+}
+
+ask

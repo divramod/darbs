@@ -1,0 +1,1101 @@
+" plUGINS
+" ==================================================================
+syntax on
+filetype on
+" Pathogen
+execute pathogen#infect()
+
+" use system clippboard
+set clipboard+=unnamed
+set clipboard=unnamed,autoselect
+" https://news.ycombinator.com/item?id=17284599
+" set inccommand=nosplit
+
+" snipMate
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+" autocmd BufRead,BufNewFile *.js set ft=javascript.html
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases.javascript = 'html'
+
+" https://webpack.github.io/docs/troubleshooting.html
+" ======================================
+:set backupcopy=yes
+
+" =====[ AUTOSAVE ]=====
+":au FocusLost * wa
+" autocmd FocusLost * silent! wall
+augroup AutoWrite
+  autocmd! BufLeave * :update
+augroup END
+set autowriteall
+set autowrite
+" https://stackoverflow.com/questions/6991638/how-to-auto-save-a-file-every-1-second-in-vim
+"autocmd TextChanged,TextChangedI <buffer> silent write
+
+
+" =====[ AUTOREAD ]=====
+" http://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/149214
+:set autoread
+
+" =====[ jslint ]=====
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=magenta
+
+" for buffer switching
+set hidden
+
+" show existing tab with 4 spaces width
+set tabstop=2
+" when indenting with '>', use 4 spaces width
+set shiftwidth=2
+" On pressing tab, insert 4 spaces
+set expandtab
+
+" MISC
+" ==================================================================
+:set number
+:let mapleader = ","
+:set hlsearch
+
+" =====[ CTRLP ]=====
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set wildignore+=*/node_modules/*,*.so,*.swp,*.zip,*/dist/*,*/build/*,*/coverage/*
+let g:ctrlp_map = '<leader><leader>'
+map <leader>cpm :CtrlPMixed<cr>
+nnoremap <leader><leader><leader> :CtrlPBuffer<cr>
+let g:ctrlp_prompt_mappings = {
+      \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
+      \ 'AcceptSelection("h")': ['<Space>', '<c-x>', '<c-cr>', '<c-s>'],
+      \ 'AcceptSelection("t")': ['<Tab>', '<c-t>'],
+      \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
+      \ }
+" https://github.com/ctrlpvim/ctrlp.vim/blob/master/doc/ctrlp.txt#L148
+let g:ctrlp_switch_buffer = 'et'
+let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_open_new_file = 't'
+let g:ctrlp_by_filename = 0
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_arg_map = 1
+
+" WORD COMPLETION
+" ==========================================================================================
+"inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+"inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+
+" MOVE in INSERT MODE
+" ==========================================================================================
+inoremap <c-h> <esc>hhhhhhi
+inoremap <c-l> <esc>llllllli
+inoremap <c-k> <esc>kkkkkkli
+inoremap <c-j> <esc>jjjjjjli
+inoremap <c-b> <esc>I
+inoremap <c-e> <esc>A
+
+" Maps
+" ======================================
+" http://vi.stackexchange.com/questions/2350/how-to-map-alt-key
+nnoremap <c-h> 6h
+nnoremap <c-l> 6l
+nnoremap <c-k> 6k
+nnoremap <c-j> 6j
+
+" RESIZE
+" =================================================================
+nnoremap <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <Leader>= :exe "resize " . (winheight(0) * 1/2)<CR>
+nnoremap <Leader><Leader>+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <Leader><leader>- :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+nnoremap <Leader><leader>= :exe "vertical resize " . (winwidth(0) * 1/2)<CR>
+
+" DUPLICATE LINE
+" ==========================================================================================
+:inoremap <c-d> <esc>yypi
+:nnoremap <c-d> yyp
+
+" copy line
+:inoremap <c-c>l <esc>"*yyi
+:nnoremap <c-c>l "*yy
+:vnoremap <c-c>l "*y
+
+" copy word under cursor
+:inoremap <c-c>w <esc>b"*yiw
+:nnoremap <c-c>w b"*yiw
+:vnoremap <c-c>w vbve"yiwn
+
+" Mappings Insert Letters
+" ===========================================================================================
+" escape insert mode
+:inoremap jk <esc>
+:inoremap JK <esc>
+
+" Mappings Insert Disabling Standards
+" ==================================================================
+:inoremap <esc> <nop>
+
+" Mappings Normal
+" ==================================================================
+" moving line one up
+:nnoremap - ddp<esc>
+" moving line one down
+:nnoremap _ dd2kp<esc>
+"edit vimrc
+:nnoremap <leader>ev :split $MYVIMRC<cr>
+"Sourcing Mapping
+:nnoremap <leader>sv :source $MYVIMRC<cr>
+"move to beginning of the line
+:nnoremap H 0
+"move to end of the current line
+:nnoremap L $
+
+" Tab Navigation
+nnoremap tf  :tabfirst<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tt  :tabedit<CR>
+nnoremap tm  :tabm<Space>
+nnoremap tc  :tabclose<CR>
+" Go to tab by number
+noremap 1 1gt
+noremap 2 2gt
+noremap 3 3gt
+noremap 4 4gt
+noremap 5 5gt
+noremap 6 6gt
+noremap 7 7gt
+noremap 8 8gt
+noremap 9 9gt
+noremap 0 :tablast<cr>
+
+" Search Abbreviations: http://vimregex.com/
+"noremap ;; :,$s/\v/cg<Left><Left><Left>
+"noremap ;;; zyiw:,$s/\v/cg<Left><Left><Left><C-R>z
+"noremap ;;; :%s::cg<Left><Left><Left>
+"noremap ;' :%s::g<Left><Left><Left><Left>
+
+" Abbreviations
+" ==================================================================
+:ab ___e _______________________________________________________________________________
+:ab ---e -------------------------------------------------------------------------------
+:ab ===e ===============================================================================
+:ab ...e ...............................................................................
+:ab ==N Next Actions<CR>=================================================================
+:ab ==1 0.1<CR>=================================================================
+:ab ==2 0.2<CR>=================================================================
+:ab ==3 0.3<CR>=================================================================
+:ab ==4 0.4<CR>=================================================================
+:ab ==5 0.5<CR>=================================================================
+:ab ==6 0.6<CR>=================================================================
+:ab ==7 0.7<CR>=================================================================
+:ab ==8 0.8<CR>=================================================================
+:ab ==9 0.9<CR>=================================================================
+:ab ==o 1.0<CR>=================================================================
+
+:ab 50= 50 € pro Stunde zzgl. Mwst i.H. von 19%
+:ab arvid Arvid Petermann
+:ab t * []
+
+" Tagbar
+" https://github.com/majutsushi/tagbar/blob/master/doc/tagbar.txt
+" ==================================================================
+nnoremap <F8> :TagbarToggle<CR>
+nnoremap <F9> :TagbarOpenAutoClose<CR>
+let g:tagbar_previewwin_pos = ""
+let g:tagbar_singleclick = 1
+let g:tagbar_autofocus = 1
+let g:tagbar_autopreview = 1
+let g:tagbar_type_typescript = {
+      \ 'ctagstype': 'typescript',
+      \ 'kinds': [
+      \ 'c:classes',
+      \ 'n:modules',
+      \ 'f:functions',
+      \ 'v:variables',
+      \ 'v:varlambdas',
+      \ 'm:members',
+      \ 'i:interfaces',
+      \ 'e:enums',
+      \ ]
+      \ }
+
+" Functions
+" ==========================================================================================
+
+" Strips Whitespaces
+function! Strip(input_string)
+  return substitute(a:input_string, '^\s*\(.\{-}\)\s*$', '\1', '')
+endfunction
+
+"surround
+nnoremap <leader>M1 ciw== " ==<esc>
+nnoremap <leader><leader>1 I= <esc>A =<esc>
+nnoremap <leader><leader>2 I== <esc>A ==<esc>
+nnoremap <leader><leader>3 I=== <esc>A ===<esc>
+let g:surround_{char2nr('c')} = "```\r```"
+
+" Folding and unfolding
+set foldmethod=syntax
+set foldlevel=99
+highlight Folded ctermbg=Black ctermfg=yellow
+nnoremap <leader>zo ggVGzO
+nnoremap z1 :set foldlevel=1<cr>
+nnoremap z2 :set foldlevel=2<cr>
+nnoremap z3 :set foldlevel=3<cr>
+nnoremap z4 :set foldlevel=4<cr>
+nnoremap z5 :set foldlevel=5<cr>
+nnoremap zx :set foldlevel=99<cr>
+
+" hard way
+" =================================================================
+"Comment javascript
+:autocmd FileType javascript nnoremap <buffer> <leader>c I//<esc>
+
+" my navigation
+" =================================================================
+" nnoremap <leader><leader><leader> :edit ~/me/Calendar<CR>
+" nnoremap <leader>in :edit src/index.html<CR>
+" nnoremap <leader>bow :edit bower.json<CR>
+" nnoremap <leader>css :edit src/stylesheets/style.css<CR>
+" nnoremap <leader>app :edit src/app/app.js<CR>
+" nnoremap <leader>app :edit src/common/controllers/AppCtrl.js<CR>
+
+" Damian Convay
+" =================================================================
+"====[ Make the 82st column stand out ]====================
+
+" EITHER the entire 81st column, full-screen...
+" highlight ColorColumn ctermbg=magenta
+" set colorcolumn=67
+
+" OR ELSE just the 81st column of wide lines...
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+" OR ELSE on April Fools day...
+" highlight ColorColumn ctermbg=red ctermfg=blue
+" exec 'set colorcolumn=' . join(range(2,80,3), ',')
+
+"=====[ Highlight matches when jumping to next ]=============
+
+" This rewires n and N to do the highlighing...
+nnoremap <silent> n   n:call HLNext(0.4)<cr>
+nnoremap <silent> N   N:call HLNext(0.4)<cr>
+
+
+" EITHER blink the line containing the match...
+function! HLNext (blinktime)
+  set invcursorline
+  redraw
+  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+  set invcursorline
+  redraw
+endfunction
+
+"====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
+" remember to set NERDTree set no list
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
+
+"====[ Always turn on syntax highlighting for diffs ]=========================
+
+" EITHER select by the file-suffix directly...
+augroup PatchDiffHighlight
+  autocmd!
+  autocmd BufEnter  *.patch,*.rej,*.diff   syntax enable
+augroup END
+
+" OR ELSE use the filetype mechanism to select automatically...
+filetype on
+augroup PatchDiffHighlight
+  autocmd!
+  autocmd FileType  diff   syntax enable
+augroup END
+
+"====[ Swap v and CTRL-V, because Block mode is more useful that Visual mode "]======
+
+nnoremap    v   <C-V>
+nnoremap <C-V>     v
+
+vnoremap    v   <C-V>
+vnoremap <C-V>     v
+
+"====[ Swap : and ; to make colon commands easier to type ]======
+
+nnoremap  ;  :
+nnoremap  :  ;
+
+"===[ VIM DRAG ]===
+vmap  <expr>  <LEFT>   DVB_Drag('left')
+vmap  <expr>  <RIGHT>  DVB_Drag('right')
+vmap  <expr>  <DOWN>   DVB_Drag('down')
+vmap  <expr>  <UP>     DVB_Drag('up')
+vmap  <expr>  D        DVB_Duplicate()
+
+" Remove any introduced trailing whitespace after moving
+let g:DVB_TrimWS = 1
+
+"=====[ buffer switching ]=====
+"nnoremap <leader>bp b#
+nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <leader>bb  :buffers<CR>:buffer<Space>
+
+"=====[ autocmd VimResized * wincmd ]=====
+" https://groups.google.com/forum/#!topic/vim_use/SmsucMsNGFI
+autocmd VimResized * wincmd =
+
+"=====[ highlight TODO ]=====
+" http://stackoverflow.com/questions/4097259/in-vim-how-do-i-highlight-todo-and-fixme
+":highlight MyQuestions guifg=red guibg=green
+" :syntax match MyQuestions /todo/
+":syntax match MyQuestions /.*todo.*/
+autocmd BufRead,BufNewFile ~/me/* setf me
+autocmd FileType *.me set syntax=me
+
+"=====[ AUTO SAVE ]=====
+:au FocusLost * silent! wa!
+
+" =====[ AUTOREAD ]=====
+:set autoread
+
+" =====[ STATUS LINE ]=====
+" http://stackoverflow.com/questions/5375240/a-more-useful-statusline-in-vim
+set statusline+=%F
+
+" =====[ Bufferline ]=====
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>b :bp<CR>
+"nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+
+" =====[ TODO ]=====
+" math
+
+" =====[ clear search ]=====
+nnoremap <F3> :set hlsearch!<CR>
+
+" =====[ folding ]=====
+nnoremap <Leader>fo zA
+nnoremap <Leader>foa ggVGzOn
+
+" =====[ SEARCH for visually selected text, forwards or backwards ]=====
+vnoremap <silent> * :<C-U>
+      \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+      \gvy/<C-R><C-R>=substitute(
+      \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+      \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+      \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+      \gvy?<C-R><C-R>=substitute(
+      \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+      \gV:call setreg('"', old_reg, old_regtype)<CR>
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-p> :nohl<CR><C-p>
+
+" =====[ VIM SEARCH ]=====
+" http://vim.wikia.com/wiki/Find_in_files_within_Vim
+nnoremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+nnoremap <F3> :Rgrep<CR>
+
+let Grep_Skip_Dirs = 'node_modules bower_components'
+set wildignore+=**/node_modules/**
+set wildignore+=**/bower_components/**
+
+" =====[ ShowFunc.vim ]=====
+" http://www.vim.org/scripts/script.php?script_id=397
+map  <F7>   <Plug>ShowFunc
+map! <F7>   <Plug>ShowFunc
+
+" =====[ DirDiff.vim ]=====
+" http://www.vim.org/scripts/script.php?script_id=102
+let g:DirDiffExcludes = "node_modules, bower_components, .git, CVS,*.class,*.exe,.*.swp"
+
+" =====[ move character ]=====
+nnoremap <leader>l vylphhxln
+nnoremap <leader>h vyhPllxhhn
+
+" =====[ statusline ]=====
+
+" Strips Whitespaces
+function! FileSize()
+  echo getfsize(expand('%%:p'))
+endfunction
+nnoremap <leader>fs :call FileSize()<cr>
+
+" =====[ closetag ]=====
+:au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+
+" =====[ aliases ]=====
+nnoremap <leader>vs :vsplit <cr>
+nnoremap <leader>hs :split <cr>
+
+" =====[ toggle ]====
+" inoremap <C-T> <C-O>:call Toggle()<CR>
+nnoremap <Leader>+ :call Toggle()<CR>
+vnoremap <Leader>+ <ESC>:call Toggle()<CR>
+
+" =====[ Tern ]=====
+nnoremap <Leader>t :TernRefs<CR>
+nnoremap <Leader>tr :TernRename<CR>
+
+" =====[ Typescript ]=====
+"autocmd QuickFixCmdPost [^l]* nested cwindow
+"autocmd QuickFixCmdPost    l* nested lwindow
+
+" =====[ Autoformat ]=====
+noremap <F3> :Autoformat<CR>
+noremap <c-f> :Autoformat<CR>
+let g:formatdef_my_custom_less = '"css-beautify -f - -s ".&shiftwidth'
+let g:formatters_less = ['my_custom_less']
+
+" =====[ mouse ]=====
+set mouse=a
+
+
+" https://github.com/francoiscabrol/ranger.vim
+" ============================================
+let g:ranger_map_keys = 0
+nnoremap <leader>nr :Ranger<CR>
+
+" https://github.com/AndrewRadev/andrews_nerdtree.vim
+" ======================================
+let g:andrews_nerdtree_buffer_fs_menu     = 0
+let g:andrews_nerdtree_interactive_edit   = 0
+let g:andrews_nerdtree_external_open      = 0
+let g:andrews_nerdtree_startshell_mapping = 1
+let g:andrews_nerdtree_diff               = 1
+let g:andrews_nerdtree_startshell_mapping_key = '<leader>s'
+let g:andrews_nerdtree_git_filter         = 1
+let g:arvids_nerdtree_custom_file_filter  = 1
+nnoremap <leader>nfg :NERDTreeGitFilterToggle<CR>
+nnoremap <leader>nfc :NERDTreeCustomFileFilterToggle<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>nn :NERDTreeFind<CR>
+nnoremap <leader>nq :NERDTreeClose<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
+nnoremap <leader>nc :NERDTreeCWD<CR>
+let NERDTreeMapActivateNode='l'
+let NERDTreeMapCloseDir='h'
+let NERDTreeMapCloseChildren='H'
+let g:NERDTreeWinSize=45
+let NERDTreeMapOpenInTab='t'
+fun! NerdTreeWinSize( arg )
+  let g:NERDTreeWinSize=a:arg
+endfunction
+command! -nargs=* Ntws call NerdTreeWinSize( '<args>' ) | NERDTree
+
+" https://github.com/Xuyuanp/nerdtree-git-plugin
+let g:NERDTreeShowGitStatus = 1
+let g:NERDTreeIndicatorMapCustom = {
+      \ "Modified"  : "✹",
+      \ "Staged"    : "✚",
+      \ "Untracked" : "✭",
+      \ "Renamed"   : "➜",
+      \ "Unmerged"  : "═",
+      \ "Deleted"   : "✖",
+      \ "Dirty"     : "✗",
+      \ "Clean"     : "✔︎",
+      \ 'Ignored'   : '☒',
+      \ "Unknown"   : "?"
+      \ }
+:set conceallevel=3
+
+" NERDTree show icons and color them
+" ======================================
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+set encoding=utf-8
+let g:airline_powerline_fonts = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:webdevicons_conceal_nerdtree_brackets = 0
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+autocmd FileType nerdtree setlocal nolist
+
+" =====[ Syntastic ]=====
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_javascript_checkers = ['jshint2']
+let g:syntastic_typescript_tsc_fname = ''
+let g:syntastic_typescript_checks=['tsuquyomi']
+
+" https://github.com/leafgarland/typescript-vim
+" ======================================
+let g:typescript_indent_disable = 0
+
+" https://github.com/Quramy/tsuquyomi
+" ======================================
+"autocmd FileType typescript setlocal completeopt+=menu,preview
+let g:tsuquyomi_disable_default_mappings = 1
+let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_use_vimproc=1
+nnoremap <leader>tr :TsuquyomiReferences<CR>
+nnoremap <leader>td :TsuquyomiDefinition<CR>
+nnoremap <leader>tb :TsuquyomiGoBack<CR>
+nnoremap <leader>te :TsuquyomiGeterrProject<CR>
+nnoremap <leader>tu :Unite outline<CR>
+nnoremap <leader>tp :Unite tsproject<CR>
+" autocmd FileType typescript nmap <buffer> <leader>ts <Plug>(TsuquyomiRenameSymbol)
+autocmd FileType typescript nmap <buffer> <leader>ts <Plug>(TsuquyomiRenameSymbolC)
+
+" =====[ git diff ]==============
+" ======================================
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+command! DiffSaved call s:DiffWithSaved()
+
+" current time
+" ======================================
+" http://man7.org/linux/man-pages/man3/strftime.3.html
+:iab <expr> dts strftime("%Y.%m.%d %A")
+:iab <expr> now strftime("%Y.%m.%d %H:%M:%S")
+:iab <expr> tim strftime("%H:%M:%S")
+:iab <expr> mim strftime("%H:%M")
+
+" https://github.com/AndrewRadev/splitjoin.vim
+" ======================================
+" gS / gJ
+
+" https://github.com/AndrewRadev/switch.vim
+" ======================================
+let g:switch_custom_definitions =
+      \ [
+      \   ['yes', 'no'],
+      \   ['YES', 'NO'],
+      \   ['private', 'public'],
+      \   ['Arvid', 'Katja', 'Linus', 'Yamo'],
+      \   ['arvidpetermann@gmail.com', 'katjapetermann@gmail.com', 'linuspetermann@gmail.col', 'yamopetermann@gmail.com'],
+      \   ['foo', 'bar', 'baz'],
+      \   ['get', 'post', 'patch'],
+      \   ['GET', 'POST', 'PATCH'],
+      \   ['0', '1'],
+      \   ['boolean', 'number', 'string'],
+      \   ['console.log', 'alert', 'console.table', 'console.warn', 'console.info'],
+      \   ['online', 'offline'],
+      \   ['monday', 'Montag'],
+      \   ['* ', '   // '],
+      \   ['TODO', 'DONE'],
+      \   ['clover', 'cobertura', 'html', 'json-summary', 'json', 'cov', 'lcovonly', 'none', 'teamcity', 'text-lcov', 'text-summary', 'text'],
+      \   ['expect(0).to.equal(1) // fails', 'expect(1).to.equal(1) // passes'],
+      \   ['export', 'import'],
+      \   ['Linus', 'Yamo', 'Friedolin', 'Katja', 'Arvid'],
+      \   ['ag-it', 'ag-finanzen', 'ag-netzwerk', 'ag-pr', 'ag-raum', 'ag-recht'],
+      \   ['-------------------------------------------------------------------------------', '==============================================================================='],
+      \   ['open', 'closed'],
+      \   ['width', 'height'],
+      \   ['frontend', 'backend'],
+      \   ['min', 'max'],
+      \   ['px', '%'],
+      \   ['red', 'green', 'blue', 'yellow', 'white', 'black'],
+      \   ['one', 'many'],
+      \   ['padding', 'margin'],
+      \   ['before', 'after'],
+      \   ['in', 'out'],
+      \   ['auth: false', "auth: 'jwt'"],
+      \   ['bottom', 'top', 'left', 'right', 'center',],
+      \   [';', ',', ':'],
+      \   ['<', '>'],
+      \   ['""', "''"],
+      \   ['tuesday', 'Dienstag'],
+      \   ['wednesday', 'Mittwoch'],
+      \   ['thursday', 'Donnerstag'],
+      \   ['friday', 'Freitag'],
+      \   ['saturday', 'Samstag'],
+      \   ['sunday', 'Sonntag'],
+      \   ['modules', 'packages'],
+      \   ['module', 'package'],
+      \   ['left', 'right'],
+      \   ['resolve', 'reject'],
+      \   ['testing', 'production'],
+      \   ['then', 'catch'],
+      \   ['error', 'success'],
+      \   ['ERROR', 'SUCCESS'],
+      \   ['login', 'logout', 'register'],
+      \   ['LOGIN', 'LOGOUT', 'REGISTER'],
+      \   ['[x]', '[ ]'],
+      \   ['/', '\'],
+      \   ['var', 'let', 'const'],
+      \   ['describe.only(', 'describe.skip(', 'describe('],
+      \   ['it.only(', 'it.skip(', 'it('],
+      \     {
+      \       '\<[a-z0-9]\+_\k\+\>': {
+      \         '_\(.\)': '\U\1'
+      \       },
+      \       '\<[a-z0-9]\+[A-Z]\k\+\>': {
+      \         '\([A-Z]\)': '_\l\1'
+      \       },
+      \     }
+      \ ]
+      "\   ['-', '*', '.', '+'],
+      "\   ['===', '!=='],
+      "\   ['>=', '<=', '=='],
+
+" https://github.com/AndrewRadev/sideways.vim
+" ======================================
+" <m-h> Alt+h
+nnoremap <leader>h :SidewaysLeft<cr>
+nnoremap <leader>l :SidewaysRight<cr>
+omap aa <Plug>SidewaysArgumentTextobjA
+xmap aa <Plug>SidewaysArgumentTextobjA
+omap ia <Plug>SidewaysArgumentTextobjI
+xmap ia <Plug>SidewaysArgumentTextobjI
+
+" https://github.com/AndrewRadev/writable_search.vim
+" ======================================
+nnoremap <leader>r :WritableSearch<CR>
+
+" https://github.com/AndrewRadev/undoquit.vim
+" ======================================
+let g:undoquit_mapping = '<leader>u'
+
+" https://github.com/AndrewRadev/multichange.vim
+" ======================================
+let g:multichange_mapping        = 'sm'
+let g:multichange_motion_mapping = 'm'
+
+" https://github.com/AndrewRadev/inline_edit.vim.git
+" ======================================
+" :InlineEdit
+let g:inline_edit_patterns = [
+      \   {
+      \     'main_filetype': 'typescript',
+      \     'sub_filetype': 'html',
+      \     'indent_adjustment': 1,
+      \     'start': '^\s*template: `\s*$',
+      \     'end': '^\s*`\s*$'
+      \   }
+      \ ]
+nnoremap <leader>ie :InlineEdit<cr>
+
+" https://github.com/osyo-manga/vim-anzu
+" ======================================
+" mapping
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+" clear status
+nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+
+" https://github.com/gmarik/github-search.vim
+" ======================================
+
+" https://github.com/koron/nyancat-vim
+" ======================================
+
+" https://github.com/plasticboy/vim-markdown
+" ======================================
+set conceallevel=3
+let g:vim_markdown_folding_disabled = 1
+let g:markdown_folding = 1
+
+" https://github.com/godlygeek/tabular
+" ======================================
+
+" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a: :Tabularize /:\zs<CR>
+vmap <leader>a: :Tabularize /:\zs<CR>
+
+" https://gist.github.com/tpope/287147
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+" https://github.com/christoomey/vim-tmux-navigator
+" ======================================
+let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_save_on_switch = 3
+execute "set <M-h>=\eh"
+execute "set <M-l>=\el"
+execute "set <M-k>=\ek"
+execute "set <M-j>=\ej"
+execute "set <M-6>=\e6"
+nnoremap <silent> <m-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <m-6> :TmuxNavigatePrevious<cr>
+
+
+" https://github.com/mtth/cursorcross.vim
+" ======================================
+"https://stackoverflow.com/questions/9312301/changing-vim-cursor-column-color-to-something-else-than-vim-background
+let g:cursorcross_dynamic = 'clw'
+let g:cursorcross_mappings = 0
+let g:cursorcross_disable = 1
+" set cursorcolumn
+" set cursorline
+" :highlight CursorColumn guibg=#404040
+
+" https://github.com/junegunn/goyo.vim
+" ======================================
+function! s:goyo_enter()
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+nnoremap <silent> <c-g> :Goyo<cr>
+
+" https://github.com/junegunn/limelight.vim
+" ======================================
+
+" https://github.com/junegunn/seoul256.vim
+" ======================================
+" Unified color scheme (default: dark)
+let g:seoul256_background = 233
+colo seoul256
+
+" https://github.com/regedarek/ZoomWin
+" ======================================
+" :ZoomWin --> seems to be a toggle
+" nnoremap <leader>z :ZoomWin<CR>
+
+" https://peterodding.com/code/vim/reload
+" ======================================
+
+" http://stackoverflow.com/questions/3961859/how-to-copy-to-clipboard-in-vim
+" ======================================
+set clipboard=unnamedplus
+
+" youcompleteme (YouCompleteMe)
+" ======================================
+" https://medium.com/@mhartington/typescript-vim-64783d89e468#.e06mmvles
+" https://github.com/Valloric/YouCompleteMe#options
+" semantic triggers for different langs: https://github.com/Quramy/tsuquyomi/issues/24
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_key_list_select_completion   = ['<C-j>', '<TAB>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<S-TAB>']
+let g:ycm_server_python_interpreter = '/usr/bin/python'
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+" https://github.com/Valloric/YouCompleteMe/issues/1765
+set splitbelow
+
+" ultisnips
+" https://github.com/SirVer/ultisnips
+" ======================================
+let g:UltiSnipsExpandTrigger="<C-Space>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
+" https://github.com/mhinz/vim-startify
+" ======================================
+set viminfo='100,n$HOME/.vim/files/info/viminfo
+nnoremap <leader>s :Startify<cr>
+
+let g:startify_enable_special         = 0
+let g:startify_files_number           = 8
+let g:startify_relative_path          = 1
+let g:startify_change_to_dir          = 1
+let g:startify_update_oldfiles        = 1
+let g:startify_session_autoload       = 1
+let g:startify_session_persistence    = 1
+let g:startify_session_delete_buffers = 1
+
+let g:startify_list_order = [
+      \ ['   LRU:'],
+      \ 'files',
+      \ ['   LRU within this dir:'],
+      \ 'dir',
+      \ ['   Sessions:'],
+      \ 'sessions',
+      \ ['   Bookmarks:'],
+      \ 'bookmarks',
+      \ ]
+
+let g:startify_skiplist = [
+      \ 'COMMIT_EDITMSG',
+      \ 'bundle/.*/doc',
+      \ '/data/repo/neovim/runtime/doc',
+      \ '/Users/mhi/local/vim/share/vim/vim74/doc',
+      \ ]
+
+let g:startify_bookmarks = [
+      \ { 'c': '~/dotfiles/vim/vimrc' },
+      \ { 'd': '~/dotfiles/vim/vim/files/info/viminfo' },
+      \ { 't': '~/docs/todo/todo.md' },
+      \ { 'td': '~/docs/todo/todo.done.md' },
+      \ { 'til': '~/docs/til/til.md' },
+      \ { 'tilw': '~/docs/til/tiwl.md' },
+      \ ]
+
+let g:startify_custom_footer =
+      \ ['', "   Vim is charityware. Please read ':help uganda'.", '']
+
+hi StartifyBracket ctermfg=240
+hi StartifyFile    ctermfg=147
+hi StartifyFooter  ctermfg=240
+hi StartifyHeader  ctermfg=114
+hi StartifyNumber  ctermfg=215
+hi StartifyPath    ctermfg=245
+hi StartifySlash   ctermfg=240
+hi StartifySpecial ctermfg=240
+
+" TODO https://github.com/vim-ctrlspace/vim-ctrlspace
+" ======================================
+"set nocompatible
+"set hidden
+"set showtabline=0
+"hi CtrlSpaceSelected term=reverse ctermfg=187 ctermbg=23 cterm=bold
+"hi CtrlSpaceNormal term=NONE ctermfg=244 ctermbg=232 cterm=NONE
+"hi CtrlSpaceFound ctermfg=220 ctermbg=NONE cterm=bold
+
+" TODO
+" ======================================
+" https://github.com/Olical/vim-enmasse
+" https://github.com/tpope/vim-jdaddy
+" https://github.com/wellle/visual-split.vim
+" https://github.com/twe4ked/vim-diff-toggle
+" https://github.com/dhruvasagar/vim-table-mode
+" https://github.com/henrik/vim-qargs
+" https://github.com/kien/tabman.vim
+" https://github.com/AndrewRadev/tagfinder.vim
+" https://github.com/sjl/splice.vim/
+" https://github.com/slim-template/vim-slim
+" https://github.com/danchoi/vmail
+" https://github.com/stars/AndrewRadev?language=viml
+" x https://github.com/mmai/vim-scrum-markdown
+" x https://github.com/mmai/vim-markdown-wiki
+
+" http://stackoverflow.com/questions/25158848/how-to-get-path-to-the-vim-being-executed-in-vimscript
+":set autochdir
+
+" XXX Maps
+" ======================================
+" http://vi.stackexchange.com/questions/2350/how-to-map-alt-key
+"execute "set <M-h>=\eh"
+"execute "set <M-l>=\el"
+
+let g:arvids_nerdtree_cached_custom_file_filter_list = []
+
+" Buffer switch back (go to alternate file)
+" ======================================
+nnoremap <leader>x :e #<cr>
+
+" textobj: https://github.com/kana/vim-textobj-user
+" ======================================
+function! DmTextObj()
+  call textobj#user#plugin('typescript', { 'code': { 'pattern': ['`', '`'], 'select-a': 'aP', 'select-i': 'iP', }, })
+endfunction
+
+" Ack
+" https://github.com/mileszs/ack.vim
+" ===============================================================================
+:command -nargs=+ Ack execute 'silent Ack!' <q-args> | cw | redraw!
+nnoremap <leader>f :Ack <cword><CR>
+
+" close quifix
+map <leader>qc :ccl<cr>
+
+" Close quickfix
+" http://stackoverflow.com/questions/3262037/how-to-quit-vim-quickfix
+nnoremap <leader>qq :cclose<cr>
+nnoremap <leader>q :w<cr> :copen<cr>
+nnoremap <leader>qn :cnext<cr>
+nnoremap <leader>qp :cprev<cr>
+
+
+" Close loclist
+" https://medium.com/@lakshmankumar12/quickfix-and-location-list-in-vim-ca0292ac894d
+nnoremap <leader>ll :lclose<cr>
+nnoremap <leader>l :lopen<cr>
+nnoremap <leader>ln :lnext<cr>
+nnoremap <leader>lp :lprev<cr>
+
+
+" cd into directory of current file
+nnoremap <leader><leader>cd :cd %:p:h<cr>
+
+" =====[ colorscheme ]=====
+colorscheme industry
+
+" https://superuser.com/questions/385553/making-the-active-window-in-vim-more-obvious
+augroup NrHighlight
+  autocmd!
+  " COLORS
+  " autocmd WinEnter * hi LineNr ctermfg=247 guifg=#9e9e9e ctermbg=233 guibg=#121212
+  " autocmd WinLeave * hi LineNr ctermfg=18 guifg=#e9e9e9 ctermbg=18 guibg=#212121
+  " RELATIVE NUMBER
+  " autocmd WinEnter * set relativenumber
+  " autocmd WinLeave * set norelativenumber
+  " CURSOR LINE
+  " autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  " autocmd WinLeave * setlocal nocursorline
+  :hi StatusLine guibg=red
+augroup END
+
+" do not go to insert mode after click: https://stackoverflow.com/questions/23074595/vim-make-click-exit-insert-mode
+inoremap <LeftMouse> <Nop>
+inoremap <LeftMouse> <Nop>   "normally causes visual selection mode
+inoremap <2-LeftMouse> <Nop> "normally causes visual word selection mode
+inoremap <3-LeftMouse> <Nop> "normally causes visual line selection mode
+inoremap <4-LeftMouse> <Nop> "normally causes visual block selection mode
+
+" =====[ bookmarks ]=========
+" https://github.com/MattesGroeger/vim-bookmarks
+let g:bookmark_no_default_key_mappings = 1
+let g:bookmark_manage_per_buffer = 1
+let g:bookmark_save_per_working_dir = 0
+nmap bb <Plug>BookmarkToggle
+nmap bi <Plug>BookmarkAnnotate
+nmap ba <Plug>BookmarkShowAll
+nmap bj <Plug>BookmarkNext
+nmap bk <Plug>BookmarkPrev
+nmap bc <Plug>BookmarkClear
+nmap bx <Plug>BookmarkClearAll
+nmap bkk <Plug>BookmarkMoveUp
+nmap bjj <Plug>BookmarkMoveDown
+nmap bg <Plug>BookmarkMoveToLine
+nmap bat <Plug>BookmarkLoad .vim-bookmarks-tests
+
+" ALE https://github.com/w0rp/ale
+highlight ALEWarning ctermbg=DarkMagenta
+let g:ale_set_highlights = 0
+let g:ale_completion_enabled = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_delay = 2000
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
+let g:ale_open_list = 1
+" https://github.com/w0rp/ale/issues/20
+let g:ale_linters = {
+      \   'typescript': ["tslint", "tsserver"],
+      \   'tsx': ["tslint", "tsserver"],
+      \   'json': ["prettier"],
+      \   'yaml': ["prettier"],
+      \   'sh': ['shfmt'],
+      \}
+
+" Set this setting in vimrc if you want to fix files automatically on save.
+" This is off by default.
+"let g:ale_fix_on_save = 1
+let g:ale_fixers= {
+      \   'typescript': ["tslint"],
+      \   'tsx': ["tslint"],
+      \   'json': ["prettier"],
+      \   'yaml': ["prettier"],
+      \   'sh': ['shfmt'],
+      \}
+autocmd BufWritePre *.ts :ALEFix
+" autocmd BufEnter  *.ts :ALELint
+" https://github.com/w0rp/ale/issues/1306
+autocmd QuitPre * if empty(&bt) | lclose | endif
+autocmd BufWritePost * if empty(&bt) | lclose | endif
+
+
+" NERDCommenter: https://github.com/scrooloose/nerdcommenter
+let g:NERDSpaceDelims = 1
+" let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+
+" greenkeeping files
+" ==================
+" - consecutive blank lines: https://unix.stackexchange.com/questions/12812/replacing-multiple-blank-lines-with-a-single-blank-line-in-vim-sed
+" - whitespaces: https://stackoverflow.com/questions/356126/how-can-you-automatically-remove-trailing-whitespace-in-vim
+" - last empty line: https://stackoverflow.com/questions/7495932/how-can-i-trim-blank-lines-at-the-end-of-file-in-vim
+" - last semicolon: https://unix.stackexchange.com/posts/462443
+autocmd BufWritePre *.test1 silent! :%s/\s\+$//e | silent! :%s/\(\n\n\)\n\+/\1/ | silent! :%s#\($\n\s*\)\+\%$## | :%s/;$
+" - https://unix.stackexchange.com/questions/462668/vim-how-can-i-make-a-mapping-from-a-autocmd
+nnoremap ;; :silent! :%s/\s\+$//e \| silent! :%s/\(\n\n\)\n\+/\1/ \| silent! :%s#\($\n\s*\)\+\%$## \| silent! :%s/;$//<CR>
+nnoremap ;, :%s/1\. \[x\]/-/g<CR>
+inoremap <c-i> :tabnext<cr>
+:nmap cp :let @" = expand("%")<cr>
+
+set showtabline=2
+
+" search and replace
+" http://vim.wikia.com/wiki/Search_and_replace_the_word_under_the_cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+" https://stackoverflow.com/questions/676600/vim-search-and-replace-selected-text
+" https://stackoverflow.com/questions/6254820/perform-a-non-regex-search-replace-in-vim
+" http://vim.wikia.com/wiki/Simplifying_regular_expressions_using_magic_and_no-magic
+vnoremap <C-r> "hy:%sno/<C-r>h//g<left><left>
+
+" Fugitive
+" autocmd QuickFixCmdPost *grep* cwindow
+" nnoremap <leader>f :silent! :Ggrep <cword><CR> | :redraw
+:command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
+" nnoremap <leader>f :Ggr <cword><CR>
+
+" TODO
+" - search and replace in current folder recursivly
+" - rename variable in current folder recursivly (js, html, markdown)
+" - rename variable in current buffer
+
+" tranparent background
+hi Normal guibg=NONE ctermbg=NONE
+
+" ABANDONED
+" Dim Active
+" https://github.com/blueyed/vim-diminactive
+let g:diminactive_use_colorcolumn = 1
+let g:diminactive_enable_focus = 0
+highlight ColorColumn ctermbg=234
+
+" makros
+:nnoremap <Space>q @q
+:nnoremap <Space>d @d
+:let @m='f  lhvlg_S]A()jkjHjk'
+:let @n='f f f lvg_S]A()jk'
+map <leader>m f  lhvlg_S]A()jkjHjk
+
+" yaml http://www.zero-effort.net/tip-day-useful-vimrc-macro-editing-yaml-files/
+autocmd FileType yaml setlocal ai ts=2 sw=2 et colorcolumn=1,3,5,7,9,11,13 nu
+
+" https://github.com/pearofducks/ansible-vim
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+let g:ansible_unindent_after_newline = 1
+let g:ansible_yamlKeyName = 'yamlKey'
+let g:ansible_attribute_highlight = "ob"

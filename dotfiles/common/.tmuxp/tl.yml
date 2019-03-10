@@ -1,0 +1,21 @@
+session_name: tl
+start_directory: ~/cod/wo/thingylabs/kubernetes-provisioning
+windows:
+- window_name: "kubernetes-provisioning"
+  focus: 'true'
+  options:
+    automatic-rename: 'off'
+  panes:
+  - cd ~/cod/wo/thingylabs/kubernetes-provisioning && vim README.md
+- window_name: "calponia"
+  layout: tiled
+  shell_command_before:
+    - cd ~/cod/wo/thingylabs/calponia
+  panes:
+    - vim README.md
+- window_name: "tmuxp"
+  layout: 024f,237x56,0,0[237x48,0,0,1,237x7,0,49,4]
+  panes:
+    - vim ~/.tmuxp/tl.yml
+    - shell_command:
+        - sleep 3 && tmux select-window -t 1

@@ -1,0 +1,6 @@
+#!/bin/bash
+cd ~ || exit
+git pull
+
+cd ~/art/wik || exit
+git pull

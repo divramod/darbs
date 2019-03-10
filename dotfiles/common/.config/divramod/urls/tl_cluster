@@ -1,0 +1,2 @@
+https://dash.cloudflare.com/login
+https://159.69.150.183:6443/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=calponia

@@ -1,0 +1,31 @@
+Mar 09 03:02 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 09 03:02 : client: [0] opened from 127.0.0.1:54480
+Mar 09 03:02 : client: [0] closed
+Mar 09 03:02 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 09 03:02 : client: [1] opened from 127.0.0.1:54496
+Mar 09 05:51 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 09 05:51 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 09 05:51 : client: [0] opened from 127.0.0.1:49658
+Mar 09 05:53 : client: [1] opened from 127.0.0.1:49714
+Mar 09 05:53 : client: [1] closed
+Mar 09 06:26 : inotify: music directory was removed - cannot continue to watch it
+Mar 09 07:46 : client: [2] opened from 127.0.0.1:50722
+Mar 09 07:46 : client: [2] closed
+Mar 09 08:35 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 09 08:35 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 09 08:36 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 09 08:36 : client: [0] opened from 127.0.0.1:55432
+Mar 09 08:36 : client: [0] closed
+Mar 09 08:36 : client: [1] opened from 127.0.0.1:55440
+Mar 09 08:36 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 09 08:36 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 09 08:36 : client: [0] opened from 127.0.0.1:35092
+Mar 09 08:36 : client: [0] closed
+Mar 09 08:36 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 09 08:36 : client: [1] opened from 127.0.0.1:35144
+Mar 10 08:06 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 10 08:06 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 10 08:06 : client: [0] opened from 127.0.0.1:32994
+Mar 10 08:06 : client: [0] closed
+Mar 10 08:06 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 10 08:06 : client: [1] opened from 127.0.0.1:33002

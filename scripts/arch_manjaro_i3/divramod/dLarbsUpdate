@@ -1,0 +1,5 @@
+#!/bin/bash
+token="DX8sGLZEx2N8e5jS2Rep"
+repo_id="10868995"
+setup_file_path="arch_manjaro_i3_setup.sh"
+curl -o ~/setup.sh "https://gitlab.com/api/v4/projects/${repo_id}/repository/files/${setup_file_path}/raw?ref=master&private_token=${token}" && sudo bash ~/setup.sh

@@ -2,7 +2,7 @@
 
 # exports
 set -gx PATH ~/go/bin $PATH
-set -gx PATH $HOME/.scripts/divramod $PATH
+set -gx PATH $HOME/.darbs/scripts $PATH
 
 # gpg fixes
 # set -x GPG_TTY (tty)

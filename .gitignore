@@ -5,7 +5,7 @@ dotfiles/common/.config/nvim/pack/*
 
 dotfiles/common/.config/fish/completions/*
 dotfiles/common/.config/fish/functions/*
-dotfiles/common/.local/share/fish/fish_history
+dotfiles/common/.local/share
 
 .gitsecret/keys/random_seed
 dotfiles/common/.ssh/*

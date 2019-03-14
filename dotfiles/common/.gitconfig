@@ -1,6 +1,6 @@
 [user]
-  email = "divramod@gmail.com"
-  name = "divramod"
+	email = divramod@gmail.com
+	name = divramod
 
 [alias]
   p = !sh -c 'git cas60 && git commit -am && git push origin HEAD' -

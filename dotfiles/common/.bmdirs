@@ -34,9 +34,8 @@ mm    ~/med/mus
 mp    ~/med/pic
 ms    ~/med/sof
 md    ~/med/vid
-s     ~/.darbs/scripts
 t     ~/.tmuxp
-v     ~/.config/nvim
+vc     ~/.config/nvim
 va    ~/.config/nvim/pack
 vb    ~/vbo
 vp    ~/.config/nvim/plugged

@@ -3,7 +3,7 @@
 .b    ~/.bashrc
 .bd   ~/.bmdirs
 .bf   ~/.bmfiles
-.d    ~/.darbs/README.md
+.d    ~/.darbs/darbs
 .db   ~/.darbs/secrets/backup.csv
 .df   ~/.darbs/secrets/folders.csv
 .dm   ~/.darbs/secrets/mounts.csv
@@ -28,9 +28,11 @@
 .nu   ~/.config/newsboat/urls
 .p    ~/.profile
 .r    ~/.config/ranger/rc.conf
-.s    ~/.shortcuts
+.s    ~/.darbs/scripts
+.sh   ~/.shortcuts
 .t    ~/.tmux.conf
 .tb   ~/cod/te/bash/test.sh
+.u    ~/.config/divramod/urls
 .v    ~/.config/nvim/init.vim
 .vau  ~/.config/nvim/init/topic/autocmd.vim
 .vab  ~/.config/nvim/init/topic/abbreviations.vim

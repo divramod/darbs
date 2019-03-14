@@ -10,6 +10,8 @@ set incsearch
 set list
 hi Search ctermbg=Brown
 hi Search ctermfg=White
+:set smartcase
+:set ignorecase
 
 " http://vim.wikia.com/wiki/Search_and_replace_the_word_under_the_cursor
 :nnoremap <leader>r :%s/\<<C-r><C-w>\>//gc<left><left><left>
@@ -36,3 +38,9 @@ nnoremap <silent> <C-p> :nohl<CR><C-p>
 nnoremap S :%s//g<Left><Left>
 nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
+
+"=====[ Highlight matches when jumping to next ]=============
+
+" This rewires n and N to do the highlighing...
+" nnoremap <silent> n   n:call HLNext(0.4)<cr>
+" nnoremap <silent> N   N:call HLNext(0.4)<cr>

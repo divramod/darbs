@@ -3,6 +3,7 @@ let mapleader =","
 set nomodeline
 set clipboard=unnamed
 " autocmd BufWritePost ~/.config/i3/config :AsyncRun i3Restart
+:au FocusLost * silent! wa
 
 " source
 source ~/.vim/init/topic/settings.vim

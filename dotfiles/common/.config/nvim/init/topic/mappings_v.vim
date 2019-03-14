@@ -6,6 +6,12 @@
 " call arpeggio#map('v', '', 0, 'yco', '"+y')
 " call arpeggio#map('v', '', 0, 'bl', '<ESC>:wa!<CR>:b#<CR>')
 
+" from luk
+vnoremap K xkP`[V`]
+vnoremap J xp`[V`]
+vnoremap L >gv
+vnoremap H <gv
+
 call arpeggio#map('v', 's', 0, 'fi', '<ESC>gg=G') "indent
 
 " 3 digits

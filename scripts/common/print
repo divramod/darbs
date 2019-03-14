@@ -1,0 +1,113 @@
+#!/bin/bash
+set -eu -o pipefail
+
+# ==============================================================================
+
+# Paths
+: "${BASEDIR:="$(git rev-parse --show-toplevel)"}"
+
+# Options
+: "${SCRIPT_ACTION:="?"}"            # Action
+: "${TEST:=""}"                      # -t
+: "${DRY_RUN:="false"}"              # -d
+
+# ==============================================================================
+# Imports
+
+# shellcheck disable=SC1091
+# source "${BASEDIR}/scripts/libs/verbose.sh"
+
+# ==============================================================================
+# Usage
+
+# ------------------------------------------------------------------------------
+usage() {
+  local -r message="${1:-""}"
+
+  [ -n "${message}" ] &&
+    echo -e "\n\033[31m■■\033[0m \033[1m${message}\033[0m\n"
+  cat <<-EOTXT
+Usage:
+   [options]
+
+Options:
+  -t STRING       (TODO) Test
+  -d BOOLEAN      Dry run?
+  -h              Help
+
+Actions:
+  -T              Test
+  -B              Print for Booking
+EOTXT
+  [ -z "${message}" ] && exit 0 || exit 1
+}
+
+# ------------------------------------------------------------------------------
+arguments() {
+  while getopts t:dBT opt; do
+    case "${opt}" in
+    # options
+    t) TEST="${OPTARG}" ;;
+    d) DRY_RUN="true" ;;
+    B | T)
+      SCRIPT_ACTION="${opt}"
+      ;;
+    *) usage "You passed a non existant option! What is it you want to do?" ;;
+    esac
+  done
+  shift $((OPTIND - 1))
+}
+
+# ==============================================================================
+# Helpers
+
+# ==============================================================================
+# Actions
+
+# ------------------------------------------------------------------------------
+# TODO document
+# TODO mv to printed, when done
+print_for_booking() {
+  echo "Running print_for_booking()"
+  if [[ ! "${DRY_RUN}" = "true" ]]; then
+    mkdir tmp
+  fi
+  find . -maxdepth 1 -name "*.pdf" ! -path "./_*" -print0 | sort -z | while IFS= read -r -d $'\0' src_file; do
+    filename=$(basename "${src_file}")
+    number=$(echo "${filename}" | cut -c1-9)
+    echo "Print ${filename}"
+    if [[ "${DRY_RUN}" = "true" ]]; then
+      echo "number: ${number}"
+      echo "filename: ${filename}"
+    else
+      pdfjam --outfile "tmp/${filename}" --pagecommand "{========== ${number} ===========}" "${filename}"
+      lp -d HP_color_LaserJet_3700 "tmp/${filename}"
+    fi
+  done
+  if [[ ! "${DRY_RUN}" = "true" ]]; then
+    rm -rf tmp
+    nohup "${BROWSER}" http://localhost:631/jobs/ >/dev/null 2>&1 &
+  fi
+}
+
+# ==============================================================================
+# Execute
+main() {
+  arguments "${@}"
+
+  case "${SCRIPT_ACTION}" in
+  "B") # print for booking
+    print_for_booking
+    ;;
+  "T") # TODO
+    echo "test"
+    ;;
+  "?") # Help when no Option
+    usage "You passed no option! What is it you want to do?"
+    ;;
+  esac
+}
+
+# ------------------------------------------------------------------------------
+# execute if called directly
+[[ "${0}" == "${BASH_SOURCE[0]}" ]] && main "${@}"

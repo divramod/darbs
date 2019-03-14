@@ -63,3 +63,127 @@ Mar 10 12:05 : avahi: Service 'Music Player @ mod-t460p' successfully establishe
 Mar 10 12:06 : client: [1] opened from 127.0.0.1:51556
 Mar 10 14:35 : client: [2] opened from 127.0.0.1:53472
 Mar 10 14:35 : client: [2] closed
+Mar 11 04:43 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 11 04:43 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 11 04:43 : client: [0] opened from 127.0.0.1:34270
+Mar 11 04:43 : client: [0] closed
+Mar 11 04:43 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 11 04:44 : client: [1] opened from 127.0.0.1:34286
+Mar 11 07:24 : client: [2] opened from 127.0.0.1:35854
+Mar 11 07:24 : client: [2] closed
+Mar 11 07:27 : client: [3] opened from 127.0.0.1:35868
+Mar 11 07:27 : client: [3] closed
+Mar 11 07:28 : client: [4] opened from 127.0.0.1:35872
+Mar 11 07:28 : client: [4] closed
+Mar 11 07:28 : client: [5] opened from 127.0.0.1:35882
+Mar 11 07:28 : client: [5] closed
+Mar 11 07:31 : client: [6] opened from 127.0.0.1:36064
+Mar 11 07:31 : client: [6] closed
+Mar 11 08:29 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 11 08:29 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 11 08:29 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 11 08:29 : client: [0] opened from 127.0.0.1:33672
+Mar 11 08:30 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 11 08:30 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 11 08:30 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 11 08:30 : client: [0] opened from 127.0.0.1:59744
+Mar 11 08:30 : client: [0] closed
+Mar 11 08:30 : client: [1] opened from 127.0.0.1:59756
+Mar 11 08:34 : client: [2] opened from 127.0.0.1:59782
+Mar 11 08:34 : client: [2] closed
+Mar 11 08:34 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 11 08:34 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 11 08:34 : client: [0] opened from 127.0.0.1:50326
+Mar 11 08:34 : client: [0] closed
+Mar 11 08:34 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 11 08:35 : client: [1] opened from 127.0.0.1:50376
+Mar 11 10:38 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 11 10:38 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 11 10:38 : client: [0] opened from 127.0.0.1:37702
+Mar 11 10:38 : client: [0] closed
+Mar 11 10:38 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 11 10:38 : client: [1] opened from 127.0.0.1:37718
+Mar 11 10:49 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 11 10:49 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 11 10:49 : client: [0] opened from 127.0.0.1:57006
+Mar 11 10:49 : client: [0] closed
+Mar 11 10:49 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 11 10:49 : client: [1] opened from 127.0.0.1:57026
+Mar 11 12:17 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 11 12:17 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 11 12:17 : client: [0] opened from 127.0.0.1:44324
+Mar 11 12:17 : client: [0] closed
+Mar 11 12:17 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 11 12:17 : client: [1] opened from 127.0.0.1:44338
+Mar 11 13:25 : client: [2] opened from 127.0.0.1:45552
+Mar 11 13:25 : client: [2] closed
+Mar 11 14:26 : client: [3] opened from 127.0.0.1:46056
+Mar 11 14:26 : client: [3] closed
+Mar 12 04:38 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 12 04:38 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 12 04:38 : client: [0] opened from 127.0.0.1:36396
+Mar 12 04:38 : client: [0] closed
+Mar 12 04:38 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 12 04:38 : client: [1] opened from 127.0.0.1:36412
+Mar 12 13:50 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 12 13:50 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 12 13:50 : client: [0] opened from 127.0.0.1:54398
+Mar 12 13:50 : client: [0] closed
+Mar 12 13:50 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 12 13:50 : client: [1] opened from 127.0.0.1:54412
+Mar 12 15:02 : client: [2] opened from 127.0.0.1:55590
+Mar 12 15:02 : client: [2] closed
+Mar 12 16:07 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 12 16:07 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 12 16:07 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 12 16:07 : client: [0] opened from 127.0.0.1:41786
+Mar 12 16:07 : client: [0] closed
+Mar 12 16:07 : client: [1] opened from 127.0.0.1:41794
+Mar 12 19:59 : client: [2] opened from 127.0.0.1:43590
+Mar 12 19:59 : client: [2] closed
+Mar 13 03:40 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 13 03:40 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 13 03:40 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 13 03:40 : client: [0] opened from 127.0.0.1:60796
+Mar 13 04:09 : client: [1] opened from 127.0.0.1:33206
+Mar 13 04:09 : client: [1] closed
+Mar 13 04:29 : client: [2] opened from 127.0.0.1:33294
+Mar 13 04:29 : client: [2] closed
+Mar 13 04:51 : client: [3] opened from 127.0.0.1:33640
+Mar 13 04:51 : client: [3] closed
+Mar 13 04:52 : client: [4] opened from 127.0.0.1:33654
+Mar 13 04:52 : client: [4] closed
+Mar 13 04:52 : client: [5] opened from 127.0.0.1:33658
+Mar 13 04:52 : client: [5] closed
+Mar 13 04:53 : client: [6] opened from 127.0.0.1:33662
+Mar 13 04:53 : client: [6] closed
+Mar 13 04:53 : client: [7] opened from 127.0.0.1:33666
+Mar 13 04:53 : client: [7] closed
+Mar 13 11:21 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 13 11:21 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 13 11:21 : client: [0] opened from 127.0.0.1:46914
+Mar 13 11:21 : client: [0] closed
+Mar 13 11:21 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 13 11:21 : client: [1] opened from 127.0.0.1:46922
+Mar 13 12:29 : client: [2] opened from 127.0.0.1:48012
+Mar 13 12:29 : client: [2] closed
+Mar 13 13:37 : client: [3] opened from 127.0.0.1:48470
+Mar 13 13:37 : client: [3] closed
+Mar 13 14:49 : client: [4] opened from 127.0.0.1:48912
+Mar 13 14:49 : client: [4] closed
+Mar 14 03:48 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 14 03:48 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 14 03:48 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 14 03:48 : client: [0] opened from 127.0.0.1:33996
+Mar 14 04:06 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 14 04:06 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 14 04:06 : client: [0] opened from 127.0.0.1:38592
+Mar 14 04:06 : client: [0] closed
+Mar 14 04:06 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 14 04:06 : client: [1] opened from 127.0.0.1:38608
+Mar 14 09:36 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 14 09:36 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 14 09:36 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 14 09:37 : client: [0] opened from 127.0.0.1:46450
+Mar 14 10:40 : client: [1] opened from 127.0.0.1:48068
+Mar 14 10:41 : client: [1] closed

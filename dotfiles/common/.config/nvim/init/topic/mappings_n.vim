@@ -5,7 +5,6 @@
 
 " ------------------------------------------------------------------------------
 " TODO
-noremap <space> f<space>
 nnoremap <c-q> :qa!<CR>
 nnoremap <c-s> :wa!<CR>
 nnoremap <c-l> :wincmd l<CR>
@@ -14,6 +13,14 @@ nnoremap <c-k> :wincmd k<CR>
 nnoremap <c-j> :wincmd j<CR>
 nnoremap <c--> :vsplit<CR>
 nnoremap <c-,> :split<CR>
+" moving line one up
+nnoremap - ddp<esc>
+" moving line one down
+:nnoremap _ dd2kp<esc>
+"edit vimrc
+:nnoremap <leader>ev :split $MYVIMRC<cr>
+"Sourcing Mapping
+:nnoremap <leader>sv :source $MYVIMRC<cr>
 
 call arpeggio#map('n', 's', 0, 'fi', 'gg=G')
 
@@ -68,7 +75,9 @@ call arpeggio#map('n', '', 0, 'se', ':OpenSession ') "session
 call arpeggio#map('n', '', 0, 'sv', ':vsplit<CR>:CtrlPCurWD<CR>') "ctrlp
 call arpeggio#map('n', '', 0, 'sh', ':split<CR>:CtrlPCurWD<CR>') "ctrlp
 call arpeggio#map('n', '', 0, 'te', ':tabedit<CR>:CtrlPCurWD<CR>') "ctrlp
+call arpeggio#map('n', '', 0, 'te', ':tabedit<CR>:CtrlPCurWD<CR>') "ctrlp
 call arpeggio#map('n', '', 0, 'yl', '"+yy') "yank
+call arpeggio#map('n', '', 0, 'vr', ':edit ~/.config/nvim/init.vim<CR>') "vrc / init.vim
 
 call arpeggio#map('n', '', 0, '9', '9gt') "tab
 call arpeggio#map('n', '', 0, '8', '8gt') "tab
@@ -79,6 +88,8 @@ call arpeggio#map('n', '', 0, '4', '4gt') "tab
 call arpeggio#map('n', '', 0, '3', '3gt') "tab
 call arpeggio#map('n', '', 0, '2', '2gt') "tab
 call arpeggio#map('n', '', 0, '1', '1gt') "tab
+call arpeggio#map('n', '', 0, 'F', 'F<SPACE>') "write quit all
+call arpeggio#map('n', '', 0, 'f', 'f<SPACE>') "write quit all
 
 " autocmd BufWritePost ~/art/wik/* :AsyncRun wikiUp
 " autocmd BufRead ~/art/wik/dashboard.md :AsyncRun dRepoPullUpdate ~/art/wik

@@ -1,0 +1,11 @@
+#!/bin/bash
+file=$(find "${1}"/* -maxdepth 9 -type f ! -path '*.git*' | fzf)
+if [[ -n "${file}" ]]; then
+
+  if [[ "${file}" == *".pdf"* ]]; then
+    i3-msg "exec zathura '${file}'"
+  else
+    vim "${file}"
+  fi
+
+fi

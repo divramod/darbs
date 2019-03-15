@@ -7,7 +7,9 @@ set -eu -o pipefail
 
 # ==============================================================================
 # TODO
-# - choose maxdepth
+# - choose maxdepth (. no depth; 1..n -maxdepth)
+# - add file chooser (fzf -m) <TAB> to mark multiple items (-f)
+# - open cups browser (-o)
 
 # ==============================================================================
 

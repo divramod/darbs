@@ -1,2 +1,0 @@
-#!/bin/bash
-cd ~/art/wik && vim README.md -c ":silent! VimwikiMakeDiaryNote"

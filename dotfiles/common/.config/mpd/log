@@ -187,3 +187,77 @@ Mar 14 09:36 : avahi: Service 'Music Player @ mod-t460p' successfully establishe
 Mar 14 09:37 : client: [0] opened from 127.0.0.1:46450
 Mar 14 10:40 : client: [1] opened from 127.0.0.1:48068
 Mar 14 10:41 : client: [1] closed
+Mar 14 19:24 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 14 19:24 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 14 19:24 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 14 19:24 : client: [0] opened from 127.0.0.1:41410
+Mar 14 19:24 : client: [0] closed
+Mar 14 19:24 : client: [1] opened from 127.0.0.1:41424
+Mar 15 04:42 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 15 04:42 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 15 04:42 : client: [0] opened from 127.0.0.1:42320
+Mar 15 04:42 : client: [0] closed
+Mar 15 04:42 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 15 04:42 : client: [1] opened from 127.0.0.1:42338
+Mar 15 05:58 : client: [2] opened from 127.0.0.1:43592
+Mar 15 05:58 : client: [2] closed
+Mar 15 06:27 : client: [3] opened from 127.0.0.1:44028
+Mar 15 06:27 : client: [3] closed
+Mar 15 06:29 : client: [4] opened from 127.0.0.1:44038
+Mar 15 06:29 : client: [4] closed
+Mar 15 06:34 : client: [5] opened from 127.0.0.1:44050
+Mar 15 06:34 : client: [5] closed
+Mar 15 06:35 : client: [6] opened from 127.0.0.1:44062
+Mar 15 06:35 : client: [6] closed
+Mar 15 06:36 : client: [7] opened from 127.0.0.1:44070
+Mar 15 06:36 : client: [7] closed
+Mar 15 06:36 : client: [8] opened from 127.0.0.1:44074
+Mar 15 06:36 : client: [8] closed
+Mar 15 06:36 : client: [9] opened from 127.0.0.1:44080
+Mar 15 06:36 : client: [9] closed
+Mar 15 06:37 : client: [10] opened from 127.0.0.1:44086
+Mar 15 06:37 : client: [10] closed
+Mar 15 06:50 : client: [11] opened from 127.0.0.1:44222
+Mar 15 06:50 : client: [11] closed
+Mar 15 06:50 : client: [12] opened from 127.0.0.1:44226
+Mar 15 06:50 : client: [12] closed
+Mar 15 06:51 : client: [13] opened from 127.0.0.1:44240
+Mar 15 06:51 : client: [13] closed
+Mar 15 06:51 : client: [14] opened from 127.0.0.1:44244
+Mar 15 06:51 : client: [14] closed
+Mar 15 06:52 : client: [15] opened from 127.0.0.1:44250
+Mar 15 06:52 : client: [15] closed
+Mar 15 06:52 : client: [16] opened from 127.0.0.1:44256
+Mar 15 06:52 : client: [16] closed
+Mar 15 06:53 : client: [17] opened from 127.0.0.1:44262
+Mar 15 06:53 : client: [17] closed
+Mar 15 06:53 : client: [18] opened from 127.0.0.1:44266
+Mar 15 06:53 : client: [18] closed
+Mar 15 06:53 : client: [19] opened from 127.0.0.1:44272
+Mar 15 06:53 : client: [19] closed
+Mar 15 06:54 : client: [20] opened from 127.0.0.1:44276
+Mar 15 06:54 : client: [20] closed
+Mar 15 06:54 : client: [21] opened from 127.0.0.1:44280
+Mar 15 06:54 : client: [21] closed
+Mar 15 06:54 : client: [22] opened from 127.0.0.1:44284
+Mar 15 06:54 : client: [22] closed
+Mar 15 06:54 : client: [23] opened from 127.0.0.1:44288
+Mar 15 06:54 : client: [23] closed
+Mar 15 06:55 : client: [24] opened from 127.0.0.1:44302
+Mar 15 06:55 : client: [24] closed
+Mar 15 06:57 : client: [25] opened from 127.0.0.1:44322
+Mar 15 06:57 : client: [25] closed
+Mar 15 06:58 : client: [26] opened from 127.0.0.1:44328
+Mar 15 06:58 : client: [26] closed
+Mar 15 07:16 : client: [27] opened from 127.0.0.1:44806
+Mar 15 07:16 : client: [27] closed
+Mar 15 07:24 : client: [28] opened from 127.0.0.1:44982
+Mar 15 07:24 : client: [28] closed
+Mar 15 07:25 : client: [29] opened from 127.0.0.1:44992
+Mar 15 07:25 : client: [29] closed
+Mar 15 15:21 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 15 15:21 : exception: inotify_add_watch() has failed: No such file or directory
+Mar 15 15:21 : client: [0] opened from 127.0.0.1:49554
+Mar 15 15:21 : client: [0] closed
+Mar 15 15:21 : avahi: Service 'Music Player @ mod-t460p' successfully established.
+Mar 15 15:21 : client: [1] opened from 127.0.0.1:49572

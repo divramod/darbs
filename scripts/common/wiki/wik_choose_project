@@ -1,0 +1,4 @@
+#!/bin/bash
+# fish -c 'tmux new -c "echo hello"'
+# tmux new -c "echo hello"
+tmuxp load -y tl

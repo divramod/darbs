@@ -1,7 +1,0 @@
-#!/bin/bash
-ask() { \
-  file=$(cat ~/.darbs/scripts/arch_manjaro_i3/pathes  | dmenu -i -p "Open File in:")
-  i3-msg "exec st -e general ${file}"
-}
-
-ask

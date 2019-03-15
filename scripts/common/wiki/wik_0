@@ -1,0 +1,3 @@
+#!/bin/bash
+cd ~/art/wik || exit
+vim README.md -c "VimwikiMakeDiaryNote" -c "tabedit gtd/0_week.md" -c "tabedit gtd/2_backlog.md" -c "tabedit met/README.md"  -c "tabnew | :VimwikiMakeTomorrowDiaryNote" -c "tabnew | :VimwikiMakeYesterdayDiaryNote" -c "tabfirst"

@@ -84,4 +84,6 @@ autocmd VimResized * wincmd =
 " syntax enable
 " set background=dark
 " colorscheme solarized
-
+set cursorline!
+hi CursorLine   cterm=NONE ctermbg=DarkGrey ctermfg=white guibg=darkred guifg=white
+hi StatusLineTerm ctermbg=red

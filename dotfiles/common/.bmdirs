@@ -27,6 +27,11 @@ dst   ~/.darbs/scripts/termux
 dc    ~/doc
 de    ~/des
 dw    ~/dow
+m1    /mnt/1
+m2    /mnt/2
+m3    /mnt/3
+mhd11    /mnt/hd11
+mhd12    /mnt/hd1
 ma    ~/med/aud
 me    ~/med/ebo
 mi    ~/med/img

@@ -185,9 +185,14 @@ bindsym $mod+f			fullscreen toggle
 bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "<b>Distraction-free mode activated.</b> Press Super+Shift+f to return."
 
 # bindsym $mod+g			workspace prev
-
-bindsym $mod+g		exec --no-startup-id dmenu_general
-bindsym $mod+Shift+g		exec --no-startup-id gimp; workspace $ws5
+# bindsym $mod+Shift+g		exec --no-startup-id dmenu_wik
+# bindsym $mod+Shift+c		exec --no-startup-id dmenu_darbs
+# bindsym $mod+Shift+g		exec --no-startup-id gimp; workspace $ws5
+# bindsym $mod+c			exec --no-startup-id freealf
+bindsym $mod+c		exec st -e tmux -c 'general ~/.darbs'
+bindsym $mod+Shift+c		exec st -e tmux -c 'general ~/art/wik'
+bindsym $mod+g		exec st -e "wik_choose_project"
+bindsym $mod+Shift+g		exec --no-startup-id camtoggle
 
 bindsym $mod+h			focus left
 bindsym $mod+Shift+h		move left 30
@@ -207,8 +212,6 @@ bindsym $mod+Shift+z		gaps outer current minus 5
 bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -e -f -c 1d2021
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 
-bindsym $mod+c			exec --no-startup-id freealf
-bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 
 bindsym $mod+v			exec --no-startup-id flameshot gui
 

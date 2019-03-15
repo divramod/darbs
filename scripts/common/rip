@@ -1,0 +1,111 @@
+#!/bin/bash
+set -eu -o pipefail
+
+# ==============================================================================
+
+# Paths
+: "${BASEDIR:="$(git rev-parse --show-toplevel)"}"
+
+# Options
+: "${SCRIPT_ACTION:="?"}"            # Action
+: "${TEST:=""}"                      # -t
+
+# ==============================================================================
+# Imports
+
+# shellcheck disable=SC1091
+# source "${BASEDIR}/scripts/libs/verbose.sh"
+
+# ==============================================================================
+# Usage
+
+# ------------------------------------------------------------------------------
+usage() {
+  local -r message="${1:-""}"
+
+  [ -n "${message}" ] &&
+    echo -e "\n\033[31m■■\033[0m \033[1m${message}\033[0m\n"
+  cat <<-EOTXT
+Usage:
+  rip [options]
+
+Options:
+  -t STRING       (TODO) Test
+  -h              Help
+
+Actions:
+  -C              Convert
+  -T              Test
+EOTXT
+  [ -z "${message}" ] && exit 0 || exit 1
+}
+
+# ------------------------------------------------------------------------------
+arguments() {
+  while getopts t:CT opt; do
+    case "${opt}" in
+    # options
+    t) TEST="${OPTARG}" ;;
+    C | T)
+      SCRIPT_ACTION="${opt}"
+      ;;
+    *) usage "You passed a non existant option! What is it you want to do?" ;;
+    esac
+  done
+  shift $((OPTIND - 1))
+}
+
+# ==============================================================================
+# Helpers
+
+# ==============================================================================
+# Actions
+
+# ------------------------------------------------------------------------------
+# TODO document
+convert() {
+  echo "Running convert()"
+  dirs=$(find . -maxdepth 1 ! -path . -type d -print0 | sort -z | while IFS= read -r -d $'\0' src_dir; do
+    echo "${src_dir}"
+  done | fzf -m)
+  while read -r dir; do
+    echo "$dir"
+    find "${dir}" ! -path "${dir}" -type f -print0 | sort -z | while IFS= read -r -d $'\0' src_file; do
+      echo "src_file: ${src_file}"
+      lame -V0 "${src_file}"
+    done
+    raw_cd_path="$(pwd)/$(basename "${dir}")"
+    mp3_cd_path="../mp3/$(basename "${dir}")"
+    mkdir -p "${mp3_cd_path}"
+    pwd
+    mv "${raw_cd_path}/"*".mp3" "${mp3_cd_path}"
+  done <<< "$dirs"
+}
+
+# ------------------------------------------------------------------------------
+# TODO document
+move_to_corresponding_dir() {
+  echo "Running move_to_corresponding_dir()"
+}
+
+# ==============================================================================
+# Execute
+main() {
+  arguments "${@}"
+
+  case "${SCRIPT_ACTION}" in
+  "C") # Convert
+    convert
+    ;;
+  "T") # TODO
+    echo "test"
+    ;;
+  "?") # Help when no Option
+    usage "You passed no option! What is it you want to do?"
+    ;;
+  esac
+}
+
+# ------------------------------------------------------------------------------
+# execute if called directly
+[[ "${0}" == "${BASH_SOURCE[0]}" ]] && main "${@}"

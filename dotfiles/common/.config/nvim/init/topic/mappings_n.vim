@@ -63,6 +63,7 @@ call arpeggio#map('n', '', 0, 'da', 'yyp') "yank duplicate double
 call arpeggio#map('n', '', 0, 'lt', ':LToggle<CR>') "loclist
 call arpeggio#map('n', '', 0, 'fn', ':<ESC>:silent! NERDTreeFind<CR>') "nerdtree
 call arpeggio#map('n', '', 0, 'nq', ':NERDTreeClose<CR>') "nerdtree
+call arpeggio#map('n', '', 0, 'gw', ':VimwikiToggleListItem<CR>') "nerdtree
 call arpeggio#map('n', '', 0, 'nt', ':NERDTreeToggle<CR>') "nerdtree
 call arpeggio#map('n', '', 0, 'pq', '"+pa') "paste
 call arpeggio#map('n', '', 0, 'qt', ':QToggle<CR>') "quickfix
@@ -78,6 +79,7 @@ call arpeggio#map('n', '', 0, 'te', ':tabedit<CR>:CtrlPCurWD<CR>') "ctrlp
 call arpeggio#map('n', '', 0, 'te', ':tabedit<CR>:CtrlPCurWD<CR>') "ctrlp
 call arpeggio#map('n', '', 0, 'yl', '"+yy') "yank
 call arpeggio#map('n', '', 0, 'vr', ':edit ~/.config/nvim/init.vim<CR>') "vrc / init.vim
+call arpeggio#map('n', '', 0, 'tp', ':tabprevious<CR>') "tab previous
 
 call arpeggio#map('n', '', 0, '9', '9gt') "tab
 call arpeggio#map('n', '', 0, '8', '8gt') "tab

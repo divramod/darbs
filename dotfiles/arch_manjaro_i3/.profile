@@ -2,7 +2,7 @@
 # Profile file. Runs on login.
 
 # Adds `~/.scripts` and all subdirectories to $PATH
-export PATH="$PATH:$(du "$HOME/.darbs/scripts/arch_manjaro_i3/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')":":$(du "$HOME/.darbs/scripts/common/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')":"$HOME/.screenlayout":"$HOME/.darbs"
+export PATH="$PATH:$(du "$HOME/.darbs/scripts/arch_manjaro_i3/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')":":$(du "$HOME/.darbs/scripts/common/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')":"$HOME/.screenlayout":"$HOME/.darbs":"$HOME/.config/nvim/plugged/tagbar-markdown/bin"
 export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="google-chrome"

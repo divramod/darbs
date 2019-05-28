@@ -1,0 +1,26 @@
+session_name: cbot
+start_directory: ~/cod/wo/thingylabs/calpobot
+windows:
+- window_name: 'calpobot1'
+  start_directory: ~/cod/wo/thingylabs/calpobot/1
+  panes:
+  - vim -c ":edit src/index.ts" -c ":vertical terminal npm run dev" -c ":terminal npm run build:watch"
+- window_name: 'pipeline-testing'
+  start_directory: ~/cod/wo/thingylabs/pipeline-testing
+  panes:
+  - vr
+- window_name: 'calpobot2'
+  start_directory: ~/cod/wo/thingylabs/calpobot/2
+  panes:
+  - vr
+- window_name: 'divramod-poc-probot'
+  start_directory: ~/cod/wo/thingylabs/divramod-poc-probot
+  panes:
+  - vr
+- window_name: "(cb1) tmuxp"
+  start_directory: ~/.tmuxp
+  panes:
+  - shell_command:
+    - sleep 2
+    - tmux select-window -t 1
+    - vim ~/.tmuxp/cbot.yml

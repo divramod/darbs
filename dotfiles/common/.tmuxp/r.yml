@@ -1,0 +1,15 @@
+session_name: r
+start_directory: ~/art/tra/track
+windows:
+- window_name: "r"
+  focus: 'true'
+  options:
+    automatic-rename: 'off'
+  panes:
+  - vim -c "edit track.Rmd"
+- window_name: "tmuxp"
+  layout: 024f,237x56,0,0[237x48,0,0,1,237x7,0,49,4]
+  panes:
+    - vim ~/.tmuxp/r.yml
+    - shell_command:
+        - sleep 1 && tmux select-window -t 1

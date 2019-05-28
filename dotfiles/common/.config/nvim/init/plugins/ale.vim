@@ -16,7 +16,7 @@ let g:ale_linters = {
 			\   'tsx': ["tslint", "tsserver"],
 			\   'json': ["prettier"],
 			\   'yaml': ["prettier"],
-      \   'sh': ['shellcheck'],
+      \   'sh': ['shellcheck -s bash'],
 			\}
 
 " Set this setting in vimrc if you want to fix files automatically on save.
@@ -36,3 +36,6 @@ autocmd BufWritePre *.ts :ALEFix
 " https://github.com/w0rp/ale/issues/1306
 autocmd QuitPre * if empty(&bt) | lclose | endif
 autocmd BufWritePost * if empty(&bt) | lclose | endif
+
+" shellcheck
+let g:ale_sh_shellcheck_exclusions = 'SC1091,SC1090'

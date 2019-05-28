@@ -1,0 +1,18 @@
+session_name: cnia
+start_directory: ~/cod/wo/thingylabs/calponia
+windows:
+- window_name: "calponia1 (continous)"
+  start_directory: ~/cod/wo/thingylabs/calponia/1
+  panes:
+    - vim -O .gitlab-ci.yml .gitlab-auto_devops.sh
+- window_name: "calponia2 (continuous-testing)"
+  start_directory: ~/cod/wo/thingylabs/calponia/2
+  panes:
+    - vim -O .gitlab-ci.yml .gitlab-auto_devops.sh
+- window_name: "tmuxp"
+  start_directory: ~/.tmuxp
+  panes:
+  - shell_command:
+    - sleep 2
+    - tmux select-window -t 1
+    - vim ~/.tmuxp/cnia.yml

@@ -1,0 +1,14 @@
+#!/bin/bash
+cd ~/art/wik || exit
+vim README.md \
+  -c "VimwikiMakeDiaryNote" \
+  -c "tabedit diary/2019-quartal-1.md" \
+  -c "tabedit inb/t460p.md" \
+  -c "tabedit gtd/2_backlog.md" \
+  -c "tabedit ref/sideprojects/_.md" \
+  -c "tabedit ref/craftsman/_.md" \
+  -c "tabnew | :edit ~/.darbs/scripts/common/wiki/wik" \
+  -c "tabfirst"
+  # -c "tabnew | :VimwikiMakeTomorrowDiaryNote" \
+  # -c "tabnew | :VimwikiMakeYesterdayDiaryNote" \
+  # -c "tabedit met/README.md" \

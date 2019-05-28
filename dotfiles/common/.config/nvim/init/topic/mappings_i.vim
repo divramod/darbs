@@ -1,27 +1,48 @@
 " ==============================================================================
 " INSERT MODE KEY MAPPINGS: ORDER MATTERS! (more complex first)
 
-" S7
+" ------------------------------------------------------------------------------
+" vim
+" ------------------------------------------------------------------------------
 nnoremap <c-q> <ESC>:qa!<CR>
 nnoremap <c-s> <ESC>:wa!i<CR>
 inoremap <c-v> <ESC>"+pa
 
-" buffers
-call arpeggio#map('i', '', 0, 'sf', '<SPACE><C-o>:call UltiSnips#ExpandSnippet()<CR><ESC>i') " expand UltiSnips
-call arpeggio#map('i', '', 0, 'ycl', '<ESC>"+yy') " yank line to clipboard
-call arpeggio#map('i', '', 0, 'pl', '<ESC>"+pa') " paste line from clipboard
+" ------------------------------------------------------------------------------
+" emacs 4
+" ------------------------------------------------------------------------------
 call arpeggio#map('i', '', 0, 'jkwq', '<ESC>:wqa!<CR>') " write/quit all
-call arpeggio#map('i', '', 0, 'jkw', '<ESC>:wa!<CR>') " write all
-call arpeggio#map('i', '', 0, 'jkq', '<ESC>:qa!<CR>') " quit all
-call arpeggio#map('i', '', 0, 'jk', '<ESC>') " write
-call arpeggio#map('i', '', 0, 'kq', '<ESC>:qa!<CR>') " quit all
-call arpeggio#map('i', '', 0, 'kw', '<ESC>:wa!<CR>A') " write all
-call arpeggio#map('i', '', 0, 'da', '<ESC>yyp') " duplicate line
+
+" ------------------------------------------------------------------------------
+" emacs 3
+" ------------------------------------------------------------------------------
 call arpeggio#map('i', '', 0, 'bwq', '<ESC>:wq!<CR>') " write/quit buffer
-call arpeggio#map('i', '', 0, 'bq', '<ESC>:q!<CR>') " quit buffer
 call arpeggio#map('i', '', 0, 'ciw', '<ESC>ciw') " delete inner word <insert>
 call arpeggio#map('i', '', 0, 'diw', '<ESC>diw') " delete inner word
+call arpeggio#map('i', '', 0, 'jkq', '<ESC>:qa!<CR>') " quit all
+call arpeggio#map('i', '', 0, 'jkw', '<ESC>:wa!<CR>') " write all
+call arpeggio#map('i', '', 0, 'ycl', '<ESC>"+yy') " yank line to clipboard
 
+" ------------------------------------------------------------------------------
+" emacs 2
+" ------------------------------------------------------------------------------
+call arpeggio#map('i', '', 0, 'jkl', '<ESC>:call UltiSnips#JumpForwards()<CR>') "session
+call arpeggio#map('i', '', 0, 'ijl', '<ESC>:call UltiSnips#JumpBackwards()<CR>') "session
+call arpeggio#map('i', '', 0, 'kl', '<SPACE><ESC>:call UltiSnips#ExpandSnippet()<CR>') "session
+call arpeggio#map('i', '', 0, 'bq', '<ESC>:q!<CR>') " quit buffer
+call arpeggio#map('i', '', 0, 'da', '<ESC>yyp') " duplicate line
+call arpeggio#map('i', '', 0, 'jk', '<ESC>')
+call arpeggio#map('i', '', 0, 'kq', '<ESC>:qa!<CR>') " quit all
+call arpeggio#map('i', '', 0, 'kw', '<ESC>:wa!<CR>A') " write all
+call arpeggio#map('i', '', 0, 'pl', '<ESC>"+pa') " paste line from clipboard
+call arpeggio#map('n', '', 0, 'gp', '<ESC>g;')
+call arpeggio#map('n', '', 0, 'gn', '<ESC>g,')
+call arpeggio#map('n', '', 0, '0i', '<ESC>I')
+call arpeggio#map('n', '', 0, '9i', '<ESC>A')
+
+" ------------------------------------------------------------------------------
+" TODO
+" ------------------------------------------------------------------------------
 " call arpeggio#map('i', '', 0, 'bl', '<ESC>:wa!<CR>:b#<CR>')
 " call arpeggio#map('i', '', 0, 'bo', '<ESC>:only<CR>')
 " call arpeggio#map('i', 's', 0, 'fi', '<ESC>gg=G')

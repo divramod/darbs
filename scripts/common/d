@@ -1,0 +1,3 @@
+#!/bin/bash
+# tmux new-window general "${1}"
+general ~/.darbs

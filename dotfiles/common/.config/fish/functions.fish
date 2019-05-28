@@ -15,7 +15,8 @@ function se
 end
 
 function vf
- fzf | xargs -r -I % $EDITOR %
+  # ag --hidden --skip-vcs-ignores --ignore .git -l -g "" | fzf | xargs -r -I % $EDITOR %
+  vim -c ":Files"
 end
 
 function sv

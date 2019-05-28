@@ -1,2 +1,2 @@
 #!/bin/sh
-$BROWSER --new-window
+i3 "exec --no-startup-id dropdown_dropdownchrome"

@@ -1,2 +1,124 @@
 #!/bin/bash
-xrandr --output HDMI1 --brightness 1.2
+#!/bin/bash
+set -eu -o pipefail
+
+# ==============================================================================
+
+# Paths
+: "${BASEDIR:="$(git rev-parse --show-toplevel)"}"
+: "${MONITOR_LOCK_FILE:="/home/mod/.darbs/scripts/common/.monitor.lock"}"
+
+# Options
+: "${SCRIPT_ACTION:="?"}"            # Action
+: "${CHOOSE_MONITOR:="false"}"       # -c
+: "${VALUE:=""}"                     # -v
+
+# ==============================================================================
+# Imports
+
+# shellcheck disable=SC1091
+# source "${BASEDIR}/scripts/libs/verbose.sh"
+
+# ==============================================================================
+# Usage
+
+# ------------------------------------------------------------------------------
+usage() {
+  local -r message="${1:-""}"
+
+  [ -n "${message}" ] &&
+    echo -e "\n\033[31m■■\033[0m \033[1m${message}\033[0m\n"
+  cat <<-EOTXT
+Usage:
+  monitor [options]
+
+Options:
+  -c STRING       choose monitor
+  -v STRING       value: for example brightness: 1 (10%) - 20 (200%)
+  -h              Help
+
+Actions:
+  -B              Choose
+  -T              Test
+EOTXT
+  [ -z "${message}" ] && exit 0 || exit 1
+}
+
+# ------------------------------------------------------------------------------
+arguments() {
+  while getopts v:t:cBT opt; do
+    case "${opt}" in
+    # options
+    v)
+      VALUE="$(echo "scale=2; ${OPTARG} / 10" | bc)" ;;
+    c) CHOOSE_MONITOR="true" ;;
+    B | T)
+      SCRIPT_ACTION="${opt}"
+      ;;
+    *) usage "You passed a non existant option! What is it you want to do?" ;;
+    esac
+  done
+  shift $((OPTIND - 1))
+}
+
+# ==============================================================================
+# Helpers
+
+# ==============================================================================
+# Actions
+
+# ------------------------------------------------------------------------------
+# TODO document
+choose_monitor() {
+  if [[ "${CHOOSE_MONITOR}" = "true" ]]; then
+    monitors=$(xrandr | grep " connected " | grep -oE "^\S*")
+    MONITOR=$(echo "${monitors}" | fzf)
+    echo "${MONITOR}" > "${MONITOR_LOCK_FILE}"
+  fi
+}
+
+# ------------------------------------------------------------------------------
+# TODO document
+monitor_get_current() {
+  if [[ ! -f "${MONITOR_LOCK_FILE}" ]]; then
+    touch "${MONITOR_LOCK_FILE}"
+    choose_monitor
+  fi
+  cat "${MONITOR_LOCK_FILE}"
+}
+
+# ------------------------------------------------------------------------------
+set_brightness() {
+  echo "Running set_brightness()"
+  if [[ "${VALUE}" = "" ]]; then
+    echo "You defined no value for brightness: add -v 1 (10%) - 20 (200%)"
+    xrandr --output "$(monitor_get_current)" --brightness 1
+  else
+    xrandr --output "$(monitor_get_current)" --brightness "${VALUE}"
+  fi
+}
+
+# ==============================================================================
+# Execute
+main() {
+  arguments "${@}"
+
+  choose_monitor
+
+  case "${SCRIPT_ACTION}" in
+  "B") # set_brightness
+    set_brightness
+    ;;
+  "T") # TODO
+    echo "test"
+    xrandr --output HDMI1 --brightness 1.0
+    ;;
+  "?") # Help when no Option
+    usage "You passed no option! What is it you want to do?"
+    ;;
+  esac
+}
+
+# ------------------------------------------------------------------------------
+# execute if called directly
+[[ "${0}" == "${BASH_SOURCE[0]}" ]] && main "${@}"

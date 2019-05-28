@@ -1,8 +1,16 @@
-" ============================================================================== 
+" ==============================================================================
 " switch https://github.com/AndrewRadev/switch.vim
 
 let g:switch_custom_definitions =
 			\ [
+			\   ['calponia', 'devops', 'calpobot'],
+			\   ['create', 'read', 'update', 'delete'],
+			\   ['Create', 'Read', 'Update', 'Delete'],
+			\   ['CREATE', 'READ', 'UPDATE', 'DELETE'],
+			\   ['enabled', 'disabled'],
+			\   ['master', 'worker', 'etcd'],
+			\   ['MASTER', 'WORKER', 'ETCD'],
+			\   ['local', 'declare'],
 			\   ['yes', 'no'],
 			\   ['YES', 'NO'],
 			\   ['private', 'public'],
@@ -23,7 +31,7 @@ let g:switch_custom_definitions =
 			\   ['export', 'import'],
 			\   ['Linus', 'Yamo', 'Friedolin', 'Katja', 'Arvid'],
 			\   ['ag-it', 'ag-finanzen', 'ag-netzwerk', 'ag-pr', 'ag-raum', 'ag-recht'],
-			\   ['------------------------------------------------------------------------------', '=============================================================================='],
+			\   ['--------------------------------------------------------------------------------', '================================================================================', '................................................................................' ],
 			\   ['open', 'closed'],
 			\   ['width', 'height'],
 			\   ['frontend', 'backend'],
@@ -55,17 +63,10 @@ let g:switch_custom_definitions =
 			\   ['ERROR', 'SUCCESS'],
 			\   ['login', 'logout', 'register'],
 			\   ['LOGIN', 'LOGOUT', 'REGISTER'],
-			\   ['[x]', '[ ]'],
+			\   ['[X]', '[ ]', '[-]'],
 			\   ['/', '\'],
 			\   ['var', 'let', 'const'],
 			\   ['describe.only(', 'describe.skip(', 'describe('],
 			\   ['it.only(', 'it.skip(', 'it('],
-			\     {
-			\       '\<[a-z0-9]\+_\k\+\>': {
-			\         '_\(.\)': '\U\1'
-			\       },
-			\       '\<[a-z0-9]\+[A-Z]\k\+\>': {
-			\         '\([A-Z]\)': '_\l\1'
-			\       },
-			\     }
 			\ ]
+

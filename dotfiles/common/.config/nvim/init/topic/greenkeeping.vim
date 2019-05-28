@@ -5,5 +5,4 @@
 let g:DVB_TrimWS = 1
 
 " Automatically deletes all trailing whitespace on save.
-	autocmd BufWritePre * %s/\s\+$//e
-
+	" autocmd BufWritePre * %s/\s\+$//e

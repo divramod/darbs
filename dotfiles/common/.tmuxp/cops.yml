@@ -1,0 +1,28 @@
+session_name: cops
+start_directory: ~/cod/wo/thingylabs/devops
+windows:
+- window_name: "ops-1"
+  start_directory: ~/cod/wo/thingylabs/devops/1
+  panes:
+    - vim README.md
+- window_name: "ops-2"
+  start_directory: ~/cod/wo/thingylabs/devops/2
+  panes:
+    - vim README.md
+- window_name: "ops-3"
+  start_directory: ~/cod/wo/thingylabs/devops/3
+  panes:
+    - vim README.md
+- window_name: "ops-4"
+  start_directory: ~/cod/wo/thingylabs/devops/4
+  panes:
+    - vim README.md
+- window_name: "ops-master"
+  start_directory: ~/cod/wo/thingylabs/devops/master
+  panes:
+    - vim README.md
+- window_name: "tmuxp"
+  start_directory: ~/.tmuxp
+  panes:
+  - shell_command:
+      - sleep 1 && tmux select-window -t 1 && vim ~/.tmuxp/cops.yml

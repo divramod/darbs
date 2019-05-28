@@ -37,7 +37,7 @@ class my_edit(Command):
             # reference to the currently selected file.
             target_filename = self.fm.thisfile.path
 
-        # This is a generic function to print text in ranger.  
+        # This is a generic function to print text in ranger.
         self.fm.notify("Let's edit the file " + target_filename + "!")
 
         # Using bad=True in fm.notify allows you to print error messages:
@@ -74,12 +74,15 @@ class fzf_select(Command):
         import subprocess
         if self.quantifier:
             # match only directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
-            -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+            #  command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            #  -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+            command="ag --hidden --skip-vcs-ignores --ignore .git -l -g \"\" | fzf +m"
         else:
             # match files and directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
-            -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+            #  command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            #  -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+            #  command="ag --hidden --ignore .git -l -g \"\" | fzf +m"
+            command="ag --hidden --skip-vcs-ignores --ignore .git -l -g \"\" | fzf +m"
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
@@ -140,7 +143,6 @@ class fzf_bring(Command):
                 self.fm.cd(fzf_file)
             else:
                 self.fm.select_file(fzf_file)
-
 
 import os
 from ranger.core.loader import CommandLoader

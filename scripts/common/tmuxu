@@ -1,0 +1,62 @@
+#!/usr/bin/env argsh
+# shellcheck shell=bash
+set -eu -o pipefail
+
+# --- OPTIONS
+
+# --- ACTIONS
+# argsh(S|switch):        des(Switch between panes.)
+# argsh(D|debug):         des(.)
+# argsh(window-rename):   des(.)
+# argsh(C|colors):        des(List the tmux colors one can use.)
+# argsh(K|kill-server):   des(Kills the tmux server.)
+
+# --- PATHS
+: "${PATH_BASE:="$(git rev-parse --show-toplevel)"}"
+
+# --- VARIABLES
+
+# --- IMPORTS
+
+# --- MAIN
+_main() {
+  # dependencies
+
+  # actions
+  for ACTION in ${ARGSH_ACTIONS}; do case "${ACTION}" in
+    S|switch)       session_switch ;;
+    D|debug)        debug ;;
+    C|colors)       colors ;;
+    K|kill-server)  kill_server ;;
+    window-rename)  window_rename;;
+  esac; done
+}
+
+# --- FUNCTIONS
+kill_server() {
+  tmux kill-server
+}
+
+colors() {
+  for i in {0..255}; do
+      printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
+  done
+}
+
+window_rename() {
+  tmux rename-window "($(basename $(pwd))) $(git branch | grep \* | cut -d ' ' -f2)"
+}
+
+debug() {
+  pwd
+
+}
+
+session_switch() {
+  find ~/.tmuxp/ -type f | sed 's#.*/##' | fzf | xargs -I _filename tmuxp load -y /home/mod/.tmuxp/_filename
+}
+
+# --- VALIDATORS
+
+# --- RUN
+[[ "${0}" != "${BASH_SOURCE[0]}" ]] || _main "${@}"

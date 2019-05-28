@@ -1,0 +1,50 @@
+session_name: cpla
+start_directory: ~/cod/wo/thingylabs/devops/playbooks
+windows:
+- window_name: 'calponia-divramod.de'
+  start_directory: ~/cod/wo/thingylabs/devops/calponia-divramod.de
+  shell_command_before:
+  - echo calponia-divramod.de > .playbook.lock
+  panes:
+  - shell_command:
+    - direnv allow
+  - shell_command:
+    - direnv allow
+    - clear && k9s
+- window_name: 'calponia.dev'
+  start_directory: ~/cod/wo/thingylabs/devops/calponia.dev
+  shell_command_before:
+  - echo calponia.dev > .playbook.lock
+  panes:
+  - shell_command:
+    - direnv allow
+  - shell_command:
+    - direnv allow
+    - clear && k9s
+- window_name: 'calponia-ci.de'
+  start_directory: ~/cod/wo/thingylabs/devops/calponia-ci.de
+  shell_command_before:
+  - echo calponia-ci.de > .playbook.lock
+  panes:
+  - shell_command:
+    - direnv allow
+  - shell_command:
+    - direnv allow
+    - clear && k9s
+- window_name: 'calponia-sandbox.de'
+  start_directory: ~/cod/wo/thingylabs/devops/calponia-sandbox.de
+  shell_command_before:
+  - echo calponia-sandbox.de > .playbook.lock
+  panes:
+  - shell_command:
+    - direnv allow
+  - shell_command:
+    - direnv allow
+    - clear && k9s
+- window_name: "(tl1) tmuxp"
+  start_directory: ~/.tmuxp
+  panes:
+  - shell_command:
+    - sleep 2
+    - tmux select-window -t 1
+    - vim ~/.tmuxp/cpla.yml

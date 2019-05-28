@@ -1,0 +1,22 @@
+session_name: tlu
+start_directory: ~/go/src/github.com/divramod/rocketcli
+windows:
+- window_name: 'rocket-chat'
+  layout: 4802,234x55,0,0{68x55,0,0,17,165x55,69,0,1}
+  panes:
+  - shell_command:
+    - clear && l
+  - shell_command:
+    - vim README.md
+- window_name: 'calponia.dev'
+  panes:
+  - shell_command:
+    - clear && l
+  - shell_command:
+    - clear && l
+- window_name: "(rcl) tmuxp"
+  panes:
+  - shell_command:
+    - sleep 2
+    - tmux select-window -t 1
+    - vim ~/.tmuxp/rcl.yml

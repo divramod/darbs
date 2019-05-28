@@ -42,6 +42,8 @@ call arpeggio#map('v', '', 0, 'so', '<ESC>:source ~/.vim/init.vim<CR>') "ctrlp
 call arpeggio#map('v', '', 0, 'sp', '<ESC>:source ~/.vim/init.vim<CR>:PlugInstall<CR>') "source
 call arpeggio#map('v', '', 0, 'sv', '<ESC>:vsplit<CR>:CtrlPCurWD<CR>') "split
 call arpeggio#map('v', '', 0, 'ys', '"+y') "yank
+call arpeggio#map('n', '', 0, 'gp', '<ESC>g;')
+call arpeggio#map('n', '', 0, 'gn', '<ESC>g,')
 
 " 1 digit
 call arpeggio#map('v', '', 0, 'y', '"+y') "yank

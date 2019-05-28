@@ -1,52 +1,32 @@
-# TMUXP WIKI
-# TODO: daily pictures
-# TODO: journaling / habits / rituals
-# TODO: workflows
 session_name: wiki
 windows:
 - window_name: "today"
+  options:
+    automatic-rename: false
   layout: c481,176x43,0,0{44x43,0,0,64,131x43,45,0,65}
   focus: true
   panes:
-  - sleep 5 && cal_day
-  - wik_0
-- window_name: "week/gtd"
-  layout: main-vertical
+  - sleep 4 && cal_day
+  - wik
+- window_name: "projects"
+  options:
+    automatic-rename: false
   panes:
-  - sleep 5 && cal_week
-  - wik_gtd
-- window_name: "email"
-  panes:
-  - shell_command:
-    - cd ~/art/ema
-    - vn
-- window_name: "track"
+  - wik_choose_ref
+- window_name: "wiki"
+  options:
+    automatic-rename: false
   panes:
   - shell_command:
-    - cd ~/art/sta
-    - ranger
-- window_name: "cam"
+    - cd ~/art/wik
+    - vr
+- window_name: "calendarweek"
   panes:
-  - shell_command:
-    - cd ~/art/cam
-    - ranger
-- window_name: "vim"
-  layout: main-vertical
-  panes:
-  - vim -c ":OpenSession! vim"
-- window_name: "cofig"
-  layout: main-vertical
-  panes:
-  - i3_cfg
+  - sleep 3 && cal_week
 - window_name: "mux"
   layout: main-vertical
   panes:
   - shell_command:
-    - sleep 2
+    - sleep 1
     - tmux select-window -t 1
     - vim ~/.tmuxp/wiki.yml
-- window_name: "code"
-  layout: main-vertical
-  panes:
-  - clear; .sd
-  - clear; .cd

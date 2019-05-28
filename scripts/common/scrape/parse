@@ -1,0 +1,5 @@
+#!/bin/bash
+grep 'href' < parse.html \
+  | sed -e 's/.*data-title="\(.*\)" href=\/docs\/tasks\/\(.*\)\/\(.*\)\/>/* [ ] [\2: \1](https:\/\/kubernetes.io\/docs\/tasks\/\2\/\3)/' \
+  | grep -v 'href' \
+  > parsed.md

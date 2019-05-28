@@ -1,0 +1,15 @@
+session_name: darbs
+windows:
+- window_name: "darbs"
+  start_directory: ~/.darbs
+  focus: 'true'
+  options:
+    automatic-rename: 'off'
+  panes:
+  - d
+- window_name: "tmux"
+  start_directory: ~/.tmuxp
+  options:
+    automatic-rename: 'off'
+  panes:
+  - vim ~/.tmuxp/darbs.yml

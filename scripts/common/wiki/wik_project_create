@@ -1,0 +1,3 @@
+#!/bin/bash
+read -p "hello " -r user_input
+echo "user_input: ${user_input}"

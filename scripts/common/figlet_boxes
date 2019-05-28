@@ -1,0 +1,18 @@
+#!/bin/bash
+################################################################################
+#              __ _       _      _       _                                     #
+#             / _(_) __ _| | ___| |_    | |__   _____  _____  ___              #
+#            | |_| |/ _` | |/ _ \ __|   | '_ \ / _ \ \/ / _ \/ __|             #
+#            |  _| | (_| | |  __/ |_    | |_) | (_) >  <  __/\__ \             #
+#            |_| |_|\__, |_|\___|\__|___|_.__/ \___/_/\_\___||___/             #
+#                   |___/                                                      #
+################################################################################
+# [ ] TODO vim: try https://github.com/fadein/vim-FIGlet
+# [ ] TODO add paramters
+# [ ] TODO vim: pass text to figlet
+# [ ] TODO sometimes i am in markdown and want to write code in a codeblock. in that case i want to be able to choose which filetype boxes uses
+read -r input_text
+help_path=/tmp/figlet_tmp
+figlet "${input_text}" > "${help_path}"
+boxes -d shell -s 80 -a hc "${help_path}"
+rm "${help_path}"

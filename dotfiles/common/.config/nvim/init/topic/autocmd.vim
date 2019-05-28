@@ -23,7 +23,20 @@ autocmd BufWritePost ~/cod/gl/setup/* :AsyncRun dRepoPushUpdate '~/cod/gl/setup'
 " Run xrdb whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
 
+" save on focus lost
+" http://vim.wikia.com/wiki/Auto_save_files_when_focus_is_lost
+:au FocusLost * silent! wa
+autocmd BufLeave,FocusLost * wall
+
+" https://groups.google.com/forum/#!topic/vim_use/SmsucMsNGFI
+autocmd VimResized * wincmd =
+
+" syntax highlighting
+" autocmd BufEnter * :syntax off
+" autocmd BufEnter *.md :syntax on
+
 " TODO
+" autocmd BufWritePost ~/.config/i3/config :AsyncRun i3Restart
 " auto cmds
 " augroup AutoWrite
 	" autocmd! BufLeave * :update

@@ -1,0 +1,46 @@
+#!/usr/bin/env argsh
+# shellcheck shell=bash
+set -eu -o pipefail
+
+# --- OPTIONS
+
+# --- ACTIONS
+# argsh(A|actions):   des(Choose action.)
+# argsh(D|debug):     des(Debug.)
+
+# --- PATHS
+: "${PATH_BASE:="$(git rev-parse --show-toplevel)"}"
+
+# --- VARIABLES
+
+# --- IMPORTS
+
+# --- MAIN
+_main() {
+  # dependencies
+
+  # actions
+  for ACTION in ${ARGSH_ACTIONS}; do case "${ACTION}" in
+    A|actions)    actions ;;
+    D|debug)      debug ;;
+  esac; done
+}
+
+# --- FUNCTIONS
+debug() {
+  sleep 1
+  chrome_open=$(ps aux | grep "chrome/chrome" | wc | awk '{print $1;}')
+  [ "${chrome_open}" = "1" ] &&
+    google-chrome & disown
+  git open & disown
+  sleep 1
+}
+
+actions() {
+  echo actions
+}
+
+# --- VALIDATORS
+
+# --- RUN
+[[ "${0}" != "${BASH_SOURCE[0]}" ]] || _main "${@}"

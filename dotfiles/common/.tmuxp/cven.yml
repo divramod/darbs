@@ -1,0 +1,27 @@
+session_name: cven
+start_directory: ~/cod/wo/thingylabs/vendors
+windows:
+- window_name: "kubespray"
+  layout: tiled
+  start_directory: ~/cod/wo/thingylabs/vendors/kubespray
+  panes:
+    - vim README.md
+- window_name: "argsh"
+  start_directory: ~/cod/gh/argsh
+  panes:
+    - vim README.md
+- window_name: 'rocket-chat'
+  start_directory: ~/go/src/github.com/divramod/rocketcli
+  layout: 4802,234x55,0,0{68x55,0,0,17,165x55,69,0,1}
+  panes:
+  - shell_command:
+    - clear && l
+  - shell_command:
+    - vim README.md
+- window_name: "tmuxp"
+  start_directory: ~/.tmuxp
+  panes:
+  - shell_command:
+    - sleep 2
+    - tmux select-window -t 1
+    - vim ~/.tmuxp/cven.yml

@@ -7,10 +7,13 @@ and not set -q TMUX
 end
 
 # Configure Colors https://fishshell.com/docs/current/index.html#variables-color
-set fish_color_command red --bold
+# set fish_color_command red --bold
 
 # Source
 source $HOME/.config/fish/abbrs.fish
 source $HOME/.config/fish/functions.fish
 source $HOME/.config/fish/shortcuts.fish
 source $HOME/.config/fish/source.fish
+
+set -x -U GOPATH $HOME/go
+set -x -U GO111MODULE on

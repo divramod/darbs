@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# pane_id="${TMUX_PANE}"
+# echo "pane_id: ${pane_id}"
+tmux kill-pane -a -t "${TMUX_PANE}"

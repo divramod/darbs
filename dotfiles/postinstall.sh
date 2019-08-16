@@ -7,19 +7,7 @@ chsh -s $(command -v fish)
 mkdir -p ~/.ssh
 touch ~/.ssh/environment
 
-# reveal secrets
 cd ~/.darbs || exit
-rm ~/.darbs/key.asc || true
-gpg key.asc.gpg
-gpg --import key.asc || true
-find ~/.darbs/dotfiles/common/.ssh ! -name '.gitkeep' ! -name '*.secret' -type f -exec rm -f {} +
-find ~/.darbs/secrets ! -name '*.secret' -type f -exec rm -f {} +
-git secret reveal
-# https://stackoverflow.com/questions/29933918/ssh-key-permissions-0644-for-id-rsa-pub-are-too-open-on-mac
-sudo chmod 400 ~/.darbs/dotfiles/common/.ssh/id_rsa*
-# gitlab cant copy with softlinks so i have to copy
-rm -rf ~/.ssh
-cp -r ~/.darbs/dotfiles/common/.ssh ~
 
 # git
 git config --global user.email "divramod@gmail.com"
@@ -39,3 +27,17 @@ python install.py
 
 # chrome
 sudo ln -sf /usr/bin/google-chrome-stable /usr/bin/google-chrome
+
+# reveal secrets
+rm ~/.darbs/key.asc || true
+gpg key.asc.gpg
+gpg --import key.asc || true
+find ~/.darbs/dotfiles/common/.ssh ! -name '.gitkeep' ! -name '*.secret' -type f -exec rm -f {} +
+find ~/.darbs/secrets ! -name '*.secret' -type f -exec rm -f {} +
+git secret reveal
+# https://stackoverflow.com/questions/29933918/ssh-key-permissions-0644-for-id-rsa-pub-are-too-open-on-mac
+sudo chmod 400 ~/.darbs/dotfiles/common/.ssh/id_rsa*
+# gitlab cant copy with softlinks so i have to copy
+rm -rf ~/.ssh
+cp -r ~/.darbs/dotfiles/common/.ssh ~
+

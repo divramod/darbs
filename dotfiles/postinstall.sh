@@ -51,7 +51,7 @@ find ~/.darbs/dotfiles/common/.ssh ! -name '.gitkeep' ! -name '*.secret' -type f
 find ~/.darbs/secrets ! -name '*.secret' -type f -exec rm -f {} +
 git secret reveal
 # https://stackoverflow.com/questions/29933918/ssh-key-permissions-0644-for-id-rsa-pub-are-too-open-on-mac
-sudo chmod 644 ~/.darbs/dotfiles/common/.ssh/*
+sudo chmod 400 ~/.darbs/dotfiles/common/.ssh/*
 # gitlab cant copy with softlinks so i have to copy
 rm -rf ~/.ssh
 cp -r ~/.darbs/dotfiles/common/.ssh ~

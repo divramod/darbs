@@ -37,11 +37,16 @@ rm -rf ~/tmp/st
 # chrome
 sudo ln -sf /usr/bin/google-chrome-stable /usr/bin/google-chrome
 
+# set dotfiles remote url
+cd ~/darbs
+git remote set-url origin git@github.com:divramod/darbs.git
+
 # reveal secrets
 cd ~/darbs
-rm -f ~/.darbs/key.asc || true
+git pull origin HEAD
+rm -f ~/.darbs/key.asc
 gpg key.asc.gpg
-gpg --import key.asc || true
+gpg --import key.asc
 find ~/.darbs/dotfiles/common/.ssh ! -name '.gitkeep' ! -name '*.secret' -type f -exec rm -f {} +
 find ~/.darbs/secrets ! -name '*.secret' -type f -exec rm -f {} +
 git secret reveal

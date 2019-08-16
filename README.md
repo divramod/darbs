@@ -37,5 +37,9 @@ cd ~ && ./darbs -D
 
 ## Secrets
 * see https://git-secret.io/ and https://help.github.com/en/articles/generating-a-new-gpg-key
-*
-b
+
+## Backups
+```
+cd /home/<user>
+rsync -av --delete --exclude-from '.darbs/backup_exclude.txt' . /mnt/1/todo/20190816
+```

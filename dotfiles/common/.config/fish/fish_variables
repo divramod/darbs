@@ -288,6 +288,7 @@ SETUVAR _fish_abbr_os:operator\x2dsdk
 SETUVAR _fish_abbr_ot:open_everything_cli\x20tmux
 SETUVAR _fish_abbr_p:paste_from_clipboard
 SETUVAR _fish_abbr_pa:sudo\x20pacman\x20\x2dS
+SETUVAR _fish_abbr_progs:vim\x20\x7e/\x2edarbs/rice/arch_manjaro_i3/progs\x2ecsv
 SETUVAR _fish_abbr_ptl:cd\x20\x7e/cod/wo/thingylabs/kubernetes\x2dprovisioning\x3b\x20and\x20ls\x20\x2da
 SETUVAR _fish_abbr_ptlc:cd\x20\x7e/cod/wo/thingylabs/calponia\x3b\x20and\x20ls\x20\x2da
 SETUVAR _fish_abbr_r:ranger

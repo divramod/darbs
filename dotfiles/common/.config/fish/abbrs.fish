@@ -145,6 +145,7 @@ abbr tlc 'cd ~ && cd ~/cod/wo/thingylabs/calponia && ls -lisa'
 abbr tlk 'cd ~ && cd ~/cod/wo/thingylabs/kubespray && ls -lisa'
 abbr tlb 'cd ~ && cd ~/cod/wo/thingylabs/bats && ls -lisa'
 abbr tls 'set -x PLAYBOOK_NAME calponia.dev; set -x KUBECONFIG /home/mod/cod/wo/thingylabs/devops/calponia.dev/playbooks/calponia.dev/admin.conf'
+abbr progs 'vim ~/.darbs/rice/arch_manjaro_i3/progs.csv'
 
 # ISTIO
 # ------------------------------------------------------------------------------

@@ -1,0 +1,25 @@
+- .ansible
+- .bin
+- .cache
+- .config/Standard Notes/Cache
+- .config/Standard Notes/Extensions
+- .config/fisher
+- .config/google-chrome
+- .forgit
+- .git
+- .kube
+- .mozilla
+- .node-gyp
+- .npm
+- .standard-v*
+- .tmux-history
+- .vagrant.d
+- .wine
+- .yarn
+- dist
+- go
+- lib
+- node_modules
+- VirtualBox VMs/kmaster
+- VirtualBox VMs/kworker1
+- VirtualBox VMs/kworker2

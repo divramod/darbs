@@ -17,6 +17,7 @@ git config --global user.name "divramod"
 fish -c fisher
 
 # vim
+pip install vim-packadd --user
 if [[ -d ~/.vim/pack/plugins ]]; then
   rm -rf ~/.vim/pack/plugins
 fi
@@ -25,10 +26,19 @@ vim -c "PlugInstall | :qa!"
 cd ~/.vim/plugged/YouCompleteMe || true
 python install.py
 
+# st
+mkdir -p ~/tmp
+git clone --recursive https://github.com/divramod/st.git ~/tmp/st
+cd ~/tmp/st
+sudo make install
+cd ~/.darbs
+rm -rf ~/tmp/st
+
 # chrome
 sudo ln -sf /usr/bin/google-chrome-stable /usr/bin/google-chrome
 
 # reveal secrets
+cd ~/darbs
 rm -f ~/.darbs/key.asc || true
 gpg key.asc.gpg
 gpg --import key.asc || true

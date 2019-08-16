@@ -3441,3 +3441,7 @@ Aug 15 18:07 : avahi: Service 'Music Player @ mod-t460p' successfully establishe
 Aug 15 18:07 : client: [0] opened from 127.0.0.1:58470
 Aug 15 18:07 : client: [0] closed
 Aug 15 18:07 : client: [1] opened from 127.0.0.1:58510
+Aug 16 16:40 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 16 16:40 : avahi: Service 'Music Player @ ws' successfully established.
+Aug 16 16:40 : client: [0] opened from 127.0.0.1:36932
+Aug 16 16:48 : inotify: music directory was removed - cannot continue to watch it

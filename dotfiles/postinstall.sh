@@ -38,11 +38,11 @@ rm -rf ~/tmp/st
 sudo ln -sf /usr/bin/google-chrome-stable /usr/bin/google-chrome
 
 # set dotfiles remote url
-cd ~/darbs
+cd ~/.darbs
 git remote set-url origin git@github.com:divramod/darbs.git
 
 # reveal secrets
-cd ~/darbs
+cd ~/.darbs
 git pull origin HEAD
 rm -f ~/.darbs/key.asc
 gpg key.asc.gpg

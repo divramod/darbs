@@ -29,7 +29,7 @@ python install.py
 sudo ln -sf /usr/bin/google-chrome-stable /usr/bin/google-chrome
 
 # reveal secrets
-rm ~/.darbs/key.asc || true
+rm -f ~/.darbs/key.asc || true
 gpg key.asc.gpg
 gpg --import key.asc || true
 find ~/.darbs/dotfiles/common/.ssh ! -name '.gitkeep' ! -name '*.secret' -type f -exec rm -f {} +
@@ -40,4 +40,3 @@ sudo chmod 400 ~/.darbs/dotfiles/common/.ssh/id_rsa*
 # gitlab cant copy with softlinks so i have to copy
 rm -rf ~/.ssh
 cp -r ~/.darbs/dotfiles/common/.ssh ~
-

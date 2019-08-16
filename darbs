@@ -67,7 +67,7 @@ init() {
 # ------------------------------------------------------------------------------
 secrets() {
   echo "secrets: ${1}"
-  rm ~/.darbs/key.asc || true
+  rm -f ~/.darbs/key.asc || true
   gpg key.asc.gpg
   gpg --import key.asc || true
   find ~/.darbs/dotfiles/common/.ssh ! -name '.gitkeep' ! -name '*.secret' -type f -exec rm -f {} +

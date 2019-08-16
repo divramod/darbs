@@ -103,7 +103,7 @@ pipinstall() { \
 
 npminstall() { \
 	dialog --title "LARBS Installation" --infobox "Installing the npm-package \`$1\` ($n of $total). $1 $2" 5 70
-  command -v npm || pacman -S --noconfirm --needed npm >/dev/null 2>&1
+  command -v npm || pacman -S --noconfirm --needed nodejs >/dev/null 2>&1
   npm install -g "${1}" ;}
 
 goinstall() { \

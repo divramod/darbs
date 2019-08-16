@@ -1,0 +1,13 @@
+#!/bin/bash
+
+array=("README.md" "index.ts" "conf" "index.js" "config" "_.md")
+
+filename="$(basename "${1}")"
+dirname="$(basename $(dirname "${1}"))"
+
+found_in_array=$(printf '%s\n' "${array[@]}" | grep -x "${filename}")
+if [[ -n "${found_in_array}" ]]; then
+  echo "${dirname}/$filename"
+else
+  echo "${filename}"
+fi

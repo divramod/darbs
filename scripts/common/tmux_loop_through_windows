@@ -1,0 +1,12 @@
+#!/bin/bash
+# tmux list-windows
+clear
+window_count=$(tmux list-windows | wc -l)
+counter=3
+while [ "${counter}" -le "${window_count}"  ]; do
+  echo "counter: ${counter}"
+  echo "window_count: ${window_count}"
+  tmux swap-window -t -
+  ((counter++))
+done
+

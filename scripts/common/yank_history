@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir -p ~/.clipboard
+cat ~/.local/share/fish/fish_history | grep -v "when:" | grep -v "paths:" | grep -v "    -" |  cut -c 7- | fzf >> ~/.clipboard/yank_from_history

@@ -1,0 +1,36 @@
+#!/bin/bash
+session=oe
+session_exists=$(tmux list-sessions | awk '{print $1;}' | rev | cut -c 2- | rev | grep "${session}" )
+if [[ -z "${session_exists}" ]]; then
+  tmux new -d -s "${session}"
+  pane=${session}:1.0
+  tmux send-keys -t "$pane" 'tmux rename-window -t $TMUX_PANE meta' Enter
+  sleep 0.5
+fi
+file_open_count=$(tmux list-windows -t $session | grep ${1} | wc -l)
+if [[ "${file_open_count}" = "0" ]]; then
+  # current pane
+  # pane_current="${session}:$(tmux list-windows | awk '{print $1" "$2;}' | grep '*$' | awk '{print $1;}' | tr -d ':').0"
+  window_count="$(tmux list-sessions | grep "${session}" | awk '{print $2}')"
+  pane_meta=${session}:${window_count}.0
+  tmux send-keys -t "$pane_meta" 'tmux new-window' Enter
+  # move window
+  counter=1
+  current_position=$(expr $window_count + 1)
+  while [ "${counter}" -le "${window_count}" ]; do
+    sleep 0.1
+    pane_new_while_moving=${session}:${current_position}.0
+    tmux send-keys -t "$pane_new_while_moving" "tmux swap-window -t -" Enter
+    ((current_position--))
+    ((counter++))
+  done
+    sleep 0.1
+   pane_new_first=${session}:1.0
+   path_file=$(dirname "${1}" )
+   tmux send-keys -t "$pane_new_first" "cd ${path_file} && vim ${1} && exit" Enter
+   sleep 0.3
+else
+  win_num=$(tmux list-windows | grep "${1}" | awk '{print $1;}' | tr -d ':')
+  tmux select-window -t "${win_num}"
+fi
+i3-msg "exec --no-startup-id ddspawn dropdown_oe_tmux"

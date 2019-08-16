@@ -1,0 +1,2 @@
+#!/bin/bash
+cat ~/.local/share/fish/fish_history | grep -v "when:" | grep -v "paths:" | grep -v "    -" |  cut -c 7- | fzf | xclip -selection clipboard

@@ -16,11 +16,12 @@ source ~/.vim/init/functions/tabline.vim
 
 " --- plugins (configurations)
 " source ~/.vim/init/plugins/tmuxnavigator.vim
-" source ~/.vim/init/plugins/nerdtree.vim
+source ~/.vim/init/plugins/nerdtree.vim
 source ~/.vim/init/plugins/airline.vim
 source ~/.vim/init/plugins/ale.vim
 source ~/.vim/init/plugins/arpeggio.vim
 source ~/.vim/init/plugins/autosave.vim
+source ~/.vim/init/plugins/base64.vim
 source ~/.vim/init/plugins/calendar.vim
 source ~/.vim/init/plugins/ctrlp.vim
 source ~/.vim/init/plugins/easymotion.vim
@@ -39,6 +40,7 @@ source ~/.vim/init/plugins/tagbar.vim
 source ~/.vim/init/plugins/ultisnips.vim
 source ~/.vim/init/plugins/which_key.vim
 source ~/.vim/init/plugins/wiki.vim
+source ~/.vim/init/plugins/vim-json.vim
 source ~/.vim/init/plugins/youcompleteme.vim
 source ~/.vim/init/plugins/zoom.vim
 
@@ -58,13 +60,7 @@ source ~/.vim/init/topic/session.vim
 source ~/.vim/init/topic/terminal.vim
 source ~/.vim/init/topic/whitespace.vim
 source ~/.vim/init/topic/windows.vim
-
-" --- filetypes
-" source ~/.vim/init/filetype/markdown.vim
-" source ~/.vim/init/filetype/tex.vim
-" source ~/.vim/init/filetype/html.vim
-" source ~/.vim/init/filetype/xml.vim
-" source ~/.vim/init/filetype/bib.vim
+source ~/.vim/init/topic/path.vim
 
 " --- misc
 source ~/.vim/init/steno.vim
@@ -84,3 +80,24 @@ source ~/.vim/init/topic/mappings_i.vim
 source ~/.vim/init/topic/mappings_v.vim
 source ~/.vim/init/topic/mappings_n.vim
 source ~/.vim/init/topic/mappings_t.vim
+
+" --- filetypes
+" source ~/.vim/init/filetype/go.vim
+" source ~/.vim/init/filetype/markdown.vim
+" source ~/.vim/init/filetype/tex.vim
+" source ~/.vim/init/filetype/html.vim
+" source ~/.vim/init/filetype/xml.vim
+" source ~/.vim/init/filetype/bib.vim
+
+" --- COLORSCHEME
+let g:rehash256 = 1
+let g:molokai_original = 1
+colorscheme molokai
+
+" set background=light
+" colorscheme PaperColor
+set conceallevel=0
+let g:vim_json_syntax_conceal = 0
+" hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+hi TabLine ctermfg=White ctermbg=Black
+hi TabLineSel ctermfg=Red ctermbg=Black

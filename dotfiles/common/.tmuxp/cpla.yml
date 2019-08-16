@@ -1,46 +1,63 @@
 session_name: cpla
-start_directory: ~/cod/wo/thingylabs/devops/playbooks
+start_directory: ~/cod/wo/thingylabs/devops
 windows:
-- window_name: 'calponia-divramod.de'
-  start_directory: ~/cod/wo/thingylabs/devops/calponia-divramod.de
-  shell_command_before:
-  - echo calponia-divramod.de > .playbook.lock
+- window_name: 'bot'
+  start_directory: ~/cod/wo/thingylabs/calpobot/cb1/bot
+  # layout: d9f6,270x61,0,0{135x61,0,0[135x30,0,0,105,135x30,0,31,107],134x61,136,0[134x30,136,0,102,134x30,136,31,106]}
+  # layout: 6ace,270x64,0,0{135x64,0,0[135x32,0,0,33,135x31,0,33,34],134x64,136,0[134x15,136,0,35,134x48,136,16,36]}
+  layout: 4f2f,270x64,0,0{135x64,0,0[135x32,0,0,85,135x31,0,33,86],134x64,136,0[134x3,136,0,87,134x3,136,4,92,134x3,136,8,90,134x3,136,12,91,134x48,136,16,88]}
   panes:
   - shell_command:
+    - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
+    - k9s -c calpobot-po.yml
   - shell_command:
+    - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
-    - clear && k9s
-- window_name: 'calponia.dev'
-  start_directory: ~/cod/wo/thingylabs/devops/calponia.dev
-  shell_command_before:
-  - echo calponia.dev > .playbook.lock
+    - k9s -c calpobot-jo.yml
+  - cd ~/cod/wo/thingylabs/pipeline-testing/pt1 && clear && pwd
+  - cd ~/cod/wo/thingylabs/devops/do1 && clear && pwd
+  - cd ~/cod/wo/thingylabs/calponia/cp2 && clear && pwd
+  - cd ~/cod/wo/thingylabs/calponia/cp1 && clear && pwd
+  - direnv allow && rm -rf lib && npm run dev
+- window_name: 'postgres'
+  start_directory: ~/cod/wo/thingylabs/devops/do1
+  layout: 8a3f,270x64,0,0{135x64,0,0[135x32,0,0,68,135x31,0,33,69],134x64,136,0[134x32,136,0,67,134x31,136,33,70]}
   panes:
   - shell_command:
+    - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
+    - k9s -c calpobot-system-sec.yml
   - shell_command:
+    - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
-    - clear && k9s
-- window_name: 'calponia-ci.de'
-  start_directory: ~/cod/wo/thingylabs/devops/calponia-ci.de
-  shell_command_before:
-  - echo calponia-ci.de > .playbook.lock
+    - k9s -c calpobot-system-dp.yml
+  - shell_command:
+    - cd ~/cod/wo/thingylabs/devops/do1
+    - direnv allow
+    - k9s -c calpobot-system-po.yml
+  - ls -lisa
+- window_name: 'devops'
+  start_directory: ~/cod/wo/thingylabs/calpobot/cb1
+  # layout: d9f6,270x61,0,0{135x61,0,0[135x30,0,0,105,135x30,0,31,107],134x61,136,0[134x30,136,0,102,134x30,136,31,106]}
+  # layout: 6ace,270x64,0,0{135x64,0,0[135x32,0,0,33,135x31,0,33,34],134x64,136,0[134x15,136,0,35,134x48,136,16,36]}
+  layout: 4f2f,270x64,0,0{135x64,0,0[135x32,0,0,85,135x31,0,33,86],134x64,136,0[134x3,136,0,87,134x3,136,4,92,134x3,136,8,90,134x3,136,12,91,134x48,136,16,88]}
   panes:
   - shell_command:
+    - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
+    - k9s -n calponia
   - shell_command:
+    - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
-    - clear && k9s
-- window_name: 'calponia-sandbox.de'
-  start_directory: ~/cod/wo/thingylabs/devops/calponia-sandbox.de
-  shell_command_before:
-  - echo calponia-sandbox.de > .playbook.lock
-  panes:
+    - k9s -n calponia
+  - cd ~/cod/wo/thingylabs/pipeline-testing/pt1 && clear && pwd
+  - cd ~/cod/wo/thingylabs/calponia/cp1 && clear && pwd
+  - cd ~/cod/wo/thingylabs/calponia/cp2 && clear && pwd
+  - cd ~/cod/wo/thingylabs/devops/do1 && clear && pwd
   - shell_command:
+    - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
-  - shell_command:
-    - direnv allow
-    - clear && k9s
 - window_name: "(tl1) tmuxp"
   start_directory: ~/.tmuxp
   panes:

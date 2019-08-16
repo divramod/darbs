@@ -1,0 +1,6 @@
+#!/bin/bash
+clip=$(find /home/mod/.clipboard -maxdepth 9 -type f ! -path '*.git*' | fzf)
+path=$(echo "${clip}")
+cat "${path}" | xclip -selection clipboard
+cat "${path}"
+# cat ~/.clipboard/test.txt | xclip -selection clipboard

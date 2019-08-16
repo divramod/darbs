@@ -1,0 +1,2 @@
+#!/bin/bash
+tmux split-window "tmux list-windows | awk '{print \$1 \" \" \$2}' | fzf | awk '{print \$1}' | tr -d ':' | xargs -I num tmux select-window -t num "

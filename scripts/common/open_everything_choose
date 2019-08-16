@@ -1,0 +1,3 @@
+#!/bin/bash
+what=$(cat ~/.darbs/scripts/common/open_everything_commands.txt | fzf)
+open_everything "${what}"

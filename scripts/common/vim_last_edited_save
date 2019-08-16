@@ -1,0 +1,30 @@
+#!/bin/bash
+# corresponds to vim_last_edited_open
+# test -> find ~/.darbs/scripts/common -type f -name "vim_last_edited*" | entr vim_last_edited_open 4 /home/mod
+path_base="${1}"
+file_name="${2}"
+path_ide_logs=${path_base}/.ide
+file_last_edited_log="${path_ide_logs}/last_edited.log"
+file_path_relative=${file_name#"$path_base/"}
+
+clear
+array=( "/tmp/tmp" "UPDATE.md" )
+for exclu in "${array[@]}"
+do
+  if [[ ! "${file_name}"  =~ "${exclu}"  ]]; then
+    if [ ! -d "${path_ide_logs}" ]; then
+      mkdir -p "${path_ide_logs}"
+    fi
+    if [[ ! -f "${file_last_edited_log}" ]]; then
+      touch "${file_last_edited_log}"
+    fi
+    echo "file_name: ${file_name}"
+    if [[ ! "${file_name}" =~ ^/tmp/tmp.+.fish ]] &&
+      [[ ! "${file_name}" == "UPDATE.md" ]] &&
+      [[ ! "${file_name}" =~ "*last_edited.log" ]]
+        then
+          date=$(date '+%Y-%m-%d %H:%M:%S')
+          echo -e "${date} ${path_base} ${file_path_relative}\n$(cat "${file_last_edited_log}" )" > "${file_last_edited_log}"
+    fi
+  fi
+done

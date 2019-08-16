@@ -1,26 +1,21 @@
 session_name: cbot
 start_directory: ~/cod/wo/thingylabs/calpobot
 windows:
-- window_name: 'calpobot1'
-  start_directory: ~/cod/wo/thingylabs/calpobot/1
+- window_name: "cb1"
+  layout: cfa5,270x54,0,0[270x27,0,0,28,270x26,0,28,29]
+  # layout: fddc,270x54,0,0{134x54,0,0,28,135x54,135,0[135x13,135,0,29,135x13,135,14,33,135x13,135,28,31,135x12,135,42,32]}
+  # layout: f5f6,270x54,0,0{134x54,0,0,3,135x54,135,0[135x13,135,0,4,135x13,135,14,8,135x13,135,28,6,135x12,135,42,7]}
+  start_directory: ~/cod/wo/thingylabs/calpobot/cb1
   panes:
-  - vim -c ":edit src/index.ts" -c ":vertical terminal npm run dev" -c ":terminal npm run build:watch"
-- window_name: 'pipeline-testing'
-  start_directory: ~/cod/wo/thingylabs/pipeline-testing
-  panes:
-  - vr
-- window_name: 'calpobot2'
-  start_directory: ~/cod/wo/thingylabs/calpobot/2
-  panes:
-  - vr
-- window_name: 'divramod-poc-probot'
-  start_directory: ~/cod/wo/thingylabs/divramod-poc-probot
-  panes:
-  - vr
+    - rm -rf lib && npm run dev
+    - tmux select-layout even-horizontal && cd /home/mod/cod/wo/thingylabs/devops/do1 && clear && ls -lisa && sleep 3 && calpy --gh-issues-create-comment --body "/merge-master --hallo welt"
+    # -
+    # -
+    # -
 - window_name: "(cb1) tmuxp"
   start_directory: ~/.tmuxp
   panes:
-  - shell_command:
-    - sleep 2
-    - tmux select-window -t 1
-    - vim ~/.tmuxp/cbot.yml
+    - shell_command:
+      - sleep 2
+      - tmux select-window -t 1
+      - vim ~/.tmuxp/cbot.yml

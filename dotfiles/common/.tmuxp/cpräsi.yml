@@ -1,0 +1,35 @@
+session_name: cpräsi
+windows:
+- window_name: "repos"
+  layout: 38c5,267x62,0,0{91x62,0,0[91x31,0,0,41,91x30,0,32,45],92x62,92,0[92x31,92,0,42,92x30,92,32,44],82x62,185,0[82x31,185,0,43,82x30,185,32,46]}
+  options: {}
+  panes:
+  - cd /home/mod/cod/wo/thingylabs/devops/cicd && direnv allow && ls -lisa
+  - cd /home/mod/cod/wo/thingylabs/calponia/calponia && ls -lisa
+  - cd /home/mod/cod/wo/thingylabs/calponia/calponia-1 && ls -lisa
+  - cd /home/mod/cod/wo/thingylabs/calpobot/calpobot && direnv allow && ls -lisa
+  - cd /home/mod/cod/wo/thingylabs/divramod/pipeline-testing && ls -lisa
+  - cd /home/mod/cod/wo/thingylabs/divramod/pipeline-testing-1 && ls -lisa
+  start_directory: /home/mod
+- window_name: "k9s"
+  layout: d9d6,267x62,0,0{133x62,0,0[133x31,0,0,32,133x30,0,32,35],133x62,134,0[133x31,134,0,33,133x30,134,32,34]}
+  options: {}
+  panes:
+  - k9s
+  - k9s
+  - k9s
+  - k9s
+  start_directory: /home/mod/cod/wo/thingylabs/devops/cicd
+- window_name: "calpobot"
+  options: {}
+  panes:
+  - rm -rf lib && npm run dev
+  - tmux select-layout even-horizontal && vim src/config.json
+  start_directory: /home/mod/cod/wo/thingylabs/calpobot/calpobot
+- window_name: "(cb1) tmuxp"
+  start_directory: ~/.tmuxp
+  panes:
+    - shell_command:
+      - sleep 2
+      - tmux select-window -t 1
+      - vim ~/.tmuxp/cpräsi.yml

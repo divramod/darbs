@@ -1,0 +1,15 @@
+browse
+browse_current
+browse_urls
+clipboard
+configs
+darbs
+last_edited
+man
+oe_configs
+script
+tmux
+tmuxp
+wiki
+yank_history
+issues

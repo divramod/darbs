@@ -35,8 +35,6 @@ call arpeggio#map('v', '', 0, 'nf', '<ESC>:w!<CR>:NERDTreeFind<CR>') "nerdtree
 call arpeggio#map('v', '', 0, 'nq', '<ESC>:NERDTreeClose<CR>') "nerdtree
 call arpeggio#map('v', '', 0, 'nt', '<ESC>:NERDTreeToggle<CR>') "nerdtree
 call arpeggio#map('v', '', 0, 'ra', '<ESC>:Ranger<CR>') "ranger
-call arpeggio#map('v', '', 0, 'sa', ':sort<CR>') "sort
-call arpeggio#map('v', '', 0, 'sd', ':sort!<CR>') "sort
 call arpeggio#map('v', '', 0, 'sh', '<ESC>:split<CR>:CtrlPCurWD<CR>') "ctrlp
 call arpeggio#map('v', '', 0, 'so', '<ESC>:source ~/.vim/init.vim<CR>') "ctrlp
 call arpeggio#map('v', '', 0, 'sp', '<ESC>:source ~/.vim/init.vim<CR>:PlugInstall<CR>') "source
@@ -44,6 +42,10 @@ call arpeggio#map('v', '', 0, 'sv', '<ESC>:vsplit<CR>:CtrlPCurWD<CR>') "split
 call arpeggio#map('v', '', 0, 'ys', '"+y') "yank
 call arpeggio#map('n', '', 0, 'gp', '<ESC>g;')
 call arpeggio#map('n', '', 0, 'gn', '<ESC>g,')
+
+" --- important
+call arpeggio#map('v', '', 0, 'sj', ':sort<CR>') "sort
+call arpeggio#map('v', '', 0, 'sk', ':sort!<CR>') "sort
 
 " 1 digit
 call arpeggio#map('v', '', 0, 'y', '"+y') "yank

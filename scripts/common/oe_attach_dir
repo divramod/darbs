@@ -1,0 +1,40 @@
+#!/bin/bash
+session_exists=$(tmux list-sessions | awk '{print $1;}' | rev | cut -c 2- | rev | grep oe)
+if [[ -z "${session_exists}" ]]; then
+  tmux new -d -s oe
+  pane=${session}:1.0
+  tmux send-keys -t "$pane" 'tmux rename-window -t $TMUX_PANE meta' Enter
+  sleep 0.5
+fi
+path_dir="${1}"
+if [[ -z "${path_dir}" ]]; then
+  path_dir="/home/mod"
+fi
+session=oe
+dir_open_count=$(tmux list-windows | awk '{print $1" "$2;}' | sed -e 's/[-|*|#]-*$//g' | grep -E "^*[0-9]: ${path_dir}\$" | wc -l)
+if [[ "${dir_open_count}" = "0" ]]; then
+  if [[ -d "${path_dir}" ]]; then
+    window_count="$(tmux list-sessions | grep "${session}" | awk '{print $2}')"
+    pane=${session}:${window_count}.0
+    tmux send-keys -t "$pane" 'tmux new-window' Enter
+    counter=1
+    current_position=$(expr $window_count + 1)
+    while [ "${counter}" -le "${window_count}" ]; do
+      sleep 0.1
+      pane=${session}:${current_position}.0
+      tmux send-keys -t "$pane" "echo \"${current_position}\" && tmux swap-window -t -" Enter
+      ((current_position--))
+      ((counter++))
+    done
+    sleep 0.1
+    pane=${session}:1.0
+    tmux send-keys -t "$pane" "tmux rename-window -t \$TMUX_PANE \"d:$(basename ${path_dir})\"; clear" Enter
+    tmux send-keys -t "$pane" "cd $path_dir && ranger && exit" Enter
+    sleep 0.3
+  fi
+else
+  win_num=$(tmux list-windows | awk '{print $1" "$2;}' | sed -e 's/[-|*|#]-*$//g' | grep -E "^*[0-9]: ${path_dir}\$" | awk '{print $1;}' | tr -d ':')
+  pane="${session}:1.0"
+  tmux send-keys -t "$pane" "tmux select-window -t ${win_num}" Enter
+fi
+i3-msg "exec --no-startup-id ddspawn dropdown_oe_tmux"

@@ -1,0 +1,2 @@
+#!/bin/bash
+ls ~/.tmuxp | fzf | xargs -I _file oe_attach "/home/$(whoami)/.tmuxp/_file"

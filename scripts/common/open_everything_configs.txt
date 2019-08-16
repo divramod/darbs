@@ -1,0 +1,7 @@
+/home/mod/.bashrc
+/home/mod/.darbs/dotfiles/common/.config/i3/config
+/home/mod/.darbs/dotfiles/common/.config/nvim/init.vim
+/home/mod/.darbs/dotfiles/common/.config/ranger/rc.conf
+/home/mod/.darbs/dotfiles/common/.config/fish/abbrs.fish
+/home/mod/.darbs/dotfiles/arch_manjaro_i3/.tmux.conf
+# hcloud

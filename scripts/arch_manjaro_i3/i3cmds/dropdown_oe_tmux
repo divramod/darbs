@@ -1,0 +1,13 @@
+#!/bin/sh
+# tmux list-sessions | fzf | awk '{print $1;}' | rev | cut -c 2- | rev | xargs -I_ses tmux attach-session -t _ses
+session_exists=$(tmux list-sessions | awk '{print $1;}' | rev | cut -c 2- | rev | grep oe)
+if [[ -n "${session_exists}" ]]; then
+  echo yes
+  tmux attach-session -t oe
+else
+  echo no
+  # tmux new -s oe
+  run=$(i3-msg "resize set 800 400")
+  run=$(i3-msg "move position center")
+  open_everything_choose
+fi

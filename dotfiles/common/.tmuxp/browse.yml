@@ -1,0 +1,17 @@
+session_name: browse
+windows:
+- window_name: "browse"
+  start_directory: ~/.darbs
+  focus: 'true'
+  panes:
+  - browse
+- window_name: "links"
+  panes:
+  - vim ~/.darbs/scripts/common/browse_links
+- window_name: "script"
+  panes:
+  - vim ~/.darbs/scripts/common/browse
+- window_name: "tmux"
+  start_directory: ~/.tmuxp
+  panes:
+  - sleep 1 && tmux select-window -t 1 && vim ~/.tmuxp/browse.yml

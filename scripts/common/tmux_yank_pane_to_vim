@@ -1,0 +1,5 @@
+#!/bin/bash
+mkdir -p ~/.tmux.history
+file_history="/home/mod/.tmux.history/${RANDOM:0:3}.tmux.history"
+tmux capture-pane -pS -1000000 > ${file_history}
+oe_attach_file ${file_history}

@@ -8,8 +8,8 @@ set nohlsearch
 set hlsearch
 set incsearch
 set list
-hi Search ctermbg=Brown
-hi Search ctermfg=White
+" hi Search ctermbg=Brown
+" hi Search ctermfg=White
 :set smartcase
 :set ignorecase
 

@@ -1,0 +1,123 @@
+#!/bin/bash
+# TODO vim write to last on every time vim quits
+# TODO vim when editing files in vim, make it possible, to open this file in the tmux session darbs in a new window (so that i have these files open)
+# TODO vim shortcut to open one of my last files with fzf
+
+_i3_resize_center() {
+  run=$(i3-msg "resize set 1600 900")
+  run=$(i3-msg "move position center")
+}
+
+_vimedit() {
+  # _i3_resize_center
+  if [[ -f "${1}" ]]; then
+    oe_attach_file "${1}"
+    # date=$(date '+%Y-%m-%d %H:%M:%S')
+    # echo -e "${date} ${1}\n$(cat /home/mod/.darbs/scripts/common/open_everything_last.txt)" > /home/mod/.darbs/scripts/common/open_everything_last.txt
+  fi
+}
+
+if [ "${1}" != "" ]; then
+  if [ "${1}" = "last_edited" ]; then
+    _i3_resize_center
+    run=$(i3-msg "resize set 600 1000")
+    run=$(i3-msg "move position center")
+    sed -i '/^$/d' /home/mod/.darbs/scripts/common/open_everything_last_edited.txt
+    file="$(cat ~/.darbs/scripts/common/open_everything_last_edited.txt | fzf)"
+    file="$(echo ${file} | awk '{print $3;}')"
+    _vimedit "${file}"
+  elif [ "${1}" = "tmuxp" ]; then
+    tmuxp_yml_open
+  elif [ "${1}" = "tmuxp" ]; then
+    tmuxp_yml_open
+  elif [ "${1}" = "last_opened" ]; then
+    _i3_resize_center
+    sed -i '/^$/d' /home/mod/.darbs/scripts/common/open_everything_last_opened.txt
+    file="$(cat ~/.darbs/scripts/common/open_everything_last_opened.txt | fzf)"
+    file="$(echo ${file} | awk '{print $3;}')"
+    _vimedit "${file}"
+  elif [ "${1}" = "yank_history" ]; then
+    _i3_resize_center
+    yank_history
+  elif [ "${1}" = "script" ]; then
+    run=$(i3-msg "resize set 600 1000")
+    run=$(i3-msg "move position center")
+    out=""
+    file=""
+    key=""
+    # script="$(find ~/.darbs/scripts -type f -executable | fzf | awk -F '/' '{print $NF}')"
+    IFS=$'\n' out=("$(find ~/.darbs/scripts -type f -executable | fzf --expect=ctrl-e)")
+    key=$(head -1 <<< "$out")
+    file=$(head -2 <<< "$out" | tail -1)
+    if [ -n "$file" ]; then
+      if [ "$key" = ctrl-e ]; then
+        _vimedit "${file}"
+      else
+        script=$(echo "${file}" | awk -F '/' '{print $NF}')
+        oe_attach_script "${script}"
+      fi
+    fi
+    sleep 2
+  elif [ "${1}" = "scripts_edit" ]; then
+    run=$(i3-msg "resize set 600 1000")
+    run=$(i3-msg "move position center")
+    file="$(find ~/.darbs/scripts -executable -type f | fzf)"
+    _vimedit "${file}"
+  elif [ "${1}" = "oe_configs" ]; then
+    run=$(i3-msg "resize set 300 250")
+    run=$(i3-msg "move position center")
+    file="/home/mod/.darbs/scripts/common/$(cd ~/.darbs/scripts/common && ls open_everything*.txt | fzf)"
+    _vimedit "${file}"
+  elif  [ "${1}" = "browse" ]; then
+    run=$(i3-msg "resize set 600 1000")
+    run=$(i3-msg "move position center")
+    browse new
+  elif  [ "${1}" = "browse_current" ]; then
+    run=$(i3-msg "resize set 600 1000")
+    run=$(i3-msg "move position center")
+    browse
+  elif  [ "${1}" = "browseurls" ]; then
+    file="/home/mod/.darbs/scripts/common/browse_links"
+    _vimedit "${file}"
+  elif  [ "${1}" = "linklists" ]; then
+    _i3_resize_center
+    file=$(ls ~/.config/divramod/urls | fzf)
+    if [[ -n "${file}" ]]; then
+      i3-msg 'exec chrome_open '${file}
+    fi
+  elif  [ "${1}" = "configs" ]; then
+    run=$(i3-msg "resize set 600 200")
+    run=$(i3-msg "move position center")
+    file="$(cat ~/.darbs/scripts/common/open_everything_${1}.txt | fzf)"
+    _vimedit "${file}"
+  elif  [ "${1}" = "clipboard" ]; then
+    paste_from_clipboard
+  elif  [ "${1}" = "tmux" ]; then
+    session=$(find ~/.tmuxp/* -name "*.yml" | fzf)
+    tmuxp load -y "${session}"
+  elif  [ "${1}" = "wiki" ]; then
+    run=$(i3-msg "resize set 500 1000")
+    run=$(i3-msg "move position center")
+    file=$(find ~/art/wik -name "*.md" | fzf)
+    _vimedit "${file}"
+  elif  [ "${1}" = "darbs" ]; then
+    _i3_resize_center
+    file=$(find /home/mod/.darbs/* -maxdepth 9 -type f ! -path '*.git*' | fzf)
+    if [[ -n "${file}" ]]; then
+      if [[ "${file}" == *".pdf"* ]]; then
+        i3-msg "exec zathura '${file}'"
+      else
+        _vimedit "${file}"
+      fi
+    fi
+  elif  [ "${1}" = "man" ]; then
+    _i3_resize_center
+    file="$(cat ~/.darbs/scripts/common/open_everything_man_links.txt | fzf)"
+    i3-msg 'exec google-chrome '${file}
+  elif  [ "${1}" = "issues" ]; then
+    _i3_resize_center
+    file="$(cat ~/.darbs/scripts/common/open_everything_issues.txt | fzf)"
+    i3-msg 'exec google-chrome '${file}
+  fi
+fi
+

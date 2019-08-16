@@ -1,0 +1,12 @@
+session_name: '6'
+windows:
+- focus: 'true'
+  layout: d9d6,267x62,0,0{133x62,0,0[133x31,0,0,32,133x30,0,32,35],133x62,134,0[133x31,134,0,33,133x30,134,32,34]}
+  options: {}
+  panes:
+  - pane
+  - fish
+  - fish
+  - fish
+  start_directory: /home/mod
+  window_name: fish

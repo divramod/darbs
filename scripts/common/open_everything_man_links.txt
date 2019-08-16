@@ -1,0 +1,12 @@
+http://man7.org/linux/man-pages/man1/tmux.1.html
+http://tmuxp.git-pull.com/en/latest/examples.html
+https://build.i3wm.org/docs/i3-msg.html
+https://github.com/junegunn/fzf.vim
+https://github.com/junegunn/fzf/wiki/examples
+https://github.com/majutsushi/tagbar/blob/master/doc/tagbar.txt
+https://i3wm.org/docs/userguide.html
+https://tmuxcheatsheet.com/
+https://vimhelp.org/terminal.txt.html
+http://json.schemastore.org/tsconfig
+https://pkgs.alpinelinux.org/contents?branch=edge&name=coreutils&arch=ppc64le&repo=main
+https://github.com/kubernetes/kubernetes/issues/19317

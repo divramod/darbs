@@ -1,0 +1,5 @@
+#!/bin/bash
+cmd=$(cat ~/.darbs/scripts/common/forgit_commands.txt | fzf | awk '{print $1;}')
+source /home/mod/.darbs/scripts/common/forgit
+forgit::"${cmd}"
+tmux kill-pane

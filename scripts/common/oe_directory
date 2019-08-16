@@ -1,0 +1,29 @@
+#!/bin/bash
+# find ~ -type d \( -path '*/go/*' -o -path '*/.cache/*' \) -prune -o -print
+# https://stackoverflow.com/questions/4210042/how-to-exclude-a-directory-in-find-command/49149445
+path_base="${1}"
+if [[ -z "${1}" ]]; then
+  path_base="/home/$(whoami)"
+fi
+cmd="find ${path_base} -type d \( "
+excludes=(
+  "go"
+  ".cache"
+  ".git"
+  "node_modules"
+  "lib"
+  "cache"
+  ".rstudio-desktop"
+)
+iteration="first"
+for ex in "${excludes[@]}"
+do
+  if [[ "${iteration}" = "first" ]]; then
+    iteration="second"
+    cmd="${cmd} -path '*/${ex}/*'"
+  else
+    cmd="${cmd} -o -path '*/${ex}/*'"
+  fi
+done
+cmd="${cmd} \) -prune -o -print"
+eval "${cmd}" | fzf | xargs -I _dir oe_attach_dir "_dir"

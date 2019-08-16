@@ -1,28 +1,131 @@
 session_name: cops
 start_directory: ~/cod/wo/thingylabs/devops
 windows:
-- window_name: "ops-1"
-  start_directory: ~/cod/wo/thingylabs/devops/1
+- window_name: "calpobot"
+  start_directory: ~/cod/wo/thingylabs/calpobot/cb1/bot
+  layout: a657,272x63,0,0{58x63,0,0[58x31,0,0,42,58x31,0,32,61],213x63,59,0,44}
+  # layout: 78f5,272x63,0,0{58x63,0,0[58x42,0,0,2,58x20,0,43,3],213x63,59,0,4}
+  # layout: 3319,273x64,0,0{75x64,0,0[75x43,0,0,319,75x20,0,44,329],197x64,76,0,320}
+  # layout: c2ac,272x63,0,0{75x63,0,075x21,0,0,5,75x20,0,22,26,75x20,0,43,6,196x63,76,0,7}
   panes:
-    - vim README.md
-- window_name: "ops-2"
-  start_directory: ~/cod/wo/thingylabs/devops/2
+    - npm run t
+    - npm run build:watch
+    - vim_last_edited_open 1 10
+- window_name: "calpobot api"
+  start_directory: ~/cod/wo/thingylabs/calpobot/cb1/api
+  layout: a657,272x63,0,0{58x63,0,0[58x31,0,0,42,58x31,0,32,61],213x63,59,0,44}
+  # layout: 78f5,272x63,0,0{58x63,0,0[58x42,0,0,2,58x20,0,43,3],213x63,59,0,4}
+  # layout: 3319,273x64,0,0{75x64,0,0[75x43,0,0,319,75x20,0,44,329],197x64,76,0,320}
+  # layout: c2ac,272x63,0,0{75x63,0,075x21,0,0,5,75x20,0,22,26,75x20,0,43,6,196x63,76,0,7}
   panes:
-    - vim README.md
-- window_name: "ops-3"
-  start_directory: ~/cod/wo/thingylabs/devops/3
+    - ls
+    - ls
+    - vim_last_edited_open 1 10
+- window_name: "calpobot frontend"
+  start_directory: ~/cod/wo/thingylabs/calpobot/cb1/frontend
+  layout: a657,272x63,0,0{58x63,0,0[58x31,0,0,42,58x31,0,32,61],213x63,59,0,44}
+  # layout: 78f5,272x63,0,0{58x63,0,0[58x42,0,0,2,58x20,0,43,3],213x63,59,0,4}
+  # layout: 3319,273x64,0,0{75x64,0,0[75x43,0,0,319,75x20,0,44,329],197x64,76,0,320}
+  # layout: c2ac,272x63,0,0{75x63,0,075x21,0,0,5,75x20,0,22,26,75x20,0,43,6,196x63,76,0,7}
   panes:
-    - vim README.md
-- window_name: "ops-4"
-  start_directory: ~/cod/wo/thingylabs/devops/4
+    - ls
+    - ls
+    - vim_last_edited_open 1 10
+- window_name: "calpy"
+  start_directory: /home/mod/cod/wo/thingylabs/devops/do1/calpy
+  layout: 3319,273x64,0,0{75x64,0,0[75x43,0,0,319,75x20,0,44,329],197x64,76,0,320}
   panes:
-    - vim README.md
-- window_name: "ops-master"
-  start_directory: ~/cod/wo/thingylabs/devops/master
+    - direnv allow
+    - direnv allow && npm run build:watch
+    - vim_last_edited_open 2 1
+- window_name: "devops"
+  start_directory: ~/cod/wo/thingylabs/devops/do1
+  layout: 3319,273x64,0,0{75x64,0,0[75x43,0,0,319,75x20,0,44,329],197x64,76,0,320}
   panes:
-    - vim README.md
+    - direnv allow
+    - direnv allow
+    - vim_last_edited_open 3 1
+- window_name: "calponia"
+  start_directory: ~/cod/wo/thingylabs/calponia/cp1
+  layout: 3319,273x64,0,0{75x64,0,0[75x43,0,0,319,75x20,0,44,329],197x64,76,0,320}
+  panes:
+    - direnv allow
+    - direnv allow
+    - vim_last_edited_open 4 1
+- window_name: "calponia-1"
+  start_directory: ~/cod/wo/thingylabs/calponia/cp2
+  layout: 3319,273x64,0,0{75x64,0,0[75x43,0,0,319,75x20,0,44,329],197x64,76,0,320}
+  panes:
+    - direnv allow
+    - direnv allow
+    - vim_last_edited_open 5 1
+- window_name: "pipeline-testing"
+  start_directory: ~/cod/wo/thingylabs/pipeline-testing/pt1
+  layout: 3319,273x64,0,0{75x64,0,0[75x43,0,0,319,75x20,0,44,329],197x64,76,0,320}
+  panes:
+    - direnv allow
+    - direnv allow
+    - vim_last_edited_open 6 1
 - window_name: "tmuxp"
   start_directory: ~/.tmuxp
+  layout: 6e81,273x64,0,0{75x64,0,0,306,197x64,76,0,296}
   panes:
   - shell_command:
-      - sleep 1 && tmux select-window -t 1 && vim ~/.tmuxp/cops.yml
+      - ls .lisa
+      - sleep 2 && tmux select-window -t 1 && vim ~/.tmuxp/cops.yml
+# - window_name: "pipeline-testing"
+  # start_directory: ~/cod/wo/thingylabs/pipeline-testing/pipeline-testing-1
+  # panes:
+    # - vim README.md -c ":vertical term" -c ":TagbarClose" -c ":wincmd H"
+# - window_name: "jenkins-test"
+  # start_directory: ~/cod/wo/thingylabs/jenkins-test
+  # panes:
+    # - vim README.md
+# - window_name: "argsh"
+  # start_directory: ~/cod/wo/thingylabs/argsh
+  # panes:
+    # - vim README.md
+# - window_name: "vagrant"
+  # start_directory: /home/mod/cod/te/kubernetes/vagrant-provisioning
+  # panes:
+    # -
+# - window_name: "do/cicd-gitlab"
+  # start_directory: ~/cod/wo/thingylabs/devops/cicd-gitlab
+  # panes:
+    # - vim README.md
+# - window_name: "do/fix-readme"
+  # start_directory: ~/cod/wo/thingylabs/devops/fix-readme
+  # panes:
+    # - vim README.md
+# - window_name: "calponia/2"
+  # start_directory: ~/cod/wo/thingylabs/calponia/2
+  # panes:
+    # - vim README.md
+# - window_name: "do/davfs"
+  # start_directory: ~/cod/wo/thingylabs/devops/davfs
+  # panes:
+    # - vim README.md
+# - window_name: "csi-driver-nfs"
+  # start_directory: ~/cod/wo/thingylabs/csi-webdav/csi-driver-nfs
+  # panes:
+    # - vim README.md
+# - window_name: "vim-go-tutorial"
+  # start_directory: ~/go/src/github.com/divramod/vim-go-tutorial
+  # panes:
+    # - vim README.md
+# - window_name: "devops/calponia.dev"
+  # start_directory: ~/cod/wo/thingylabs/devops/calponia.dev
+  # panes:
+    # - vim README.md
+# - window_name: "gou"
+  # start_directory: /home/mod/go/src/github.com/divramod/gou
+  # panes:
+    # - vim README.md
+# - window_name: "do/calponia-divramod.de"
+  # start_directory: ~/cod/wo/thingylabs/devops/calponia-divramod.de
+  # panes:
+    # - vim README.md
+# - window_name: "csi-driver-davfs"
+  # start_directory: ~/go/src/github.com/calponia/csi-driver-davfs
+  # panes:
+    # - vim README.md

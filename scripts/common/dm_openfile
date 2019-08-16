@@ -1,0 +1,26 @@
+#!/bin/bash
+if [ -p /dev/stdin ]; then
+  echo $1 > ~/cod/te/bash/hello.txt
+        echo "Data was piped to this script!" > ~/cod/te/bash/hello.txt
+        # If we want to read the input line by line
+        while IFS= read line; do
+                echo "Line: ${line}" >> ~/cod/te/bash/hello.txt
+        done
+        # Or if we want to simply grab all the data, we can simply use cat instead
+        # cat
+else
+        echo "No input was found on stdin, skipping!" > ~/cod/te/bash/hello.txt
+        # Checking to ensure a filename was specified and that it exists
+        if [ -f "$1" ]; then
+                echo "Filename specified: ${1}"
+                echo "Doing things now.."
+        else
+                echo "No input given!"
+        fi
+fi
+# st -c "tmux cat ~/cod/te/bash/hello.txt"
+# cat ~/.darbs/scripts/common/browse_links | dmenu -l 30 | xargs -r xdg-open
+# tmux new-window -c "dm_run"
+# st -c "tmux new-session wik_choose_ref"
+# https://www.reddit.com/r/commandline/comments/adq2w0/st_suckless_terminal_how_to_start_a_new_terminal/
+st bash -c 'browse; bash -c exit'

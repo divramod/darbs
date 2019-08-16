@@ -1,0 +1,5 @@
+#!/bin/bash
+echo ${1} >> ~/.test
+
+date=$(date '+%Y-%m-%d %H:%M:%S')
+echo -e "${date} ${1}\n$(cat /home/mod/.darbs/scripts/common/open_everything_last_edited.txt)" > /home/mod/.darbs/scripts/common/open_everything_last_edited.txt

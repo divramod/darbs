@@ -1,0 +1,12 @@
+#!/bin/bash
+# echo -n "$1"
+base_dir=$(echo "${1}" | tr '/' ' ' | awk '{print $1;}')
+
+if [ "${base_dir}" = "src" ]; then
+  filename="$2.test.ts"
+  filepath="tests/$(echo "${1}"  | tr '/' ' ' | awk '{first = $1; $1 = ""; print $0; }' | awk 'NF{--NF};1' | tr ' ' '/')/${filename}"
+elif [ "${base_dir}" = "tests" ]; then
+  filepath="src/$(echo "${1}"  | tr '/' ' ' | awk '{first = $1; $1 = ""; print $0; }'  | awk 'NF{--NF};1' | tr ' ' '/')/$(echo $2 | awk -F '.' 'NF{--NF};1').ts"
+fi
+echo -n $filepath
+# echo -n "${2}"

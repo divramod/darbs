@@ -1,0 +1,10 @@
+#!/bin/bash
+: "${PATH_BASE:="$(git rev-parse --show-toplevel)"}"
+cd "${PATH_BASE}/calpy"
+rm -rf lib
+npm run build
+cd "${PATH_BASE}"
+echo "update" >> UPDATE.md
+git add -A
+git commit -m "feat/cicd: wip"
+git push origin HEAD

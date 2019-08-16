@@ -1,0 +1,15 @@
+#!/bin/bash
+link=$(cat ~/.darbs/scripts/common/browse_links | fzf -m | tr '\n' ' ')
+count_chrome=$(ps aux | grep "chrome/chrome" | wc | awk '{print $1;}')
+if [ "${link}" != "" ]; then
+  if [ "${1}" = "new" ]; then
+    tmux new -d -s $RANDOM "google-chrome --new-window ${link}"
+  else
+    if [ "${count_chrome}" = "1" ]; then
+      # google-chrome --new-window "${link}" </dev/null &>/dev/null &
+      tmux new -d -s $RANDOM "google-chrome --new-window ${link}"
+    else
+      tmux new -d -s $RANDOM "google-chrome ${link}"
+    fi
+  fi
+fi

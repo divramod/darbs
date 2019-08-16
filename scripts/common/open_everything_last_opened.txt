@@ -1,0 +1,15 @@
+2019-07-30 12:38:05 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:38:05 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:38:04 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:38:03 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:38:00 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:37:58 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:37:58 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:37:57 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:37:57 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:37:55 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:37:55 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:37:51 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:37:51 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:37:50 .darbs/scripts/common/open_everything_last_opened.txt
+2019-07-30 12:37:03 .darbs/scripts/common/open_everything

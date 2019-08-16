@@ -15,6 +15,10 @@ close() {
   i3 "[instance=\"dropdown_tmuxdd_2\"] move scratchpad"
   i3 "[instance=\"dropdown_dropdownwiki\"] move scratchpad"
   i3 "[instance=\"dropdown_dropdowndarbs\"] move scratchpad"
+  i3 "[instance=\"dropdown_oe\"] move scratchpad"
+  i3 "[instance=\"dropdown_oe_tmux\"] move scratchpad"
+  i3 "[instance=\"dropdown_oe_directory\"] move scratchpad"
+  i3 "[instance=\"dropdown_oe_script\"] move scratchpad"
 }
 
 if [[ "${1}" = "close" ]]; then
@@ -50,6 +54,26 @@ else
       i3 "[instance=\"dropdown_$1\"] scratchpad show; [instance=\"dropdown_$1\"] move position center"
     else
       i3 "[instance=\"dropdown_dropdowndarbs\"] move scratchpad"
+    fi
+    if [ "${1}" = "dropdown_oe" ]; then
+      i3 "[instance=\"dropdown_oe\"] scratchpad show; [instance=\"dropdown_$1\"] move position center"
+    else
+      i3 "[instance=\"dropdown_oe\"] move scratchpad"
+    fi
+    if [ "${1}" = "dropdown_oe_tmux" ]; then
+      i3 "[instance=\"dropdown_oe_tmux\"] scratchpad show; [instance=\"dropdown_$1\"] move position center"
+    else
+      i3 "[instance=\"dropdown_oe_tmux\"] move scratchpad"
+    fi
+    if [ "${1}" = "dropdown_oe_directory" ]; then
+      i3 "[instance=\"dropdown_oe_directory\"] scratchpad show; [instance=\"dropdown_$1\"] move position center"
+    else
+      i3 "[instance=\"dropdown_oe_directory\"] move scratchpad"
+    fi
+    if [ "${1}" = "dropdown_oe_script" ]; then
+      i3 "[instance=\"dropdown_oe_script\"] scratchpad show; [instance=\"dropdown_$1\"] move position center"
+    else
+      i3 "[instance=\"dropdown_oe_script\"] move scratchpad"
     fi
   else
     echo "Window not detected... spawning."

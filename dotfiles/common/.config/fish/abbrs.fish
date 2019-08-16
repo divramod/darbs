@@ -8,20 +8,30 @@ abbr ..... 'cd ../../../.. && ls'
 abbr ...... 'cd ../../../../.. && ls'
 abbr ....... 'cd ../../../../../.. && ls'
 abbr ........ 'cd ../../../../../../.. && ls'
-abbr awkprint "awk '{print \$1;}'"
-abbr vt 'vim -c ":terminal ++curwin"'
+abbr e "exit"
+abbr ve "vim_last_edited_open 1 5"
+abbr th "tmux_yank_pane_to_vim"
+abbr aw1 "awk '{print $1;}'"
+abbr awk1 "awk '{print \$1;}'"
+abbr awk2 "awk '{print \$2;}'"
+abbr awk3 "awk '{print \$3;}'"
+abbr awk4 "awk '{print \$4;}'"
+abbr awk5 "awk '{print \$5;}'"
+abbr awk6 "awk '{print \$6;}'"
+abbr awk7 "awk '{print \$7;}'"
+abbr awkl "awk '{print \$NF;}'"
 abbr b 'bash'
+abbr bat "upower -i (upower -e | grep 'BAT') | grep -E 'state|to\ full|percentage'"
+abbr bd "base64 -d"
+abbr cf 'cloudflareU'
 abbr chm 'sudo chmod +x'
 abbr cho 'sudo chown'
-abbr tu 'tmuxpUtils -S'
 abbr ci 'cicd'
-abbr cf 'cloudflareU'
 abbr dg 'ddgr'
 abbr dia 'cd ~/art/wik && vim -c ":VimwikiMakeDiaryNote"'
 abbr diat 'cd ~/art/wik && vim -c ":VimwikiMakeTomorrowDiaryNote"'
 abbr diay 'cd ~/art/wik && vim -c ":VimwikiMakeYesterdayDiaryNote"'
 abbr do 'devopsU'
-abbr vr 'vim README.md'
 abbr es 'echo $status'
 abbr f 'fish'
 abbr g 'googler'
@@ -38,6 +48,7 @@ abbr gd 'git diff'
 abbr gf 'git fetch'
 abbr gl 'git log'
 abbr gm 'git merge'
+abbr god 'cd ~/go/src/github.com/divramod; ls'
 abbr gop 'git open'
 abbr gp 'git push'
 abbr gpl 'git pull'
@@ -57,28 +68,57 @@ abbr hsl 'hcloud server list'
 abbr ir 'i3-msg reload; i3-msg restart'
 abbr is '/home/mod/cod/wo/thingylabs/kubernetes-provisioning/utils/plugins/istio'
 abbr k 'kubectl'
+abbr kb 'kubectl describe'
+abbr kc 'kubectl create -f'
+abbr kck 'kubectl create -k'
+abbr kcl 'set -x KUBECONFIG ~/.kube/config'
+abbr kd 'kubectl delete -f'
+abbr kdk 'kubectl delete -k'
+abbr ke 'kubectl exec'
+abbr kf 'kubectl -f'
+abbr kg 'kubectl get'
+abbr ki 'kubectl cluster-info'
+abbr kk 'kubectl -k'
+abbr kl 'kubectl label'
+abbr kp 'kubectl proxy --port=8002'
+abbr kw 'watch kubectl get all -o wide'
 abbr l 'ls -lisa'
-abbr lh 'ls -a --format=horizontal'
 abbr ld 'ls -lgot --time-style=long-iso'
 abbr le 'ls -lgo --sort=extension'
+abbr lh 'ls -a --format=horizontal'
 abbr lr 'ls -sSh'
 abbr lv 'ls -lgo --sort=version'
 abbr mb '/home/mod/cod/wo/thingylabs/kubernetes-provisioning/utils/plugins/metallb'
 abbr mf 'tmuxp freeze'
 abbr ml 'tmuxp load -y'
+abbr mux "tmuxp load -y"
 abbr mv 'mv'
-abbr p 'sudo pacman -S'
+abbr ob "open_everything_cli browse"
+abbr oc "open_everything_cli clipboard"
+abbr oe "open_everything_cli"
+abbr os 'operator-sdk'
+abbr ot "open_everything_cli tmux"
+abbr pa 'sudo pacman -S'
+abbr p "paste_from_clipboard"
 abbr r 'ranger'
+abbr sec.harbor "kubectl get secret calponia-harbor-core --namespace=harbor -o 'jsonpath={.data.HARBOR_ADMIN_PASSWORD}' | base64 -d | xclip -selection clipboard"
+abbr sec.jenkins "kubectl get secret jenkins-operator-credentials-master --namespace=jenkins -o 'jsonpath={.data.password}' | base64 -d | xclip -selection clipboard"
 abbr spa 'vim ~/art/wik/inb/sparkfile.md'
 abbr ta 'testing -A'
 abbr tk 'tmux kill-session'
 abbr tks 'tmux kill-server'
 abbr tml 'tmux display-message -p "#{window_layout}"'
+abbr tr- "tr -d '\n'"
 abbr ts 'testing -S'
+abbr tu 'tmuxpUtils -S'
 abbr v 'vim'
+abbr vimf 'vim -c ":Files"'
 abbr vn 'vim -c "NERDTree | wincmd l"'
+abbr vr 'vim README.md'
+abbr vt 'vim -c ":terminal ++curwin"'
+abbr x 'xclip -selection clipboard'
+abbr xp 'pwd | xclip -selection clipboard'
 abbr y 'yay -S'
-abbr os 'operator-sdk'
 
 # THINGYLABS
 # ==============================================================================
@@ -104,6 +144,7 @@ abbr tld 'cd ~ && cd ~/cod/wo/thingylabs/devops && ls'
 abbr tlc 'cd ~ && cd ~/cod/wo/thingylabs/calponia && ls -lisa'
 abbr tlk 'cd ~ && cd ~/cod/wo/thingylabs/kubespray && ls -lisa'
 abbr tlb 'cd ~ && cd ~/cod/wo/thingylabs/bats && ls -lisa'
+abbr tls 'set -x PLAYBOOK_NAME calponia.dev; set -x KUBECONFIG /home/mod/cod/wo/thingylabs/devops/calponia.dev/playbooks/calponia.dev/admin.conf'
 
 # ISTIO
 # ------------------------------------------------------------------------------

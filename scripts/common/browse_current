@@ -1,0 +1,3 @@
+#!/bin/bash
+# st bash -c 'browse && bash -c "exit"'
+browse

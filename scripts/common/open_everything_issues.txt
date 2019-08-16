@@ -1,0 +1,4 @@
+https://github.com/derailed/k9s/issues/283
+https://github.com/derailed/k9s/pull/284
+https://github.com/francoiscabrol/ranger.vim/issues/78
+https://stackoverflow.com/questions/57321104/typescript-let-module-resolution-paths-base-dynamic-imports-and-resolvejsonm

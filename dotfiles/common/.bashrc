@@ -9,3 +9,10 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 [ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source "$HOME/.darbs/scripts/common/forgit"
+
+alias tls="export PLAYBOOK_NAME=calponia.dev && export KUBECONFIG=/home/mod/cod/wo/thingylabs/devops/calponia.dev/playbooks/calponia.dev/admin.conf"
+alias b="bash"
+alias ep="echo $PLAYBOOK_NAME"
+alias ek="echo $KUBECONFIG"
+alias ff="firefox"

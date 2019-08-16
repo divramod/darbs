@@ -1,0 +1,9 @@
+add           add selector
+log           log viewer
+clean         git clean
+ignore        .gitignore generator
+restore       restore
+reset::head   git reset HEAD <file> selector
+stash::show   git stash viewer
+diff          diff viewer
+https://github.com/wfxr/forgia

@@ -1,2 +1,3 @@
 #!/bin/sh
-tmuxp load -y darbs
+# tmuxp load -y darbs
+open_everything_cli darbs

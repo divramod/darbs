@@ -1,0 +1,7 @@
+#!/bin/bash
+what="${1}"
+if [[ -z "${what}" ]]; then
+  open_everything_choose
+else
+  open_everything "${what}"
+fi

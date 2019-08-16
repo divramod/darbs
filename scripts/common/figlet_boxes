@@ -11,8 +11,11 @@
 # [ ] TODO add paramters
 # [ ] TODO vim: pass text to figlet
 # [ ] TODO sometimes i am in markdown and want to write code in a codeblock. in that case i want to be able to choose which filetype boxes uses
+echo "Figlet boxes. Enter a text:"
+mkdir -p ~/.clipboard
 read -r input_text
 help_path=/tmp/figlet_tmp
 figlet "${input_text}" > "${help_path}"
-boxes -d shell -s 80 -a hc "${help_path}"
+boxes -d shell -s 80 -a hc "${help_path}" > ~/.clipboard/figlet
+cat ~/.clipboard/figlet | xclip -selection c
 rm "${help_path}"

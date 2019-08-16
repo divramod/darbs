@@ -9,3 +9,4 @@
 " " au! VCenterCursor
 " :set so=999
 " " :set scrolloff=5
+hi Cursor ctermbg=15 ctermfg=8

@@ -1,68 +1,76 @@
 # You can add comments to these files with #
-# a     ~/art
-# asc    ~/art/sca
-# aba    ~/art/bac
-# aca    ~/art/cam
-# ado    ~/art/doc
-# aem    ~/art/ema
-# ajo    ~/art/jou
-# ano    ~/art/not
-# apr    ~/art/pro
-# are    ~/art/ref
-# asr    ~/art/scr
-# atp    ~/art/tpl
-# awi    ~/art/wik
-# atr   ~/art/tra
-# c     ~/.config
-# h     ~
-# co    ~/cod
-# cob   ~/cod/bb
-# coh   ~/cod/gh
-# col   ~/cod/gl
-# cot   ~/cod/te
-# cow   ~/cod/wo
-# da     ~/.darbs
-# dsa   ~/.darbs/scripts/arch_manjaro_i3
-# dsc   ~/.darbs/scripts/common
-# dst   ~/.darbs/scripts/termux
-# dc    ~/doc
-# de    ~/des
-# dw    ~/dow
-# m1    /mnt/1
-# m2    /mnt/2
-# m3    /mnt/3
-# mhd11    /mnt/hd11
-# mhd12    /mnt/hd1
-# ma    ~/med/aud
-# me    ~/med/ebo
-# mi    ~/med/img
-# mm    ~/med/mus
-# mp    ~/med/pic
-# ms    ~/med/sof
-# md    ~/med/vid
-# t     ~/.tmuxp
-# vc     ~/.config/nvim
-# va    ~/.config/nvim/pack
-# vb    ~/vbo
-# vp    ~/.config/nvim/plugged
-# vs    ~/.config/nvim/plugged/vim-snippets
+aba   ~/art/bac
+aca   ~/art/cam
+ado   ~/art/doc
+aem   ~/art/ema
+ajo   ~/art/jou
+ano   ~/art/not
+apr   ~/art/pro
+are   ~/art/ref
+art   ~/art
+asc   ~/art/sca
+asr   ~/art/scr
+atp   ~/art/tpl
+atr   ~/art/tra
+awi   ~/art/wik
+dac   ~/art/doc/arvid-coding
+df    ~/art/doc/familie
+dk    ~/art/doc/_konten
+ds    ~/art/doc/_steuererklärung
+co    ~/.config
+hm    ~
+co    ~/cod
+cbb   ~/cod/bb
+cgh   ~/cod/gh
+cgl   ~/cod/gl
+cte   ~/cod/te
+cwo   ~/cod/wo
+da    ~/.darbs
+dsa   ~/.darbs/scripts/arch_manjaro_i3
+dsc   ~/.darbs/scripts/common
+dst   ~/.darbs/scripts/termux
+des   ~/des
+dow   ~/dow
+ma    ~/med/aud
+me    ~/med/ebo
+mi    ~/med/img
+mm    ~/med/mus
+mp    ~/med/pic
+ms    ~/med/sof
+md    ~/med/vid
+tm    ~/.tmuxp
+cvi   ~/.config/nvim
+cfi   ~/.config/fish
+cnb   ~/.config/newsboat
+vb    ~/vbo
 
 # root
-# rb    /boot
-# re    /etc
-# rh    /home
-# rl    /lost+found
-# rn   /mnt
-# ro    /opt
-# rp    /proc
-# rr    /root
-# rru   /run
-# rs    /srv
-# rt    /tmp
-# ru    /usr
-# rv    /var
+rbo    /boot
+ret    /etc
+rho    /home
+rlf    /lost+found
+rop    /opt
+rpr    /proc
+rro    /root
+rru    /run
+rsr    /srv
+rtm    /tmp
+rus    /usr
+rva    /var
+
+# /mnt
+mn    /mnt
+m1    /mnt/1
+m2    /mnt/2
+m3    /mnt/3
+m4    /mnt/4
+m5    /mnt/5
+m6    /mnt/6
+m7    /mnt/7
+m8    /mnt/8
+m9    /mnt/9
+mhd11 /mnt/hd11
+mhd12 /mnt/hd12
 
 # projects
-# tlk  ~/cod/wo/thingylabs/kubernetes-provisioning
-# tlp  ~/cod/wo/thingylabs/kubernetes-provisioning/playbooks
-# tlc  ~/cod/wo/thingylabs/calponia
+tl      ~/cod/wo/thingylabs

@@ -1,0 +1,3 @@
+#!/bin/bash
+# trim whitespace: https://unix.stackexchange.com/questions/102008/how-do-i-trim-leading-and-trailing-whitespace-from-each-line-of-some-output
+tmux list-windows | fzf | awk '{print "  "$6": "$7;}' | awk '{$1=$1;print}' | cut -c 2- | head --bytes -2 | xclip -selection clipboard

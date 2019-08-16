@@ -23,9 +23,9 @@
 #                              BASIC DEFINITIONS                               #
 ################################################################################
 # Needed for i3-gaps
-for_window [class="^.*"] border pixel 5
-gaps inner 8
-gaps outer 8
+for_window [class="^.*"] border pixel 2
+gaps inner 2
+gaps outer 2
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $stoprec --no-startup-id dmenurecord kill
@@ -42,20 +42,28 @@ for_window [instance="dropdown_*"] floating enable
 for_window [instance="dropdown_*"] move scratchpad
 for_window [instance="dropdown_*"] sticky enable
 for_window [instance="dropdown_*"] scratchpad show
-for_window [instance="dropdown_tmuxdd_0"] resize set 1600 900
-for_window [instance="dropdown_tmuxdd_1"] resize set 1600 900
-for_window [instance="dropdown_tmuxdd_2"] resize set 1600 900
-for_window [instance="dropdown_dropdowndarbs"] resize set 1600 900
-for_window [instance="dropdown_dropdowncalc"] resize set 800 300
-for_window [instance="dropdown_dropdownwiki"] resize set 1600 900
-for_window [instance="dropdown_dropdownchrome"] resize set 1600 900
-for_window [instance="dropdown_tmuxdd_0"] border pixel 5
-for_window [instance="dropdown_tmuxdd_1"] border pixel 5
-for_window [instance="dropdown_tmuxdd_2"] border pixel 5
-for_window [instance="dropdown_dropdowndarbs"] border pixel 5
-for_window [instance="dropdown_dropdowncalc"] border pixel 2
-for_window [instance="dropdown_dropdownwiki"] border pixel 2
-for_window [instance="dropdown_dropdownchrome"] border pixel 5
+for_window [instance="dropdown_tmuxdd_0"]         resize set 1904 1000
+for_window [instance="dropdown_tmuxdd_1"]         resize set 1904 1050
+for_window [instance="dropdown_tmuxdd_2"]         resize set 1904 1050
+for_window [instance="dropdown_dropdowndarbs"]    resize set 1100 900
+for_window [instance="dropdown_dropdowncalc"]     resize set 1000 300
+for_window [instance="dropdown_dropdownwiki"]     resize set 1800 900
+for_window [instance="dropdown_dropdownchrome"]   resize set 1600 900
+for_window [instance="dropdown_oe"]               resize set 150 300
+for_window [instance="dropdown_oe_tmux"]          resize set 1600 900
+for_window [instance="dropdown_oe_directory"]     resize set 1600 900
+for_window [instance="dropdown_oe_script"]        resize set 1600 900
+for_window [instance="dropdown_oe_tmux"]          border pixel 1
+for_window [instance="dropdown_oe_script"]        border pixel 1
+for_window [instance="dropdown_oe"]               border pixel 1
+for_window [instance="dropdown_oe_directory"]     border pixel 1
+for_window [instance="dropdown_tmuxdd_0"]         border pixel 1
+for_window [instance="dropdown_tmuxdd_1"]         border pixel 1
+for_window [instance="dropdown_tmuxdd_2"]         border pixel 1
+for_window [instance="dropdown_dropdowndarbs"]    border pixel 1
+for_window [instance="dropdown_dropdowncalc"]     border pixel 1
+for_window [instance="dropdown_dropdownwiki"]     border pixel 1
+for_window [instance="dropdown_dropdownchrome"]   border pixel 1
 for_window [instance="dropdown_*"] move position center
 
 ################################################################################
@@ -153,68 +161,67 @@ bar {
 # bindsym $mod+w			exec $term -e nmtui
 # bindsym $mod+w+minus		exec --no-startup-id $BROWSER
 # bindsym $mod+z			gaps outer current plus 5
-bindsym $mod+Escape		workspace prev
-bindsym $mod+Insert		exec --no-startup-id showclip
-bindsym $mod+Pause		exec --no-startup-id xcqr
-bindsym $mod+Shift+BackSpace	exec --no-startup-id prompt "Reboot computer?" "$reboot"
-bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
-bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
-bindsym $mod+Shift+Return	exec --no-startup-id samedir
-bindsym $mod+Shift+a		exec $term -e pulsemixer
-bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id bottomleft
-bindsym $mod+Shift+c		exec st -e tmux -c 'general ~/art/wik'
-bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
-bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
-bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "<b>Distraction-free mode activated.</b> Press Super+Shift+f to return."
-bindsym $mod+Shift+g		exec --no-startup-id camtoggle
-bindsym $mod+Shift+h		move left 30
-bindsym $mod+Shift+i		exec --no-startup-id i3resize up
-bindsym $mod+Shift+j		move down 30
-bindsym $mod+Shift+k		move up 30
-bindsym $mod+Shift+l		move right 30
-bindsym $mod+Shift+m		exec --no-startup-id lmc mute
-bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id bottomright
-bindsym $mod+Shift+o    exec --no-startup-id i3resize right
-bindsym $mod+Shift+p    exec --no-startup-id lmc pause
-bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
-bindsym $mod+Shift+r		exec --no-startup-id winresize
-bindsym $mod+Shift+s		gaps inner current minus 5
-bindsym $mod+Shift+space    floating toggle
-bindsym $mod+Shift+t        gaps inner current set 15; gaps outer current set 15
-bindsym $mod+Shift+u        exec --no-startup-id i3resize down
-bindsym $mod+Shift+w		exec --no-startup-id dmenu_chrome
-bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
-bindsym $mod+Shift+y		exec --no-startup-id i3resize left
-bindsym $mod+Shift+z		gaps outer current minus 5
-bindsym $mod+a			exec --no-startup-id ddspawn dropdownwiki -f mono:pixelsize=14
-bindsym $mod+b b		exec --no-startup-id $BROWSER
-
-bindsym $mod+c			exec --no-startup-id dmenu_run
-bindsym $mod+d			exec --no-startup-id ddspawn dropdowndarbs
-bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
-bindsym $mod+f			fullscreen toggle
-bindsym $mod+g		exec st -e "wik_choose_project"
-bindsym $mod+grave		exec --no-startup-id dmenuunicode
-bindsym $mod+h			focus left
-bindsym $mod+i 			exec $term -e htop
-bindsym $mod+j			focus down
-bindsym $mod+k			focus up
-bindsym $mod+l			focus right
-bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
-bindsym $mod+n			exec --no-startup-id dmenu_newsboat
-bindsym $mod+o			        exec --no-startup-id ddspawn $BROWSER
-bindsym $mod+p		exec "i3-msg 'workspace 0; focus parent; focus parent; focus parent; kill'"; exec st -e tmuxp load -y cops
-bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
-bindsym $mod+r 			exec $term -e $FILE
-bindsym $mod+s			gaps inner current plus 5
-bindsym $mod+space		exec --no-startup-id ddspawn close; focus mode_toggle;
-bindsym $mod+t			split toggle
-bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd_0
-bindsym $mod+v			exec --no-startup-id flameshot gui
-bindsym $mod+w		exec --no-startup-id $BROWSER
-bindsym $mod+x			exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -e -f -c 1d2021
-bindsym $mod+y			exec $term -e calcurse
-bindsym $mod+z			exec --no-startup-id ddspawn tmuxdd_2
+bindsym $mod+Escape           workspace prev
+bindsym $mod+Insert           exec --no-startup-id showclip
+bindsym $mod+Pause            exec --no-startup-id xcqr
+bindsym $mod+Shift+BackSpace  exec --no-startup-id prompt "Reboot computer?" "$reboot"
+bindsym $mod+Shift+Delete     exec --no-startup-id lmc truemute ; exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
+bindsym $mod+Shift+Escape     exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
+bindsym $mod+Shift+Return     exec --no-startup-id samedir
+bindsym $mod+Shift+a          exec $term -e pulsemixer
+bindsym $mod+Shift+b          floating toggle; sticky toggle; exec --no-startup-id bottomleft
+bindsym $mod+Shift+c          exec st -e tmux -c 'general ~/art/wik'
+bindsym $mod+Shift+d          exec --no-startup-id ddspawn dropdown_oe_directory
+bindsym $mod+Shift+e          exec --no-startup-id tutorialvids
+bindsym $mod+Shift+f          mode "$freeze" ;; exec --no-startup-id notify-send "<b>Distraction-free mode activated.</b> Press Super+Shift+f to return."
+bindsym $mod+Shift+g          exec --no-startup-id camtoggle
+bindsym $mod+Shift+h          move left 30
+bindsym $mod+Shift+i          exec --no-startup-id i3resize up
+bindsym $mod+Shift+j          move down 30
+bindsym $mod+Shift+k          move up 30
+bindsym $mod+Shift+l          move right 30
+bindsym $mod+Shift+m          exec --no-startup-id lmc mute
+bindsym $mod+Shift+n          floating toggle; sticky toggle; exec --no-startup-id bottomright
+bindsym $mod+Shift+o          exec --no-startup-id ddspawn dropdown_oe
+bindsym $mod+Shift+p          exec --no-startup-id lmc pause
+bindsym $mod+Shift+q          [con_id="__focused__" instance="^(?!dropdown_).*$"] kill
+bindsym $mod+Shift+r          exec --no-startup-id winresize
+bindsym $mod+Shift+s          gaps inner current minus 5
+bindsym $mod+Shift+space      floating toggle
+bindsym $mod+Shift+t          gaps inner current set 15; gaps outer current set 15
+bindsym $mod+Shift+u          exec --no-startup-id ddspawn browse_open_links
+bindsym $mod+Shift+w          exec --no-startup-id dmenu_chrome
+bindsym $mod+Shift+x          exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
+bindsym $mod+Shift+y          exec --no-startup-id ddspawn dropdown_oe
+bindsym $mod+Shift+z          gaps outer current minus 5
+bindsym $mod+a                exec --no-startup-id ddspawn dropdownwiki -f mono:pixelsize=14
+bindsym $mod+b                fullscreen toggle
+bindsym $mod+c                exec --no-startup-id dmenu_run
+bindsym $mod+d                exec --no-startup-id ddspawn dropdowndarbs
+bindsym $mod+e                exec $term -e neomutt && pkill -RTMIN+12 i3blocks
+bindsym $mod+f                exec --no-startup-id firefox
+bindsym $mod+g                exec st -e "wik_choose_project"
+bindsym $mod+grave            exec --no-startup-id dmenuunicode
+bindsym $mod+h                focus left
+bindsym $mod+i                exec $term -e htop
+bindsym $mod+j                focus down
+bindsym $mod+k                focus up
+bindsym $mod+l                focus right
+bindsym $mod+m                workspace next
+bindsym $mod+n                workspace prev
+bindsym $mod+o                exec --no-startup-id ddspawn dropdown_oe_tmux
+bindsym $mod+p                exec "i3-msg 'workspace 0; focus parent; focus parent; focus parent; kill'"; exec st -e tmuxp load -y cops
+bindsym $mod+q                [con_id="__focused__" instance="^(?!dropdown_).*$"] kill
+bindsym $mod+r                exec $term -e $FILE
+bindsym $mod+s                exec --no-startup-id ddspawn dropdown_oe_script
+bindsym $mod+space            exec --no-startup-id ddspawn close; focus mode_toggle;
+bindsym $mod+t                split toggle
+bindsym $mod+u                exec --no-startup-id ddspawn tmuxdd_1
+bindsym $mod+v                exec --no-startup-id flameshot gui
+bindsym $mod+w                exec --no-startup-id $BROWSER
+bindsym $mod+x                exec --no-startup-id mpc pause; exec --no-startup-id pauseallmpv ; exec --no-startup-id i3lock -e -f -c 1d2021
+bindsym $mod+y                exec --no-startup-id ddspawn browse_current
+bindsym $mod+z                exec --no-startup-id ddspawn tmuxdd_2
 mode "$freeze" { bindsym $mod+Shift+f mode "default"
 set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
 }
@@ -443,3 +450,8 @@ exec --no-startup-id _dUnSplash
 exec --no-startup-id toggletouchpad
 # exec --no-startup-id tmuxp load -y wiki
 exec_always --no-startup-id notify-send -i ~/.darbs/scripts/arch_manjaro_i3/pix/larbs.png '<b>Welcome Arvid</b> Press Super+F1 for the manual.' -t 10000
+
+# bindsym $mod+y	        exec --no-startup-id ddspawn dropdownbrowse
+# bindsym $mod+y			exec --no-startup-id $BROWSER; exec st bash -c "browse && bash -c \"exit\""
+# bindsym $mod+y			exec st bash -c "browse new && bash -c \"exit\""
+# bindsym $mod+Shift+y 	exec st bash -c "browse && bash -c \"exit\""

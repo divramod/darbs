@@ -11,6 +11,16 @@ Another personal dotfiles and scripts repository which is heavily inspired and b
 
 # Installation
 
+## meta
+1 create usb installer
+2 install with stick (F12)
+3 run install wizard
+4 restart
+5 get darbs script
+6 darbs -R (rice)
+7 darbs -D (dotfiles)
+8 darbs -F (folders)
+
 ## get darbs script
 ```
 cd ~ && rm -rf ~/.darbs darbs && curl -LO https://raw.githubusercontent.com/divramod/darbs/master/darbs && sudo chmod +x darbs && ./darbs || true

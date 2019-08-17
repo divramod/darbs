@@ -6,6 +6,8 @@ sudo chmod 400 ~/.darbs/dotfiles/common/.ssh/*
 git add -A
 git commit -m "update"
 git pull origin HEAD
+git add -A
+git commit -m "merge"
 git push origin HEAD
 # ls -lisa ~/.darbs/dotfiles/common/.ssh
 cd -

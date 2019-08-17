@@ -15,6 +15,7 @@
 ,exfat-utils,"allows management of FAT drives."
 ,ffmpeg,"can record and splice video and audio on the command line."
 ,firefox,"is the only program on LARBS your girlfriend has ever heard of."
+,flameshot,"make professional screenshots"
 ,fortune-mod,"simple program that displays random poignant, inspirational, silly or snide phrase from a database of quotations"
 ,fzf,"is a fuzzy finder tool."
 ,gnome-keyring,"serves as the system keyring."

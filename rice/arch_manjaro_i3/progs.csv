@@ -36,6 +36,7 @@
 ,npm,"you know it"
 ,ntfs-3g,"allows accessing NTFS partitions."
 ,poppler,"manipulates .pdfs and gives .pdf previews and other .pdf functions."
+,postgresql-lib,"Contains psql which helps to work with postgres databases"
 ,pulseaudio,"is the audio system (>inb4 bloat)."
 ,pulseaudio-alsa,"is an audio interface with ALSA."
 ,pulsemixer,"is an intuitive ncurses audio controller."

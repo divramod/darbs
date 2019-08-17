@@ -3474,3 +3474,9 @@ Aug 17 08:01 : client: [0] opened from 127.0.0.1:54696
 Aug 17 08:01 : client: [0] closed
 Aug 17 08:01 : avahi: Service 'Music Player @ t460p' successfully established.
 Aug 17 08:01 : client: [1] opened from 127.0.0.1:54716
+Aug 17 08:31 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 17 08:31 : exception: inotify_add_watch() has failed: No such file or directory
+Aug 17 08:31 : client: [0] opened from 127.0.0.1:44262
+Aug 17 08:31 : client: [0] closed
+Aug 17 08:31 : avahi: Service 'Music Player @ t460p' successfully established.
+Aug 17 08:31 : client: [1] opened from 127.0.0.1:44276

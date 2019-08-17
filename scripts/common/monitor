@@ -4,7 +4,7 @@ set -eu -o pipefail
 # ==============================================================================
 
 # Paths
-: "${BASEDIR:="$(git rev-parse --show-toplevel)"}"
+# : "${BASEDIR:="$(git rev-parse --show-toplevel)"}"
 : "${MONITOR_LOCK_FILE:="/home/mod/.darbs/scripts/common/.monitor.lock"}"
 
 # Options
@@ -110,7 +110,7 @@ main() {
     ;;
   "T") # TODO
     echo "test"
-    xrandr --output HDMI1 --brightness 1.0
+    xrandr --output HDMI1 --brightness 1
     ;;
   "?") # Help when no Option
     usage "You passed no option! What is it you want to do?"

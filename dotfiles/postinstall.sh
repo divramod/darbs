@@ -17,6 +17,7 @@ git config --global user.name "divramod"
 fish -c fisher
 
 # vim
+yes | sudo pacman -S gvim
 pip install vim-packadd --user
 if [[ -d ~/.vim/pack/plugins ]]; then
   rm -rf ~/.vim/pack/plugins

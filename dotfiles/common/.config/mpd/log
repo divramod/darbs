@@ -3456,3 +3456,9 @@ Aug 17 06:14 : exception: RTIOThread could not get realtime scheduling, continui
 Aug 17 06:14 : exception: inotify_add_watch() has failed: No such file or directory
 Aug 17 06:14 : avahi: Service 'Music Player @ ws' successfully established.
 Aug 17 06:14 : client: [0] opened from 127.0.0.1:58952
+Aug 17 06:31 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 17 06:31 : client: [0] opened from 127.0.0.1:50656
+Aug 17 06:31 : client: [0] closed
+Aug 17 06:31 : avahi: Service 'Music Player @ t460p' successfully established.
+Aug 17 06:31 : client: [1] opened from 127.0.0.1:50676
+Aug 17 06:31 : inotify: music directory was removed - cannot continue to watch it

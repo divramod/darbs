@@ -44,6 +44,10 @@ sudo usermod -aG docker mod
 sudo systemctl enable docker
 sudo systemctl start docker
 
+# cups
+sudo systemctl enable org.cups.cupsd.service
+sudo systemctl start  org.cups.cupsd.service
+
 # reveal secrets
 cd ~/.darbs
 rm -f ~/.darbs/key.asc

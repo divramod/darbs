@@ -8,6 +8,7 @@
 ,cryptsetup,"helper for encryption"
 ,ctags,"Generate tags"
 ,cups,"Printers are always a pain!"
+,cups-pdf,"Print to pdf with cups"
 ,docker,"docker"
 ,docker-compose,"compose docker like a star"
 ,dosfstools,"allows your computer to access dos-like filesystems."

@@ -3,6 +3,7 @@ cd ~/.darbs
 git add -A
 git commit -m "update"
 git pull origin HEAD
+sudo chmod 644 ~/.darbs/dotfiles/common/.ssh/*
 git secret reveal
 sudo chmod 400 ~/.darbs/dotfiles/common/.ssh/*
 cd -

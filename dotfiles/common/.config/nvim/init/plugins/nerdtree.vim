@@ -12,9 +12,9 @@ let NERDTreeMapCloseDir='h'
 let NERDTreeMapCloseChildren='H'
 let NERDTreeMapOpenInTab='T'
 let NERDTreeQuitOnOpen=1
+" let NERDTreeNodeDelimiter = " "
 let NERDTreeShowBookmarks=1
 let NERDTreeAutoDeleteBuffer=1
-
 let NERDTreeMapOpenSplit=''
 let NERDTreeMapToggleFilters=''
 

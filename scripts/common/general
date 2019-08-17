@@ -14,7 +14,10 @@ if [[ -n "${file}" ]]; then
   if [[ "${file}" == *".pdf"* ]]; then
     i3-msg "exec zathura '${file}'"
   else
+    # path_file="$(dirname "${file}")" 
+    # tmux send-keys "cd ${path_file}" ENTER
+    # sleep 2
     tmux rename-window "$(basename "${file}")"
-    vim "${file}"
+    vim "${file}" -c ":cd %:p:h"
   fi
 fi

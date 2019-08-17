@@ -3480,3 +3480,5 @@ Aug 17 08:31 : client: [0] opened from 127.0.0.1:44262
 Aug 17 08:31 : client: [0] closed
 Aug 17 08:31 : avahi: Service 'Music Player @ t460p' successfully established.
 Aug 17 08:31 : client: [1] opened from 127.0.0.1:44276
+Aug 17 09:26 : client: [2] opened from 127.0.0.1:47416
+Aug 17 09:26 : client: [2] closed

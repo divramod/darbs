@@ -28,6 +28,7 @@ cd ~/.vim/plugged/YouCompleteMe || true
 python install.py
 
 # st
+rm -rf ~/tmp/st
 mkdir -p ~/tmp
 git clone --recursive https://github.com/divramod/st.git ~/tmp/st
 cd ~/tmp/st

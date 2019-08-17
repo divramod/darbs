@@ -3490,3 +3490,15 @@ Aug 17 15:55 : exception: RTIOThread could not get realtime scheduling, continui
 Aug 17 15:55 : exception: inotify_add_watch() has failed: No such file or directory
 Aug 17 15:55 : avahi: Service 'Music Player @ t460p' successfully established.
 Aug 17 15:55 : client: [0] opened from 127.0.0.1:43790
+Aug 17 19:21 : client: [1] opened from 127.0.0.1:47620
+Aug 17 19:21 : client: [1] closed
+Aug 17 19:21 : client: [2] opened from 127.0.0.1:47630
+Aug 17 19:21 : client: [2] closed
+Aug 17 19:22 : client: [3] opened from 127.0.0.1:47632
+Aug 17 19:22 : client: [3] closed
+Aug 17 19:26 : client: [4] opened from 127.0.0.1:47660
+Aug 17 19:26 : client: [4] closed
+Aug 17 19:26 : client: [5] opened from 127.0.0.1:47662
+Aug 17 19:26 : client: [5] closed
+Aug 17 19:30 : client: [6] opened from 127.0.0.1:47690
+Aug 17 19:30 : client: [6] closed

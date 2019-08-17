@@ -126,7 +126,7 @@ bar {
 	position bottom
 	colors {
 			background $darkblack
-			statusline $darkred
+			statusline $black
 			separator $cyan
 			focused_background $white
 			focused_workspace  $blue $darkblue $white
@@ -139,6 +139,7 @@ bar {
 	mode dock
 	modifier None
 }
+
 
 ###############################################################################
 #                                   BINDINGS                                   #

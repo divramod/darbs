@@ -74,6 +74,7 @@
 ,zathura-djvu,"gives zathura the ability to read .djvu files."
 ,zathura-pdf-mupdf,"allows mupdf pdf compatibility in zathura."
 A,direnv,"awesome for setting environment variables while coding"
+A,nord-vpn,"secure your internet connection"
 A,dockd,"Used for dock and undock events for my thinkpad Dockingstation"
 A,fish,"fish"
 A,fisher,"fisher"

@@ -48,6 +48,10 @@ sudo systemctl start docker
 sudo systemctl enable org.cups.cupsd.service
 sudo systemctl start  org.cups.cupsd.service
 
+# nordvpn
+sudo systemctl enable nordvpnd.service
+sudo systemctl start nordvpnd.service
+
 # reveal secrets
 cd ~/.darbs
 rm -f ~/.darbs/key.asc

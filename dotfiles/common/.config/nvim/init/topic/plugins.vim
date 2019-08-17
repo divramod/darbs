@@ -45,6 +45,7 @@ Plug 'majutsushi/tagbar'
 Plug 'regedarek/ZoomWin'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-abolish'
@@ -69,5 +70,3 @@ packadd vim-arpeggio
 
 " --- old
 " Plug 'bling/vim-airline'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'scrooloose/nerdtree'

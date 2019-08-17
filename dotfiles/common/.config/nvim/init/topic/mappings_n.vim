@@ -292,4 +292,4 @@ call arpeggio#map('n', '', 0, 'q', ':q<CR>') " move to end of the current line
 
 " --- archive
 call arpeggio#map('n', '', 0, 'no', ':NERDTreeToggle<CR>') "nerdtree
-call arpeggio#map('n', '', 0, 'nq', ':NERDTreeClose<CR>') "nerdtree
+call arpeggio#map('n', '', 0, 'nq', ':NERDTreeFind<CR>') "nerdtree

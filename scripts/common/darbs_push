@@ -5,6 +5,7 @@ git secret hide
 sudo chmod 400 ~/.darbs/dotfiles/common/.ssh/*
 git add -A
 git commit -m "update"
+git pull origin HEAD
 git push origin HEAD
 # ls -lisa ~/.darbs/dotfiles/common/.ssh
 cd -

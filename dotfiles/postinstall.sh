@@ -40,9 +40,9 @@ rm -rf ~/tmp/st
 sudo ln -sf /usr/bin/google-chrome-stable /usr/bin/google-chrome
 
 # docker
-usermod -aG docker mod
-systemctl enable docker
-systemctl start docker
+sudo usermod -aG docker mod
+sudo systemctl enable docker
+sudo systemctl start docker
 
 # reveal secrets
 cd ~/.darbs

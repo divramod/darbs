@@ -38,6 +38,11 @@ rm -rf ~/tmp/st
 # chrome
 sudo ln -sf /usr/bin/google-chrome-stable /usr/bin/google-chrome
 
+# docker
+usermod -aG docker mod
+systemctl enable docker
+systemctl start docker
+
 # reveal secrets
 cd ~/.darbs
 rm -f ~/.darbs/key.asc

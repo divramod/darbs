@@ -114,6 +114,14 @@ if [ "${1}" != "" ]; then
     _i3_resize_center
     file="$(cat ~/.darbs/scripts/common/open_everything_man_links.txt | fzf)"
     i3-msg 'exec google-chrome '${file}
+  elif  [ "${1}" = "news" ]; then
+    _i3_resize_center
+    file="$(cat ~/.darbs/scripts/common/open_everything_news.txt | fzf)"
+    i3-msg 'exec google-chrome '${file}
+  elif  [ "${1}" = "twitter" ]; then
+    _i3_resize_center
+    file="$(cat ~/.darbs/scripts/common/open_everything_twitter.txt | fzf)"
+    i3-msg 'exec google-chrome '${file}
   elif  [ "${1}" = "issues" ]; then
     _i3_resize_center
     file="$(cat ~/.darbs/scripts/common/open_everything_issues.txt | fzf)"

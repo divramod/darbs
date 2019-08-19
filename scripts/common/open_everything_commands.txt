@@ -4,12 +4,14 @@ browse_urls
 clipboard
 configs
 darbs
+issues
 last_edited
 man
+news
 oe_configs
 script
 tmux
 tmuxp
+twitter
 wiki
 yank_history
-issues

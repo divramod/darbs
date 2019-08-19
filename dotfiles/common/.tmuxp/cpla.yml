@@ -10,11 +10,12 @@ windows:
   - shell_command:
     - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
-    - k9s -c calpobot-po.yml
+    # - k9s -c calpobot-jo.yml
+    - k9s
   - shell_command:
     - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
-    - k9s -c calpobot-jo.yml
+    - k9s
   - cd ~/cod/wo/thingylabs/pipeline-testing/pt1 && clear && pwd
   - cd ~/cod/wo/thingylabs/devops/do1 && clear && pwd
   - cd ~/cod/wo/thingylabs/calponia/cp2 && clear && pwd
@@ -27,7 +28,7 @@ windows:
   - shell_command:
     - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
-    - k9s -c calpobot-system-sec.yml
+    - k9s
   - shell_command:
     - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
@@ -35,7 +36,7 @@ windows:
   - shell_command:
     - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
-    - k9s -c calpobot-system-po.yml
+    - k9s
   - ls -lisa
 - window_name: 'devops'
   start_directory: ~/cod/wo/thingylabs/calpobot/cb1
@@ -46,11 +47,11 @@ windows:
   - shell_command:
     - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
-    - k9s -n calponia
+    - k9s
   - shell_command:
     - cd ~/cod/wo/thingylabs/devops/do1
     - direnv allow
-    - k9s -n calponia
+    - k9s
   - cd ~/cod/wo/thingylabs/pipeline-testing/pt1 && clear && pwd
   - cd ~/cod/wo/thingylabs/calponia/cp1 && clear && pwd
   - cd ~/cod/wo/thingylabs/calponia/cp2 && clear && pwd

@@ -8,6 +8,7 @@ abbr ..... 'cd ../../../.. && ls'
 abbr ...... 'cd ../../../../.. && ls'
 abbr ....... 'cd ../../../../../.. && ls'
 abbr ........ 'cd ../../../../../../.. && ls'
+abbr gcg "git clone git@github.com:"
 abbr e "exit"
 abbr ve "vim_last_edited_open 1 5"
 abbr th "tmux_yank_pane_to_vim"

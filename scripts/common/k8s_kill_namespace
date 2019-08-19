@@ -1,0 +1,8 @@
+#!/bin/bash 
+ns=$(kubectl get namespaces | tail -n +2 | awk '{print $1;}' | fzf)
+kubectl delete namespace "${ns}" &
+kubectl get namespace "${ns}" -o json > temp.json
+vim temp.json
+# kubectl proxy --port=8081 &
+curl -H "Content-Type: application/json" -X PUT --data-binary @temp.json http://127.0.0.1:8082/api/v1/namespaces/${ns}/finalize
+rm -f temp.json

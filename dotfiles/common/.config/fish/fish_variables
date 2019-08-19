@@ -173,6 +173,7 @@ SETUVAR _fish_abbr_ga:git\x20add
 SETUVAR _fish_abbr_gb:git\x20branch
 SETUVAR _fish_abbr_gbl:git\x20blame
 SETUVAR _fish_abbr_gc:git\x20commit\x20\x2dm
+SETUVAR _fish_abbr_gcg:git\x20clone\x20git\x40github\x2ecom\x3a
 SETUVAR _fish_abbr_gcgh:git\x20clone\x20git\x40github\x2ecom\x3adivramod/
 SETUVAR _fish_abbr_gcgl:git\x20clone\x20git\x40gitlab\x2ecom\x3adivramod/
 SETUVAR _fish_abbr_gco:git\x20checkout

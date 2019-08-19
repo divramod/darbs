@@ -47,4 +47,4 @@
 [push]
   default = simple
 [core]
-  excludesfile = /home/mod/.gitignore
+	excludesfile = /home/mod/.gitignore

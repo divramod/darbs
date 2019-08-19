@@ -1,0 +1,3 @@
+#!/bin/bash
+ip=$(nordvpn status | grep "Your new IP" | awk '{print $4;}')
+echo -n "🌎 ${ip}"

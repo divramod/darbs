@@ -1,0 +1,4 @@
+#!/bin/bash 
+country=$(nordvpn status | grep "Country:" | awk '{print $2;}')
+city=$(nordvpn status | grep "City:" | awk '{print $2;}')
+echo -n "${city} (${country})"

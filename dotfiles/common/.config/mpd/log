@@ -3502,3 +3502,27 @@ Aug 17 19:26 : client: [5] opened from 127.0.0.1:47662
 Aug 17 19:26 : client: [5] closed
 Aug 17 19:30 : client: [6] opened from 127.0.0.1:47690
 Aug 17 19:30 : client: [6] closed
+Aug 18 09:20 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 18 09:20 : exception: inotify_add_watch() has failed: No such file or directory
+Aug 18 09:20 : avahi: Service 'Music Player @ t460p' successfully established.
+Aug 18 09:20 : client: [0] opened from 127.0.0.1:47308
+Aug 18 11:35 : client: [1] opened from 127.0.0.1:48262
+Aug 18 11:35 : client: [1] closed
+Aug 18 16:38 : client: [2] opened from 127.0.0.1:49050
+Aug 18 16:38 : client: [2] closed
+Aug 19 07:21 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 19 07:21 : exception: inotify_add_watch() has failed: No such file or directory
+Aug 19 07:21 : avahi: Service 'Music Player @ t460p' successfully established.
+Aug 19 07:21 : client: [0] opened from 127.0.0.1:57614
+Aug 19 08:57 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 19 08:57 : exception: inotify_add_watch() has failed: No such file or directory
+Aug 19 08:57 : avahi: Service 'Music Player @ t460p' successfully established.
+Aug 19 08:57 : client: [0] opened from 127.0.0.1:36426
+Aug 19 09:38 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 19 09:38 : exception: inotify_add_watch() has failed: No such file or directory
+Aug 19 09:38 : avahi: Service 'Music Player @ t460p' successfully established.
+Aug 19 09:38 : client: [0] opened from 127.0.0.1:39240
+Aug 19 14:02 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 19 14:02 : exception: inotify_add_watch() has failed: No such file or directory
+Aug 19 14:02 : avahi: Service 'Music Player @ t460p' successfully established.
+Aug 19 14:02 : client: [0] opened from 127.0.0.1:47156

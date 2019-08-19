@@ -1,0 +1,6 @@
+#!/bin/bash 
+down=$(nordvpn status | grep "Transfer:" | awk '{print $2;}')
+up=$(nordvpn status | grep "Transfer:" | awk '{print $5;}')
+echo -n "⬆${up} ⬇${down}"
+
+

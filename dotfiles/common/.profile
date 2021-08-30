@@ -2,7 +2,8 @@
 # Profile file. Runs on login.
 
 # Adds `~/.scripts` and all subdirectories to $PATH
-export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')":":$(du "$HOME/.darbs/scripts/common/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')":"$HOME/.screenlayout":"$HOME/.darbs":"$HOME/.yarn/bin"
+export PATH=$PATH:"$(du "$HOME/dev/scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')":":$(du "$HOME/.darbs/scripts/common/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')":"$HOME/.screenlayout":"$HOME/.darbs":"$HOME/.yarn/bin"
+# export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')":":$(du "$HOME/.darbs/scripts/common/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')":"$HOME/.screenlayout":"$HOME/.darbs":"$HOME/.yarn/bin"
 export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="google-chrome-stable"
@@ -34,3 +35,7 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 sudo -n loadkeys ~/.darbs/scripts/arch_manjaro_i3/ttymaps.kmap 2>/dev/null
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
+
+# https://wiki.archlinux.org/index.php/Xorg/Keyboard_configuration#Configuring_compose_key
+# export GTK_IM_MODULE=xim
+# export XMODIFIERS="@im=none"

@@ -1,0 +1,10 @@
+#!/bin/bash
+cd ~/art/wik
+pwd
+git add -A
+git commit -m "update"
+git pull origin HEAD
+git add -A
+git commit -m "merge"
+git push origin HEAD
+cd -

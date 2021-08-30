@@ -11,3 +11,5 @@ http://json.schemastore.org/tsconfig
 https://pkgs.alpinelinux.org/contents?branch=edge&name=coreutils&arch=ppc64le&repo=main
 https://github.com/kubernetes/kubernetes/issues/19317
 https://wiki.archlinux.org/index.php/NordVPN
+https://trac.ffmpeg.org/wiki/Capture/Desktop
+https://linuxhint.com/bluetooth_arch_linux/

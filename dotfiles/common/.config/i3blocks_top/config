@@ -1,0 +1,58 @@
+command=/home/mod/dev/scripts/arch_manjaro_i3/statusbar/$BLOCK_NAME
+separator_block_width=15
+markup=pango
+
+[keyboard]
+command=/home/mod/dev/scripts/arch_manjaro_i3/statusbar/keyboard
+interval=once
+signal=18
+label=🧠
+
+[bandwidth3]
+command=/home/mod/.i3blocks-contrib/bandwidth3/bandwidth3
+interval=persist
+markup=pango
+#LABEL=<span font='FontAwesome'>  </span>
+IFACE=wlp3s0
+#DT=3
+#UNIT=Mb
+# Exposed variables: rx, wx, tx, unit, iface
+PRINTF_COMMAND=printf "%5.1f/%5.1f %s/s\n", rx, wx, unit;
+
+[memory]
+interval=30
+label=🧠
+
+[cpu]
+interval=15
+label=💻
+
+[volume]
+interval=once
+signal=10
+
+[disk]
+interval=60
+command=disk /home 🏠
+
+[battery]
+label=🔋
+command=cat /sys/class/power_supply/BAT0/capacity
+interval=5
+
+[updown]
+interval=1
+
+[internet]
+interval=10
+
+[ip]
+command=/home/mod/dev/scripts/arch_manjaro_i3/statusbar/ip
+interval=10
+
+[server]
+interval=10
+
+[clock]
+label=📅
+interval=1

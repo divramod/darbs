@@ -1,5 +1,7 @@
 #!/bin/sh
 
+setxkbmap -option compose:ralt
+
 [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 

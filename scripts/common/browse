@@ -1,5 +1,5 @@
 #!/bin/bash
-link=$(cat ~/.darbs/scripts/common/browse_links | fzf -m | tr '\n' ' ')
+link=$(cat ~/.darbs/scripts/common/open_everything_links.txt | fzf -m | tr '\n' ' ')
 count_chrome=$(ps aux | grep "chrome/chrome" | wc | awk '{print $1;}')
 if [ "${link}" != "" ]; then
   if [ "${1}" = "new" ]; then

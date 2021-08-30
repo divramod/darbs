@@ -1,0 +1,22 @@
+session_name: calpy
+start_directory: ~/cod/wo/thingylabs/calpy
+windows:
+- window_name: "ca0"
+  start_directory: ~/cod/wo/thingylabs/calpy/ca0
+  panes:
+    - ve
+- window_name: "ca1"
+  start_directory: ~/cod/wo/thingylabs/calpy/ca1
+  panes:
+    - ve
+- window_name: "develop"
+  start_directory: ~/cod/wo/thingylabs/calpy/develop
+  panes:
+    - ve
+- window_name: "tmuxp"
+  start_directory: ~/.tmuxp
+  layout: 6e81,273x64,0,0{75x64,0,0,306,197x64,76,0,296}
+  panes:
+  - shell_command:
+      - ls -lisa
+      - sleep 2 && tmux select-window -t 1 && vim ~/.tmuxp/calpy.yml

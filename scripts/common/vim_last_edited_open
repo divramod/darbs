@@ -3,7 +3,7 @@
 # test -> find ~/.darbs/scripts/common -type f -name "vim_last_edited*" | entr vim_last_edited_open 4 /home/mod
 # TODO create new log for every day
 # TODO remove UPDATE.md and /tmp/tmp from output (use array)
-tmux_window_num="${1}"
+sleep_for="${1}"
 num="${2}"
 if [[ -n "${3}" ]]; then
   path_base="${3}"
@@ -17,20 +17,21 @@ if [[ -f "${file_last_edited_log}" ]] && [[ -s "${file_last_edited_log}" ]] ; th
   clear
   cd "${path_base}"
   # cmd_vim=$(cat -n "${file_last_edited_log}" | sort -k4 -k1n | uniq -f1 -f2 -f3 | sort -nk1,1 | awk '{print $5;}' | head -n "${num}" | tr '\n' ' ' | xargs -I _files echo "vim -p _files")
-  cmd_vim="vim "
+  cmd_vim="vim"
   while read file; do
     file_log="${path_base}/${file}"
     if [[ -f "${file_log}" ]]; then
       cmd_vim="${cmd_vim} ${file}"
     fi
-  done < <(cat -n "${file_last_edited_log}" | sort -k4 -k1n | uniq -f1 -f2 -f3 | sort -nk1,1 | awk '{print $5;}' | head -n "${num}"  | xargs -I _file echo "_file")
+  done < <(cat -n "${file_last_edited_log}" | sort -k4 -k1n | uniq -f1 -f2 -f3 | sort -nk1,1 | awk '{print $5;}' | head -n "${num}" | xargs -I _file echo "_file")
+  # cmd_vim="${cmd_vim} -c \":buffer 1\""
 else
-  cmd_vim="vim -c ':Ranger'"
+  cmd_vim="ranger"
 fi
 # echo " ${cmd_vim}"
 # eval "${cmd_vim}"
 # tmux send-keys -t "cops:${tmux_window_num}.0" "${cmd_vim}" Enter
 # echo "${tmux_window_num}"
-sleep 5
+sleep "${1}"
 tmux list-panes -s | grep $TMUX_PANE | awk '{print $1;}' | tr -d ':' | xargs -I _pane tmux send-keys -t $(tmux display-message -p '#S')":_pane" "bash -c \"${cmd_vim}\"" Enter
 # tmux list-panes -s | grep $TMUX_PANE | awk '{print $1;}' | tr -d ':' | xargs -I _pane tmux send-keys -t $(tmux display-message -p '#S')":_pane" "${cmd_vim}" Enter

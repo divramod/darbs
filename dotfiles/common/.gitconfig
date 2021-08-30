@@ -3,36 +3,34 @@
 	name = divramod
 
 [alias]
-  p = !sh -c 'git cas60 && git commit -am && git push origin HEAD' -
-  pu = !sh -c 'git cas60 && git commit -am \"$1\" && git push -u origin HEAD' -
-  up = !sh -c 'git cas60 && git commit -am \":wrench: update\" && git push -u origin HEAD' -
-  all = !sh -c 'git cas60 && git add -A && git commit -am \":wrench: update\" && git push -u origin HEAD' -
   a = !sh -c 'git commit --amend'
-  cas60 = !sh -c 'git config credential.helper "cache --timeout=3600"'
+  all = !sh -c 'git cas60 && git add -A && git commit -am \":wrench: update\" && git push -u origin HEAD' -
   cas5 = !sh -c 'git config credential.helper "cache --timeout=300"'
-  dm = !sh -c 'git clone git@github.com:divramod/$1.git' -
+  cas60 = !sh -c 'git config credential.helper "cache --timeout=3600"'
   dif = !sh -c 'git difftool -y'
+  dm = !sh -c 'git clone git@github.com:divramod/$1.git' -
   force = !sh -c 'git fetch --all && git reset --hard origin/master'
   l1 = !sh -c 'git log -1'
   lg = !sh -c 'git log --graph --decorate --oneline'
   lo = !sh -c 'git log --oneline'
+  p = !sh -c 'git cas60 && git commit -am && git push origin HEAD' -
   pretty = !sh -c 'git log --pretty=oneline'
+  pu = !sh -c 'git cas60 && git add -A && git commit -am \"$1\" && git push -u origin HEAD' -
   s = !sh -c 'git status -uno'
+  su = !sh -c 'git status -u'
+  sa = "!sh -c 'git stash apply stash@{$1}' -"
+  sd = "!sh -c 'git stash drop stash@{$1}' -"
   sl = stash list
   sll = stash-list
   slll = stash-list --full
-  sd = "!sh -c 'git stash drop stash@{$1}' -"
-  sa = "!sh -c 'git stash apply stash@{$1}' -"
   ss = stash save
   submodule-init-recursive = !sh -c 'git submodule update --init --recursive'
+  up = !sh -c 'git cas60 && git commit -am \":wrench: update\" && git push -u origin HEAD' -
 [merge]
 	tool = vimdiff
   conflictstyle = diff3
 [mergetools]
   prompt = false
-[diff]
-  tool = vimdiff
-	external = ~/dotfiles/git/git-diff.sh
 [pager]
   diff =
 [color]

@@ -1,0 +1,67 @@
+session_name: calpobot
+start_directory: ~/cod/wo/thingylabs/calpobot
+windows:
+- window_name: "resume"
+  start_directory: ~/cod/wo/thingylabs/calpobot/resume
+  # layout: tiled
+  layout: 5f2f,272x63,0,0[272x44,0,0{135x44,0,0,277,136x44,136,0,278},272x18,0,45{135x18,0,45,279,136x18,136,45,280}]
+  panes:
+    - vl 2
+    - vl 2
+    - ls -lisa 
+    - ranger
+- window_name: "documentation"
+  start_directory: ~/cod/wo/thingylabs/calpobot/documentation
+  # layout: tiled
+  layout: 5f2f,272x63,0,0[272x44,0,0{135x44,0,0,277,136x44,136,0,278},272x18,0,45{135x18,0,45,279,136x18,136,45,280}]
+  panes:
+    - vl 2
+    - vl 2
+    - ls -lisa 
+    - ranger
+- window_name: "hotfixes"
+  start_directory: ~/cod/wo/thingylabs/calpobot/hotfixes
+  # layout: tiled
+  layout: 5f2f,272x63,0,0[272x44,0,0{135x44,0,0,277,136x44,136,0,278},272x18,0,45{135x18,0,45,279,136x18,136,45,280}]
+  panes:
+    - vl 2
+    - vl 2
+    - ls -lisa 
+    - ranger
+- window_name: "develop"
+  start_directory: ~/cod/wo/thingylabs/calpobot/develop
+  # layout: tiled
+  layout: 5f2f,272x63,0,0[272x44,0,0{135x44,0,0,277,136x44,136,0,278},272x18,0,45{135x18,0,45,279,136x18,136,45,280}]
+  panes:
+    - ve1
+    - ve1h
+    # - ve4
+    # - ve4h
+    - ls -lisa 
+    - ranger
+- window_name: "master"
+  start_directory: ~/cod/wo/thingylabs/calpobot/master
+  # layout: tiled
+  layout: 5f2f,272x63,0,0[272x44,0,0{135x44,0,0,277,136x44,136,0,278},272x18,0,45{135x18,0,45,279,136x18,136,45,280}]
+  panes:
+    - ve1
+    - ve1h
+    # - ve4
+    # - ve4h
+    - ls -lisa 
+    - ranger
+- window_name: "tmuxp"
+  start_directory: ~/.tmuxp
+  layout: 6e81,273x64,0,0{75x64,0,0,306,197x64,76,0,296}
+  panes:
+  - shell_command:
+      - ls -lisa
+      - sleep 2 && tmux select-window -t 1 && vim ~/.tmuxp/calpobot.yml
+# - window_name: "landing-page"
+  # start_directory: ~/cod/wo/thingylabs/landing-page/cicd
+  # panes:
+    # - ve
+# - window_name: "chatops"
+  # start_directory: ~/cod/wo/thingylabs/calpobot/chatops
+  # panes:
+    # - ve

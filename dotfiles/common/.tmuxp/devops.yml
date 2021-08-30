@@ -1,0 +1,30 @@
+session_name: devops
+start_directory: ~/cod/wo/thingylabs/devops
+windows:
+- window_name: "in-cluster-dev"
+  start_directory: ~/cod/wo/thingylabs/devops/in-cluster-dev
+  panes:
+    - ve
+- window_name: "calponia.ci"
+  start_directory: ~/cod/wo/thingylabs/devops/calponia.ci
+  panes:
+    - ve
+- window_name: "calponia-divramod.de"
+  start_directory: ~/cod/wo/thingylabs/devops/calponia-divramod.de
+  panes:
+    - ve
+- window_name: "master"
+  start_directory: ~/cod/wo/thingylabs/devops/master
+  panes:
+    - ve
+- window_name: "develop"
+  start_directory: ~/cod/wo/thingylabs/devops/develop
+  panes:
+    - ve
+- window_name: "tmuxp"
+  start_directory: ~/.tmuxp
+  layout: 6e81,273x64,0,0{75x64,0,0,306,197x64,76,0,296}
+  panes:
+  - shell_command:
+      - ls -lisa
+      - sleep 2 && tmux select-window -t 1 && vim ~/.tmuxp/devops.yml

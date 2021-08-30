@@ -1,0 +1,16 @@
+#!/bin/bash
+num="${1}"
+path_base=$(pwd)
+file_last_edited_log="${path_base}/.ide/last_edited.log"
+if [[ -f "${file_last_edited_log}" ]] && [[ -s "${file_last_edited_log}" ]] ; then
+  cd "${path_base}"
+  file=$(cat -n .ide/last_edited.log | sort -k4 -k1n | uniq -f1 -f2 -f3 | sort -nk1,1 | sed "${1}"'q;d' | awk '{print $5;}')
+  if [[ -f "${file}" ]]; then
+    cmd_vim="vim ${file}"
+  else
+    cmd_vim="vim -c ':Ranger'"
+  fi
+else
+  cmd_vim="vim -c ':Ranger'"
+fi
+${cmd_vim}

@@ -1,0 +1,30 @@
+#!/bin/bash
+num="${1}"
+path_base=$(pwd)
+file_last_edited_log="${path_base}/.ide/last_edited.log"
+if [[ -f "${file_last_edited_log}" ]] && [[ -s "${file_last_edited_log}" ]] ; then
+  clear
+  cd "${path_base}"
+  cmd_vim="vim"
+  first_file="true"
+  while read file; do
+    # file_log="${path_base}/${file}"
+    cd "${path_base}" 
+    file_log="${file}"
+    if [[ -f "${file_log}" ]]; then
+      if [[ "${first_file}" = "true" ]]; then
+        cmd_vim="${cmd_vim} ${file_log}"
+      else
+        cmd_vim="${cmd_vim} -c \":tabedit ${file_log}\""
+      fi 
+    fi
+    first_file="false"
+  done < <(cat -n "${file_last_edited_log}" | sort -k4 -k1n | uniq -f1 -f2 -f3 | sort -nk1,1 | awk '{print $5;}' | head -n "${num}"  | xargs -I _file sh -c 'echo _file')
+  # cmd_vim="${cmd_vim} -c \":tabn "${2}"<CR>\" -c \":redraw!<CR>\""
+else
+  cmd_vim="ranger"
+fi
+# tmux list-panes -s | grep $TMUX_PANE | awk '{print $1;}' | tr -d ':' | xargs -I _pane tmux send-keys -t $(tmux display-message -p '#S')":_pane" "bash -c \"${cmd_vim}\"" Enter
+echo "${cmd_vim}" 
+# sleep 3
+${cmd_vim}

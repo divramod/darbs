@@ -1,0 +1,59 @@
+session_name: cops2cor
+start_directory: ~/cod/wo/thingylabs/devops
+windows:
+- window_name: "calpobot/cb0"
+  start_directory: ~/cod/wo/thingylabs/calpobot/cb0
+  layout: 3bf2,211x60,0,0{105x60,0,0[105x47,0,0,87,105x12,0,48,93],105x60,106,0[105x47,106,0,88,105x12,106,48,94]}
+  panes:
+    - docker-compose up
+    - ranger
+    - ls
+    - ls
+- window_name: "calpobot/cb0/bot"
+  start_directory: ~/cod/wo/thingylabs/calpobot/cb0/bot
+  # layout: 3bf2,211x60,0,0{105x60,0,0[105x47,0,0,87,105x12,0,48,93],105x60,106,0[105x47,106,0,88,105x12,106,48,94]}
+  layout: ccc5,211x60,0,0{105x60,0,0[105x47,0,0,7,105x12,0,48,8],105x60,106,0[105x23,106,0,9,105x23,106,24,43,105x12,106,48,10]}
+  panes:
+    - # npm run t
+    - ranger
+    - # npm run build:watch
+    - ls
+- window_name: "calpobot/cb0/api"
+  start_directory: ~/cod/wo/thingylabs/calpobot/cb0/api
+  layout: 3bf2,211x60,0,0{105x60,0,0[105x47,0,0,87,105x12,0,48,93],105x60,106,0[105x47,106,0,88,105x12,106,48,94]}
+  panes:
+    - # npm run start-dev
+    - ranger
+    - # npm run t 
+    - ls
+- window_name: "calpobot/cb0/frontend"
+  start_directory: ~/cod/wo/thingylabs/calpobot/cb0/frontend
+  layout: 3bf2,211x60,0,0{105x60,0,0[105x47,0,0,87,105x12,0,48,93],105x60,106,0[105x47,106,0,88,105x12,106,48,94]}
+  panes:
+    - # yarn start
+    - ranger
+    - # yarn test
+    - ls
+- window_name: "devops/calponia.ci"
+  start_directory: ~/cod/wo/thingylabs/devops/calponia.ci
+  layout: 3bf2,211x60,0,0{105x60,0,0[105x47,0,0,87,105x12,0,48,93],105x60,106,0[105x47,106,0,88,105x12,106,48,94]}
+  panes:
+    - 
+    - ranger
+    - 
+    - ls
+- window_name: "calponia/cp0"
+  start_directory: ~/cod/wo/thingylabs/calponia/cp0
+  layout: 3bf2,211x60,0,0{105x60,0,0[105x47,0,0,87,105x12,0,48,93],105x60,106,0[105x47,106,0,88,105x12,106,48,94]}
+  panes:
+    - 
+    - ranger
+    - 
+    - ls
+- window_name: "tmuxp"
+  start_directory: ~/.tmuxp
+  layout: 6e81,273x64,0,0{75x64,0,0,306,197x64,76,0,296}
+  panes:
+  - shell_command:
+      - ls -lisa
+      - sleep 2 && tmux select-window -t 1 && vim ~/.tmuxp/cops2cor.yml

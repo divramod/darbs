@@ -2,64 +2,48 @@ session_name: cpla
 start_directory: ~/cod/wo/thingylabs/devops
 windows:
 - window_name: 'bot'
-  start_directory: ~/cod/wo/thingylabs/calpobot/cb1/bot
+  start_directory: ~/cod/wo/thingylabs/calpobot
   # layout: d9f6,270x61,0,0{135x61,0,0[135x30,0,0,105,135x30,0,31,107],134x61,136,0[134x30,136,0,102,134x30,136,31,106]}
   # layout: 6ace,270x64,0,0{135x64,0,0[135x32,0,0,33,135x31,0,33,34],134x64,136,0[134x15,136,0,35,134x48,136,16,36]}
   layout: 4f2f,270x64,0,0{135x64,0,0[135x32,0,0,85,135x31,0,33,86],134x64,136,0[134x3,136,0,87,134x3,136,4,92,134x3,136,8,90,134x3,136,12,91,134x48,136,16,88]}
   panes:
   - shell_command:
-    - cd ~/cod/wo/thingylabs/devops/do1
+    - cd ~/cod/wo/thingylabs/devops/do0
     - direnv allow
-    # - k9s -c calpobot-jo.yml
-    - k9s
+    - clear
+    - vim -c ":Vikube pods -n calpobot"
+    # - kubens calpobot
+    # - kubectl get pods -n calpobot -w
+    # - k9s -c po -n calpobot -r 3600
   - shell_command:
-    - cd ~/cod/wo/thingylabs/devops/do1
+    - cd ~/cod/wo/thingylabs/devops/do0
     - direnv allow
-    - k9s
-  - cd ~/cod/wo/thingylabs/pipeline-testing/pt1 && clear && pwd
-  - cd ~/cod/wo/thingylabs/devops/do1 && clear && pwd
-  - cd ~/cod/wo/thingylabs/calponia/cp2 && clear && pwd
-  - cd ~/cod/wo/thingylabs/calponia/cp1 && clear && pwd
-  - direnv allow && rm -rf lib && npm run dev
-- window_name: 'postgres'
-  start_directory: ~/cod/wo/thingylabs/devops/do1
-  layout: 8a3f,270x64,0,0{135x64,0,0[135x32,0,0,68,135x31,0,33,69],134x64,136,0[134x32,136,0,67,134x31,136,33,70]}
-  panes:
-  - shell_command:
-    - cd ~/cod/wo/thingylabs/devops/do1
-    - direnv allow
-    - k9s
-  - shell_command:
-    - cd ~/cod/wo/thingylabs/devops/do1
-    - direnv allow
-    - k9s -c calpobot-system-dp.yml
-  - shell_command:
-    - cd ~/cod/wo/thingylabs/devops/do1
-    - direnv allow
-    - k9s
-  - ls -lisa
-- window_name: 'devops'
-  start_directory: ~/cod/wo/thingylabs/calpobot/cb1
-  # layout: d9f6,270x61,0,0{135x61,0,0[135x30,0,0,105,135x30,0,31,107],134x61,136,0[134x30,136,0,102,134x30,136,31,106]}
-  # layout: 6ace,270x64,0,0{135x64,0,0[135x32,0,0,33,135x31,0,33,34],134x64,136,0[134x15,136,0,35,134x48,136,16,36]}
-  layout: 4f2f,270x64,0,0{135x64,0,0[135x32,0,0,85,135x31,0,33,86],134x64,136,0[134x3,136,0,87,134x3,136,4,92,134x3,136,8,90,134x3,136,12,91,134x48,136,16,88]}
-  panes:
-  - shell_command:
-    - cd ~/cod/wo/thingylabs/devops/do1
-    - direnv allow
-    - k9s
-  - shell_command:
-    - cd ~/cod/wo/thingylabs/devops/do1
-    - direnv allow
-    - k9s
-  - cd ~/cod/wo/thingylabs/pipeline-testing/pt1 && clear && pwd
-  - cd ~/cod/wo/thingylabs/calponia/cp1 && clear && pwd
-  - cd ~/cod/wo/thingylabs/calponia/cp2 && clear && pwd
-  - cd ~/cod/wo/thingylabs/devops/do1 && clear && pwd
-  - shell_command:
-    - cd ~/cod/wo/thingylabs/devops/do1
-    - direnv allow
-- window_name: "(tl1) tmuxp"
+    - clear
+    - vim -c ":Vikube pods -n calpobot-system"
+    # - kubens calpobot-system
+    # - k9s -c jo -n calpobot -r 3600
+    # - kubectl get jobs -n calpobot -w
+  - cd ~/cod/wo/thingylabs/calpy/ca0 && clear && pwd
+  - cd ~/cod/wo/thingylabs/devops/calponia.ci && clear && pwd
+  - cd ~/cod/wo/thingylabs/calponia/cp0 && clear && pwd
+  - cd ~/cod/wo/thingylabs/calpobot && clear && pwd
+  - ranger
+# - window_name: 'dev'
+#   start_directory: ~/cod/wo/thingylabs/calpobot/cb0/bot
+#   panes:
+#   - shell_command:
+#     - cd ~/cod/wo/thingylabs/devops/do0
+#     - direnv allow
+#     - clear
+#     # - kubectl logs -n calpobot-system bot-0 -f
+#     # - k9s -c po -n calpobot-system -r 3600
+#   - shell_command:
+#     - cd ~/cod/wo/thingylabs/devops/do0
+#     - direnv allow
+#     - clear
+#     # - k9s -c jo -n calpobot-system -r 3600
+#     # - kubectl get pods -n calpobot-system -w
+- window_name: "tmuxp"
   start_directory: ~/.tmuxp
   panes:
   - shell_command:

@@ -1,0 +1,50 @@
+session_name: cops2
+start_directory: ~/cod/wo/thingylabs/devops
+windows:
+- window_name: "cb2/develop"
+  start_directory: ~/cod/wo/thingylabs/calpobot/develop
+  panes:
+    - ve
+- window_name: "cb0"
+  start_directory: ~/cod/wo/thingylabs/calpobot/cb0
+  panes:
+    - ve
+- window_name: "cb1"
+  start_directory: ~/cod/wo/thingylabs/calpobot/cb1
+  panes:
+    - ve
+- window_name: "devops/calponia.ci"
+  start_directory: ~/cod/wo/thingylabs/devops/calponia.ci
+  panes:
+    - ve
+- window_name: "do0:calpobot-development"
+  start_directory: ~/cod/wo/thingylabs/devops/do0
+  panes:
+    - ve
+- window_name: "cp0:calpobot-development"
+  start_directory: ~/cod/wo/thingylabs/calponia/cp0
+  panes:
+    - ve
+- window_name: "cp1:calpobot-testing"
+  start_directory: ~/cod/wo/thingylabs/calponia/cp1
+  panes:
+    - ve
+- window_name: "ca0"
+  start_directory: ~/cod/wo/thingylabs/calpy/ca0
+  panes:
+    - ve
+# - window_name: "bot"
+  # start_directory: ~/cod/wo/thingylabs/calpobot/cb1/bot
+  # panes:
+    # - ve
+# - window_name: "do0"
+  # start_directory: ~/cod/wo/thingylabs/devops/do0
+  # panes:
+    # - ve
+- window_name: "tmuxp"
+  start_directory: ~/.tmuxp
+  layout: 6e81,273x64,0,0{75x64,0,0,306,197x64,76,0,296}
+  panes:
+  - shell_command:
+      - ls -lisa
+      - sleep 2 && tmux select-window -t 1 && vim ~/.tmuxp/cops2.yml

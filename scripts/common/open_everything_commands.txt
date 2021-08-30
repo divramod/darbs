@@ -1,5 +1,5 @@
-browse
 browse_current
+browse
 browse_urls
 clipboard
 configs

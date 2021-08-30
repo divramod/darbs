@@ -4,6 +4,7 @@ vim masterplan.md \
   -c "tabnew | :VimwikiMakeDiaryNote" \
   -c "tabedit diary/2019-quartal-1.md" \
   -c "tabedit inb/t460p.md" \
+  -c "tabedit inb/katja.md" \
   -c "tabedit gtd/2_backlog.md" \
   -c "tabedit ref/sideprojects/_.md" \
   -c "tabedit ref/craftsman/_.md" \

@@ -1,0 +1,1 @@
+/home/mod/dev/dotfiles/fish/fish/aliases.fish

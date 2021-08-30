@@ -1,0 +1,18 @@
+session_name: calponia
+start_directory: ~/cod/wo/thingylabs/calponia
+windows:
+- window_name: "cp0:calpobot-development"
+  start_directory: ~/cod/wo/thingylabs/calponia/cp0
+  panes:
+    - ve
+- window_name: "cp1:calpobot-testing"
+  start_directory: ~/cod/wo/thingylabs/calponia/cp1
+  panes:
+    - ve
+- window_name: "tmuxp"
+  start_directory: ~/.tmuxp
+  layout: 6e81,273x64,0,0{75x64,0,0,306,197x64,76,0,296}
+  panes:
+  - shell_command:
+      - ls -lisa
+      - sleep 2 && tmux select-window -t 1 && vim ~/.tmuxp/calponia.yml

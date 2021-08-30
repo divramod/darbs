@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+layouts=(us de)
+
+layout="$(setxkbmap -print -verbose 10 | grep -oP '^layout:\s+\K.+')"
+case $BLOCK_BUTTON in
+1)
+  # TODO: move this to cmds - for shortcuts
+  if [ ${#layouts[@]} -lt 2 ]; then
+    exit
+  elif [ ${#layouts[@]} -eq 2 ]; then
+    # just toggle layout
+    selected="$(printf '%s\n' "${layouts[@]}" | grep -v "${layout}")"
+  else
+    # give menu to select
+    selected="$(printf '%s\n' "${layouts[@]}" | dmenu -i -p "Set Keymap")"
+  fi
+
+  [ -n "${selected}" ] &&
+    setxkbmap "${selected}"
+  pkill -RTMIN+18 i3blocks &
+  ;;
+esac
+
+printf "  %s" "${layout}"

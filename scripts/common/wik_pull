@@ -1,0 +1,6 @@
+#!/bin/bash
+cd ~/art/wik
+git add -A
+git commit -m "update"
+git pull origin HEAD
+cd -

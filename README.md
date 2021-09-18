@@ -2,7 +2,7 @@
   - [Darbs](#Darbs)
   - [Installation](#Installation)
     - [get darbs script](#Installation#get darbs script)
-    - [Rice](#Installation#rice)
+    - [Rice](#rice)
     - [Dotfiles](#Installation#dotfiles)
     - [Secrets](#Installation#secrets)
 

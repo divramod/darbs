@@ -1,10 +1,10 @@
 # Contents
   - [Darbs](#Darbs)
   - [Installation](#Installation)
-    - [get darbs script](#Installation#get darbs script)
+    - [get darbs script](#get-darbs-script)
     - [Rice](#rice)
-    - [Dotfiles](#Installation#dotfiles)
-    - [Secrets](#Installation#secrets)
+    - [Dotfiles](#dotfiles)
+    - [Secrets](#secrets)
 
 # Darbs
 Another personal dotfiles and scripts repository which is heavily inspired and based on Luke Smiths [LARBS](https://github.com/LukeSmithxyz/LARBS) and [voidrice](https://github.com/LukeSmithxyz/voidrice) repositories. Installation will function only for me, because of the secrets i added. But you can browse in the dotfiles and scripts folders for interesting stuff.
